@@ -3,7 +3,7 @@ import pypandoc
 
 output = pypandoc.convert_file(
     'toolbox.md', 'html', outputfile='docs\index.html',
-    extra_args=["-c", "css/mvp.css",
+    extra_args=["-s", "-c", "css/mvp.css",
                 "--template=template.html", "--toc", "--toc-depth=2"])
 
 
