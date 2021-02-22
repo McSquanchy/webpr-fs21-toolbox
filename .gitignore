@@ -1,5 +1,5 @@
 # exclude build script
-build.bat
+build.py
 
 # exclude template
 template.html
