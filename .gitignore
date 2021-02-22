@@ -1,0 +1,7 @@
+# exclude build script
+build.bat
+
+# exclude template
+template.html
+
+
