@@ -4,4 +4,7 @@ build.bat
 # exclude template
 template.html
 
+# exclude raw markdown
+toolbox.md
+
 
