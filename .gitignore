@@ -2,7 +2,7 @@
 build.py
 
 # exclude template
-template.html
+# template.html
 
 # exclude raw markdown
 toolbox.md
