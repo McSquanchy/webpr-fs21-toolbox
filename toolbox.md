@@ -21,7 +21,7 @@ logo: images/javascript.svg
 * **No** function overloading
 
   ```javascript 
-  function fun2() {
+  function fun2(arg) {
       return 1;
   }
   
