@@ -34,46 +34,43 @@
           -khtml-user-select: none; -moz-user-select: none;
           -ms-user-select: none; user-select: none;
           padding: 0 4px; width: 4em;
-          background-color: #ffffff;
-          color: #a0a0a0;
+          color: #aaaaaa;
         }
-      pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
       div.sourceCode
-        { color: #1f1c1b; background-color: #ffffff; }
+        {   }
       @media screen {
       pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
       }
-      code span { color: #1f1c1b; } /* Normal */
-      code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
-      code span.an { color: #ca60ca; } /* Annotation */
-      code span.at { color: #0057ae; } /* Attribute */
-      code span.bn { color: #b08000; } /* BaseN */
-      code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
-      code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
-      code span.ch { color: #924c9d; } /* Char */
-      code span.cn { color: #aa5500; } /* Constant */
-      code span.co { color: #898887; } /* Comment */
-      code span.cv { color: #0095ff; } /* CommentVar */
-      code span.do { color: #607880; } /* Documentation */
-      code span.dt { color: #0057ae; } /* DataType */
-      code span.dv { color: #b08000; } /* DecVal */
-      code span.er { color: #bf0303; text-decoration: underline; } /* Error */
-      code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
-      code span.fl { color: #b08000; } /* Float */
-      code span.fu { color: #644a9b; } /* Function */
-      code span.im { color: #ff5500; } /* Import */
-      code span.in { color: #b08000; } /* Information */
-      code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
-      code span.op { color: #1f1c1b; } /* Operator */
-      code span.ot { color: #006e28; } /* Other */
-      code span.pp { color: #006e28; } /* Preprocessor */
-      code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
-      code span.sc { color: #3daee9; } /* SpecialChar */
-      code span.ss { color: #ff5500; } /* SpecialString */
-      code span.st { color: #bf0303; } /* String */
-      code span.va { color: #0057ae; } /* Variable */
-      code span.vs { color: #bf0303; } /* VerbatimString */
-      code span.wa { color: #bf0303; } /* Warning */
+      code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+      code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #7d9029; } /* Attribute */
+      code span.bn { color: #40a070; } /* BaseN */
+      code span.bu { } /* BuiltIn */
+      code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4070a0; } /* Char */
+      code span.cn { color: #880000; } /* Constant */
+      code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+      code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+      code span.dt { color: #902000; } /* DataType */
+      code span.dv { color: #40a070; } /* DecVal */
+      code span.er { color: #ff0000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #40a070; } /* Float */
+      code span.fu { color: #06287e; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+      code span.op { color: #666666; } /* Operator */
+      code span.ot { color: #007020; } /* Other */
+      code span.pp { color: #bc7a00; } /* Preprocessor */
+      code span.sc { color: #4070a0; } /* SpecialChar */
+      code span.ss { color: #bb6688; } /* SpecialString */
+      code span.st { color: #4070a0; } /* String */
+      code span.va { color: #19177c; } /* Variable */
+      code span.vs { color: #4070a0; } /* VerbatimString */
+      code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
     </style>
 <link href="css/mvp.css" rel="stylesheet"/>
 <style type="text/css">
@@ -113,6 +110,14 @@
 <li><a href="#key-events">Key Events</a></li>
 <li><a href="#game-loop">Game Loop</a></li>
 <li><a href="#resources">Resources</a></li>
+<li><a href="#example">Example</a></li>
+<li><a href="#lambda">Lambda</a></li>
+<li><a href="#javascript-variables">JavaScript Variables</a></li>
+<li><a href="#iife">IIFE</a></li>
+<li><a href="#alpha-translation">Alpha Translation</a></li>
+<li><a href="#beta-reduction">Beta Reduction</a></li>
+<li><a href="#eta-reduction">Eta Reduction</a></li>
+<li><a href="#examples">Examples</a></li>
 </ul>
 </li>
 </ul>
@@ -218,6 +223,57 @@
 <ul>
 <li>Gabriel Lebec, <a href="https://www.youtube.com/watch?v=3VQ382QG-y4" target="_blank">Fundamentals of Lambda Calculus &amp; Functional Programming in JavaScript</a></li>
 </ul>
+<h1 id="example">Example</h1>
+<p>A function <code>plus</code> that returns the sum of its arguments:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb11-1"><a aria-hidden="true" href="#cb11-1" tabindex="-1"></a><span class="kw">const</span> plus <span class="op">=</span> x <span class="kw">=&gt;</span> y <span class="kw">=&gt;</span> x <span class="op">+</span> y<span class="op">;</span></span></code></pre></div>
+<h1 id="lambda">Lambda</h1>
+<h1 id="javascript-variables">JavaScript Variables</h1>
+<p>Only use <code>let</code> and <code>const</code>:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb12-1"><a aria-hidden="true" href="#cb12-1" tabindex="-1"></a><span class="kw">let</span> x <span class="op">=</span> <span class="op">...;</span>    <span class="co">// mutable,   local scope</span></span>
+<span id="cb12-2"><a aria-hidden="true" href="#cb12-2" tabindex="-1"></a><span class="kw">const</span> x <span class="op">=</span> <span class="op">...;</span>  <span class="co">// immutable, local scope</span></span></code></pre></div>
+<p><strong><code>let</code></strong> vs <strong><code>var</code></strong>: <strong><code>let</code></strong> allows you to declare variables that are limited to the scope of a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/block" target="_blank">block</a> statement, or expression on which it is used, unlike the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var" target="_blank"><code>var</code></a> keyword, which declares a variable globally, or locally to an entire function regardless of block scope. The other difference between <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var" target="_blank"><code>var</code></a> and <code>let</code> is that the latter is initialized to a value only when a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone" target="_blank">parser evaluates it (see below)</a>.</p>
+<h1 id="iife">IIFE</h1>
+<blockquote>
+<p>immediately invoked function expression</p>
+</blockquote>
+<div class="sourceCode" id="cb13"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb13-1"><a aria-hidden="true" href="#cb13-1" tabindex="-1"></a><span class="kw">function</span> <span class="fu">foo</span>() {<span class="op">..</span>}<span class="op">;</span> <span class="fu">foo</span>()</span>
+<span id="cb13-2"><a aria-hidden="true" href="#cb13-2" tabindex="-1"></a>( <span class="kw">function</span> <span class="fu">foo</span>() {<span class="op">..</span>} ) ()</span>
+<span id="cb13-3"><a aria-hidden="true" href="#cb13-3" tabindex="-1"></a>( <span class="kw">function</span>() {<span class="op">..</span>} ) ()</span>
+<span id="cb13-4"><a aria-hidden="true" href="#cb13-4" tabindex="-1"></a>( () <span class="kw">=&gt;</span> {<span class="op">..</span>} ) ()</span></code></pre></div>
+<h1 id="alpha-translation">Alpha Translation</h1>
+<div class="sourceCode" id="cb14"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb14-1"><a aria-hidden="true" href="#cb14-1" tabindex="-1"></a><span class="kw">const</span> id <span class="op">=</span> x <span class="kw">=&gt;</span> x</span>
+<span id="cb14-2"><a aria-hidden="true" href="#cb14-2" tabindex="-1"></a><span class="kw">const</span> id <span class="op">=</span> y <span class="kw">=&gt;</span> y</span></code></pre></div>
+<h1 id="beta-reduction">Beta Reduction</h1>
+<div class="sourceCode" id="cb15"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb15-1"><a aria-hidden="true" href="#cb15-1" tabindex="-1"></a>( f <span class="kw">=&gt;</span> x <span class="kw">=&gt;</span> <span class="fu">f</span>(x) ) (id) (<span class="dv">1</span>)</span>
+<span id="cb15-2"><a aria-hidden="true" href="#cb15-2" tabindex="-1"></a>(      x <span class="kw">=&gt;</span> <span class="fu">id</span>(x))      (<span class="dv">1</span>)</span>
+<span id="cb15-3"><a aria-hidden="true" href="#cb15-3" tabindex="-1"></a>(           <span class="fu">id</span>(<span class="dv">1</span>))</span>
+<span id="cb15-4"><a aria-hidden="true" href="#cb15-4" tabindex="-1"></a>(x <span class="kw">=&gt;</span> x) (<span class="dv">1</span>)</span>
+<span id="cb15-5"><a aria-hidden="true" href="#cb15-5" tabindex="-1"></a><span class="dv">1</span></span></code></pre></div>
+<h1 id="eta-reduction">Eta Reduction</h1>
+<div class="sourceCode" id="cb16"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb16-1"><a aria-hidden="true" href="#cb16-1" tabindex="-1"></a>x <span class="kw">=&gt;</span> y <span class="kw">=&gt;</span> <span class="fu">plus</span> (x) (y)</span>
+<span id="cb16-2"><a aria-hidden="true" href="#cb16-2" tabindex="-1"></a>x <span class="kw">=&gt;</span>      <span class="fu">plus</span> (x)</span>
+<span id="cb16-3"><a aria-hidden="true" href="#cb16-3" tabindex="-1"></a>          plus</span></code></pre></div>
+<h1 id="examples">Examples</h1>
+<p><code>F3</code> is a proper eta reduction of <code>F2</code></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb17-1"><a aria-hidden="true" href="#cb17-1" tabindex="-1"></a><span class="kw">const</span> id <span class="op">=</span> x <span class="kw">=&gt;</span> x<span class="op">;</span></span>
+<span id="cb17-2"><a aria-hidden="true" href="#cb17-2" tabindex="-1"></a><span class="kw">const</span> konst <span class="op">=</span> x <span class="kw">=&gt;</span> y <span class="kw">=&gt;</span> x<span class="op">;</span></span>
+<span id="cb17-3"><a aria-hidden="true" href="#cb17-3" tabindex="-1"></a></span>
+<span id="cb17-4"><a aria-hidden="true" href="#cb17-4" tabindex="-1"></a><span class="kw">const</span> F1 <span class="op">=</span> x <span class="kw">=&gt;</span> y <span class="kw">=&gt;</span> <span class="fu">konst</span> (id) (x) (y)<span class="op">;</span></span>
+<span id="cb17-5"><a aria-hidden="true" href="#cb17-5" tabindex="-1"></a><span class="kw">const</span> F2 <span class="op">=</span> x <span class="kw">=&gt;</span>      <span class="fu">konst</span> (id) (x)<span class="op">;</span></span>
+<span id="cb17-6"><a aria-hidden="true" href="#cb17-6" tabindex="-1"></a><span class="kw">const</span> F3 <span class="op">=</span>           <span class="fu">konst</span> (id)<span class="op">;</span></span></code></pre></div>
+<p><code>a1</code> is a proper beta expansion of <code>a2</code></p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb18-1"><a aria-hidden="true" href="#cb18-1" tabindex="-1"></a><span class="kw">const</span> id <span class="op">=</span> x <span class="kw">=&gt;</span> x<span class="op">;</span></span>
+<span id="cb18-2"><a aria-hidden="true" href="#cb18-2" tabindex="-1"></a></span>
+<span id="cb18-3"><a aria-hidden="true" href="#cb18-3" tabindex="-1"></a><span class="kw">const</span> a1 <span class="op">=</span> y <span class="kw">=&gt;</span> <span class="fu">id</span>(y)<span class="op">;</span></span>
+<span id="cb18-4"><a aria-hidden="true" href="#cb18-4" tabindex="-1"></a><span class="kw">const</span> a2 <span class="op">=</span> y <span class="kw">=&gt;</span> y<span class="op">;</span></span></code></pre></div>
+<p><code>a2</code> is a proper beta reduction of <code>a1</code></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb19-1"><a aria-hidden="true" href="#cb19-1" tabindex="-1"></a><span class="kw">const</span> id <span class="op">=</span> x <span class="kw">=&gt;</span> x<span class="op">;</span></span>
+<span id="cb19-2"><a aria-hidden="true" href="#cb19-2" tabindex="-1"></a></span>
+<span id="cb19-3"><a aria-hidden="true" href="#cb19-3" tabindex="-1"></a><span class="kw">const</span> a1 <span class="op">=</span> y <span class="kw">=&gt;</span> <span class="fu">id</span>(y)<span class="op">;</span></span>
+<span id="cb19-4"><a aria-hidden="true" href="#cb19-4" tabindex="-1"></a><span class="kw">const</span> a2 <span class="op">=</span> y <span class="kw">=&gt;</span> y<span class="op">;</span></span></code></pre></div>
+<p><code>id1</code> and <code>id2</code> are alpha-equivalent</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb20-1"><a aria-hidden="true" href="#cb20-1" tabindex="-1"></a><span class="kw">const</span> id1 <span class="op">=</span> x <span class="kw">=&gt;</span> x<span class="op">;</span></span>
+<span id="cb20-2"><a aria-hidden="true" href="#cb20-2" tabindex="-1"></a><span class="kw">const</span> id2 <span class="op">=</span> y <span class="kw">=&gt;</span> y<span class="op">;</span></span></code></pre></div>
 <hr/>
 </article>
 </main>

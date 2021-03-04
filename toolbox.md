@@ -122,3 +122,98 @@ setInterval( () => {
 # Resources
 
 * Gabriel Lebec, [Fundamentals of Lambda Calculus & Functional Programming in JavaScript](https://www.youtube.com/watch?v=3VQ382QG-y4)
+
+# Example
+
+A function `plus` that returns the sum of its arguments:
+
+```javascript
+const plus = x => y => x + y;
+```
+
+# Lambda
+
+# JavaScript Variables
+
+Only use `let` and `const`:
+
+```javascript
+let x = ...; 	// mutable,   local scope
+const x = ...; 	// immutable, local scope
+```
+
+**`let`** vs **`var`**: **`let`** allows you to declare variables that are limited to the scope of a [block](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/block) statement, or expression on which it is used, unlike the [`var`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var) keyword, which declares a variable globally, or locally to an entire function regardless of block scope. The other difference between [`var`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var) and `let` is that the latter is initialized to a value only when a [parser evaluates it (see below)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone).
+
+# IIFE
+
+> immediately invoked function expression
+
+```javascript
+function foo() {..}; foo()
+( function foo() {..} ) ()
+( function() {..} ) ()
+( () => {..} ) ()
+```
+
+# Alpha Translation
+
+```javascript
+const id = x => x
+const id = y => y
+```
+
+# Beta Reduction
+
+```javascript
+( f => x => f(x) ) (id) (1)
+(	   x => id(x))		(1)
+(			id(1))
+(x => x) (1)
+1
+```
+
+# Eta Reduction
+
+```javascript
+x => y => plus (x) (y)
+x => 	  plus (x)
+		  plus
+```
+
+# Examples
+
+`F3` is a proper eta reduction of `F2`
+
+```javascript
+const id = x => x;
+const konst = x => y => x;
+
+const F1 = x => y => konst (id) (x) (y);
+const F2 = x =>      konst (id) (x);
+const F3 = 	         konst (id);
+```
+
+`a1` is a proper beta expansion of `a2`
+
+```javascript
+const id = x => x;
+
+const a1 = y => id(y);
+const a2 = y => y;
+```
+
+`a2` is a proper beta reduction of `a1`
+
+```javascript
+const id = x => x;
+
+const a1 = y => id(y);
+const a2 = y => y;
+```
+
+`id1` and `id2` are alpha-equivalent
+
+```javascript
+const id1 = x => x;
+const id2 = y => y;
+```
