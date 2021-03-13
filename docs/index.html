@@ -118,6 +118,12 @@
 <li><a href="#beta-reduction">Beta Reduction</a></li>
 <li><a href="#eta-reduction">Eta Reduction</a></li>
 <li><a href="#examples">Examples</a></li>
+<li><a href="#atomic-lamda-terms">Atomic Lamda Terms</a></li>
+<li><a href="#pair-product-type">Pair, Product Type</a></li>
+<li><a href="#pair-encoding">Pair encoding</a></li>
+<li><a href="#either-co-product-sum">Either, Co-Product, Sum</a></li>
+<li><a href="#special-case-maybe">Special Case: Maybe</a></li>
+<li><a href="#example-1">Example</a></li>
 </ul>
 </li>
 </ul>
@@ -145,6 +151,7 @@
 <main>
 <hr/>
 <article>
+<p>[toc]</p>
 <h1 id="functions">Functions</h1>
 <ul>
 <li><p>Parameters are <strong>not</strong> checked</p>
@@ -274,6 +281,50 @@
 <p><code>id1</code> and <code>id2</code> are alpha-equivalent</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb20-1"><a aria-hidden="true" href="#cb20-1" tabindex="-1"></a><span class="kw">const</span> id1 <span class="op">=</span> x <span class="kw">=&gt;</span> x<span class="op">;</span></span>
 <span id="cb20-2"><a aria-hidden="true" href="#cb20-2" tabindex="-1"></a><span class="kw">const</span> id2 <span class="op">=</span> y <span class="kw">=&gt;</span> y<span class="op">;</span></span></code></pre></div>
+<h1 id="atomic-lamda-terms">Atomic Lamda Terms</h1>
+<div class="sourceCode" id="cb21"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb21-1"><a aria-hidden="true" href="#cb21-1" tabindex="-1"></a><span class="co">// atoms</span></span>
+<span id="cb21-2"><a aria-hidden="true" href="#cb21-2" tabindex="-1"></a><span class="kw">const</span> id <span class="op">=</span> x <span class="kw">=&gt;</span> x<span class="op">;</span></span>
+<span id="cb21-3"><a aria-hidden="true" href="#cb21-3" tabindex="-1"></a><span class="kw">const</span> konst <span class="op">=</span> x <span class="kw">=&gt;</span> y <span class="kw">=&gt;</span> x<span class="op">;</span></span>
+<span id="cb21-4"><a aria-hidden="true" href="#cb21-4" tabindex="-1"></a></span>
+<span id="cb21-5"><a aria-hidden="true" href="#cb21-5" tabindex="-1"></a><span class="co">// derived true, false, and, or, equals, â€¦</span></span>
+<span id="cb21-6"><a aria-hidden="true" href="#cb21-6" tabindex="-1"></a><span class="kw">const</span> F <span class="op">=</span> â€¦<span class="op">;</span></span>
+<span id="cb21-7"><a aria-hidden="true" href="#cb21-7" tabindex="-1"></a><span class="kw">const</span> T <span class="op">=</span> â€¦<span class="op">;</span></span></code></pre></div>
+<h1 id="pair-product-type">Pair, Product Type</h1>
+<div class="sourceCode" id="cb22"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb22-1"><a aria-hidden="true" href="#cb22-1" tabindex="-1"></a><span class="kw">const</span> pair <span class="op">=</span> x <span class="kw">=&gt;</span> y <span class="kw">=&gt;</span> f <span class="kw">=&gt;</span> <span class="fu">f</span>(x)(y)<span class="op">;</span></span>
+<span id="cb22-2"><a aria-hidden="true" href="#cb22-2" tabindex="-1"></a><span class="kw">const</span> fst <span class="op">=</span> p <span class="kw">=&gt;</span> <span class="fu">p</span>(T)<span class="op">;</span></span>
+<span id="cb22-3"><a aria-hidden="true" href="#cb22-3" tabindex="-1"></a><span class="kw">const</span> snd <span class="op">=</span> p <span class="kw">=&gt;</span> <span class="fu">p</span>(F)<span class="op">;</span></span></code></pre></div>
+<h1 id="pair-encoding">Pair encoding</h1>
+<div class="sourceCode" id="cb23"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb23-1"><a aria-hidden="true" href="#cb23-1" tabindex="-1"></a><span class="kw">const</span> person <span class="op">=</span></span>
+<span id="cb23-2"><a aria-hidden="true" href="#cb23-2" tabindex="-1"></a>                firstname <span class="kw">=&gt;</span></span>
+<span id="cb23-3"><a aria-hidden="true" href="#cb23-3" tabindex="-1"></a>                lastname <span class="kw">=&gt;</span></span>
+<span id="cb23-4"><a aria-hidden="true" href="#cb23-4" tabindex="-1"></a>                age <span class="kw">=&gt;</span></span>
+<span id="cb23-5"><a aria-hidden="true" href="#cb23-5" tabindex="-1"></a>                <span class="fu">pair</span> (<span class="fu">pair</span>(firstname)(lastname)) (age)<span class="op">;</span></span>
+<span id="cb23-6"><a aria-hidden="true" href="#cb23-6" tabindex="-1"></a></span>
+<span id="cb23-7"><a aria-hidden="true" href="#cb23-7" tabindex="-1"></a><span class="kw">const</span> firstn <span class="op">=</span> p <span class="kw">=&gt;</span> <span class="fu">fst</span>(<span class="fu">fst</span>(p))<span class="op">;</span></span>
+<span id="cb23-8"><a aria-hidden="true" href="#cb23-8" tabindex="-1"></a><span class="kw">const</span> lastn  <span class="op">=</span> p <span class="kw">=&gt;</span> <span class="fu">snd</span>(<span class="fu">fst</span>(p))<span class="op">;</span></span>
+<span id="cb23-9"><a aria-hidden="true" href="#cb23-9" tabindex="-1"></a><span class="kw">const</span> age    <span class="op">=</span> p <span class="kw">=&gt;</span> <span class="fu">snd</span>(p)<span class="op">;</span></span></code></pre></div>
+<h1 id="either-co-product-sum">Either, Co-Product, Sum</h1>
+<div class="sourceCode" id="cb24"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb24-1"><a aria-hidden="true" href="#cb24-1" tabindex="-1"></a><span class="co">// dual of the product</span></span>
+<span id="cb24-2"><a aria-hidden="true" href="#cb24-2" tabindex="-1"></a><span class="kw">const</span> pair <span class="op">=</span> x <span class="kw">=&gt;</span> y <span class="kw">=&gt;</span> f <span class="kw">=&gt;</span> <span class="fu">f</span>(x)(y)<span class="op">;</span>    <span class="co">// one ctor</span></span>
+<span id="cb24-3"><a aria-hidden="true" href="#cb24-3" tabindex="-1"></a><span class="kw">const</span> fst  <span class="op">=</span> p <span class="kw">=&gt;</span> <span class="fu">p</span>(T)<span class="op">;</span>                 <span class="co">// accessor 1</span></span>
+<span id="cb24-4"><a aria-hidden="true" href="#cb24-4" tabindex="-1"></a><span class="kw">const</span> snd  <span class="op">=</span> p <span class="kw">=&gt;</span> <span class="fu">p</span>(F)<span class="op">;</span>                 <span class="co">// accessor 2</span></span>
+<span id="cb24-5"><a aria-hidden="true" href="#cb24-5" tabindex="-1"></a></span>
+<span id="cb24-6"><a aria-hidden="true" href="#cb24-6" tabindex="-1"></a><span class="co">// here we have now the basic sum type</span></span>
+<span id="cb24-7"><a aria-hidden="true" href="#cb24-7" tabindex="-1"></a><span class="kw">const</span> Left   <span class="op">=</span> x <span class="kw">=&gt;</span> f <span class="kw">=&gt;</span> g <span class="kw">=&gt;</span> <span class="fu">f</span>(x)<span class="op">;</span>     <span class="co">// ctor 1</span></span>
+<span id="cb24-8"><a aria-hidden="true" href="#cb24-8" tabindex="-1"></a><span class="kw">const</span> Right  <span class="op">=</span> x <span class="kw">=&gt;</span> f <span class="kw">=&gt;</span> g <span class="kw">=&gt;</span> <span class="fu">g</span>(x)<span class="op">;</span>     <span class="co">// ctor 2</span></span>
+<span id="cb24-9"><a aria-hidden="true" href="#cb24-9" tabindex="-1"></a><span class="kw">const</span> either <span class="op">=</span> e <span class="kw">=&gt;</span> f <span class="kw">=&gt;</span> g <span class="kw">=&gt;</span> <span class="fu">e</span>(f)(g)<span class="op">;</span>  <span class="co">// accessor</span></span></code></pre></div>
+<h1 id="special-case-maybe">Special Case: Maybe</h1>
+<div class="sourceCode" id="cb25"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb25-1"><a aria-hidden="true" href="#cb25-1" tabindex="-1"></a><span class="co">// go around null / undefined</span></span>
+<span id="cb25-2"><a aria-hidden="true" href="#cb25-2" tabindex="-1"></a><span class="kw">const</span> Nothing <span class="op">=</span> <span class="fu">Left</span> ()<span class="op">;</span></span>
+<span id="cb25-3"><a aria-hidden="true" href="#cb25-3" tabindex="-1"></a><span class="kw">const</span> Just    <span class="op">=</span> Right<span class="op">;</span></span>
+<span id="cb25-4"><a aria-hidden="true" href="#cb25-4" tabindex="-1"></a><span class="kw">const</span> maybe   <span class="op">=</span> either<span class="op">;</span></span>
+<span id="cb25-5"><a aria-hidden="true" href="#cb25-5" tabindex="-1"></a></span>
+<span id="cb25-6"><a aria-hidden="true" href="#cb25-6" tabindex="-1"></a><span class="fu">maybe</span> (expressionThatMightGoWrong)</span>
+<span id="cb25-7"><a aria-hidden="true" href="#cb25-7" tabindex="-1"></a>      (handleBad)</span>
+<span id="cb25-8"><a aria-hidden="true" href="#cb25-8" tabindex="-1"></a>      (handleGood)<span class="op">;</span></span></code></pre></div>
+<h1 id="example-1">Example</h1>
+<div class="sourceCode" id="cb26"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb26-1"><a aria-hidden="true" href="#cb26-1" tabindex="-1"></a><span class="co">// error handling with either</span></span>
+<span id="cb26-2"><a aria-hidden="true" href="#cb26-2" tabindex="-1"></a><span class="kw">const</span> eShow <span class="op">=</span> result <span class="kw">=&gt;</span> <span class="fu">result</span> (msg <span class="kw">=&gt;</span> msg) (val <span class="kw">=&gt;</span> <span class="st">"Result is:"</span> <span class="op">+</span> val)<span class="op">;</span></span></code></pre></div>
 <hr/>
 </article>
 </main>

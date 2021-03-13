@@ -5,6 +5,8 @@ website: https://github.com/McSquanchy/webpr-fs21-toolbox
 logo: images/javascript.svg
 ---
 
+[toc]
+
 # Functions
 
 * Parameters are **not** checked
@@ -217,3 +219,72 @@ const a2 = y => y;
 const id1 = x => x;
 const id2 = y => y;
 ```
+
+# Atomic Lamda Terms
+
+```javascript
+// atoms
+const id = x => x;
+const konst = x => y => x;
+
+// derived true, false, and, or, equals, …
+const F = …;
+const T = …;
+```
+
+# Pair, Product Type
+
+```javascript
+const pair = x => y => f => f(x)(y);
+const fst = p => p(T);
+const snd = p => p(F);
+```
+
+# Pair encoding
+
+```javascript
+const person =
+				firstname =>
+				lastname =>
+				age =>
+				pair (pair(firstname)(lastname)) (age);
+
+const firstn = p => fst(fst(p));
+const lastn  = p => snd(fst(p));
+const age    = p => snd(p);
+```
+
+# Either, Co-Product, Sum
+
+```javascript
+// dual of the product
+const pair = x => y => f => f(x)(y); 	// one ctor
+const fst  = p => p(T); 			 	// accessor 1
+const snd  = p => p(F);      		 	// accessor 2
+
+// here we have now the basic sum type
+const Left   = x => f => g => f(x); 	// ctor 1
+const Right  = x => f => g => g(x); 	// ctor 2
+const either = e => f => g => e(f)(g); 	// accessor
+```
+
+# Special Case: Maybe
+
+```javascript
+// go around null / undefined
+const Nothing = Left ();
+const Just 	  = Right;
+const maybe   = either;
+
+maybe (expressionThatMightGoWrong)
+	  (handleBad)
+	  (handleGood);
+```
+
+# Example
+
+```javascript
+// error handling with either
+const eShow = result => result (msg => msg) (val => "Result is:" + val);
+```
+
