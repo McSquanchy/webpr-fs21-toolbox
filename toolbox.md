@@ -5,9 +5,7 @@ website: https://github.com/McSquanchy/webpr-fs21-toolbox
 logo: images/javascript.svg
 ---
 
-[toc]
-
-# Functions
+# Week 1 - Functions
 
 * Parameters are **not** checked
 
@@ -93,7 +91,7 @@ var noop = () => {} // noop
 [1,2,3,4].filter(value => value % 2 === 0);
 ```
 
-# Canvas
+## Canvas
 
 ```javascript
 const canvas = document.getElementById("canvas");
@@ -102,7 +100,7 @@ context.fillStyle = "black";
 context.fillRect(0, 0, canvas.width, canvas.height);
 ```
 
-# Key Events
+## Key Events
 
 ```javascript
 const rightArrow = 39;
@@ -112,7 +110,7 @@ window.onkeydown = evt => {
 };
 ```
 
-# Game Loop
+## Game Loop
 
 ```javascript
 setInterval( () => {
@@ -121,11 +119,11 @@ setInterval( () => {
 }, 1000 / 5);
 ```
 
-# Resources
+## Resources
 
 * Gabriel Lebec, [Fundamentals of Lambda Calculus & Functional Programming in JavaScript](https://www.youtube.com/watch?v=3VQ382QG-y4)
 
-# Example
+## Example
 
 A function `plus` that returns the sum of its arguments:
 
@@ -133,9 +131,9 @@ A function `plus` that returns the sum of its arguments:
 const plus = x => y => x + y;
 ```
 
-# Lambda
+# Week 2 - Lambda
 
-# JavaScript Variables
+## JavaScript Variables
 
 Only use `let` and `const`:
 
@@ -146,7 +144,7 @@ const x = ...; 	// immutable, local scope
 
 **`let`** vs **`var`**: **`let`** allows you to declare variables that are limited to the scope of a [block](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/block) statement, or expression on which it is used, unlike the [`var`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var) keyword, which declares a variable globally, or locally to an entire function regardless of block scope. The other difference between [`var`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var) and `let` is that the latter is initialized to a value only when a [parser evaluates it (see below)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone).
 
-# IIFE
+## IIFE
 
 > immediately invoked function expression
 
@@ -157,14 +155,14 @@ function foo() {..}; foo()
 ( () => {..} ) ()
 ```
 
-# Alpha Translation
+## Alpha Translation
 
 ```javascript
 const id = x => x
 const id = y => y
 ```
 
-# Beta Reduction
+## Beta Reduction
 
 ```javascript
 ( f => x => f(x) ) (id) (1)
@@ -174,7 +172,7 @@ const id = y => y
 1
 ```
 
-# Eta Reduction
+## Eta Reduction
 
 ```javascript
 x => y => plus (x) (y)
@@ -182,7 +180,7 @@ x => 	  plus (x)
 		  plus
 ```
 
-# Examples
+## Examples
 
 `F3` is a proper eta reduction of `F2`
 
@@ -220,7 +218,9 @@ const id1 = x => x;
 const id2 = y => y;
 ```
 
-# Atomic Lamda Terms
+# Week 3 - Lambda
+
+## Atomic Lambda Terms  
 
 ```javascript
 // atoms
@@ -232,7 +232,7 @@ const F = …;
 const T = …;
 ```
 
-# Pair, Product Type
+## Pair, Product Type
 
 ```javascript
 const pair = x => y => f => f(x)(y);
@@ -240,7 +240,7 @@ const fst = p => p(T);
 const snd = p => p(F);
 ```
 
-# Pair encoding
+## Pair encoding
 
 ```javascript
 const person =
@@ -254,7 +254,7 @@ const lastn  = p => snd(fst(p));
 const age    = p => snd(p);
 ```
 
-# Either, Co-Product, Sum
+## Either, Co-Product, Sum
 
 ```javascript
 // dual of the product
@@ -268,7 +268,7 @@ const Right  = x => f => g => g(x); 	// ctor 2
 const either = e => f => g => e(f)(g); 	// accessor
 ```
 
-# Special Case: Maybe
+## Special Case: Maybe
 
 ```javascript
 // go around null / undefined
@@ -281,10 +281,9 @@ maybe (expressionThatMightGoWrong)
 	  (handleGood);
 ```
 
-# Example
+## Example
 
 ```javascript
 // error handling with either
 const eShow = result => result (msg => msg) (val => "Result is:" + val);
 ```
-

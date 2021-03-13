@@ -55,21 +55,37 @@
           q { quotes: "“" "”" "‘" "’"; }
       $endif$
     </style>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      #myBtn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        z-index: 99;
+      }
+    </style>
     $if(math)$ $math$ $endif$ $for(header-includes)$ $header-includes$ $endfor$
   </head>
   <body>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
     $for(include-before)$ $include-before$ $endfor$ $if(title)$
     <header id="title-block-header">
       <nav id="$idprefix$TOC">
         <a href=""><img alt="Logo" src="$logo$" height="70" /></a>
-        $if(toc)$
+        <!-- $if(toc)$
         <ul>
           <li>
             <a href="#">Navigation</a>
-            $table-of-contents$
+            $toc$
           </li>
         </ul>
-        $endif$
+        $endif$  -->
+        $if(toc)$ $toc$ $endif$
       </nav>
       <h1 class="title">$title$</h1>
       $if(subtitle)$
@@ -93,7 +109,7 @@
       </p>
       $if(website)$
       <p>
-        <a href="$website$"><i>Github</i></a>
+        <a href="$website$">Github</a>
       </p>
       $endif$
     </header>
@@ -105,5 +121,31 @@
         <hr />
       </article>
     </main>
+    <script>
+      //Get the button
+      var mybutton = document.getElementById("myBtn");
+
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function () {
+        scrollFunction();
+      };
+
+      function scrollFunction() {
+        if (
+          document.body.scrollTop > 20 ||
+          document.documentElement.scrollTop > 20
+        ) {
+          mybutton.style.display = "block";
+        } else {
+          mybutton.style.display = "none";
+        }
+      }
+
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+    </script>
   </body>
 </html>

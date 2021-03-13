@@ -96,36 +96,86 @@
           color: #df6e21;
         }
           </style>
+<style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      #myBtn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        z-index: 99;
+      }
+    </style>
 </head>
 <body>
+<button id="myBtn" onclick="topFunction()" title="Go to top">Top</button>
 <header id="title-block-header">
 <nav id="TOC">
 <a href=""><img alt="Logo" height="70" src="images/javascript.svg"/></a>
+<!--         <ul>
+          <li>
+            <a href="#">Navigation</a>
+            <ul>
+            <li><a href="#week-1---functions">Week 1 - Functions</a>
+            <ul>
+            <li><a href="#canvas">Canvas</a></li>
+            <li><a href="#key-events">Key Events</a></li>
+            <li><a href="#game-loop">Game Loop</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#example">Example</a></li>
+            </ul></li>
+            <li><a href="#week-2---lambda">Week 2 - Lambda</a>
+            <ul>
+            <li><a href="#javascript-variables">JavaScript Variables</a></li>
+            <li><a href="#iife">IIFE</a></li>
+            <li><a href="#alpha-translation">Alpha Translation</a></li>
+            <li><a href="#beta-reduction">Beta Reduction</a></li>
+            <li><a href="#eta-reduction">Eta Reduction</a></li>
+            <li><a href="#examples">Examples</a></li>
+            </ul></li>
+            <li><a href="#week-3---lambda">Week 3 - Lambda</a>
+            <ul>
+            <li><a href="#atomic-lambda-terms">Atomic Lambda Terms</a></li>
+            <li><a href="#pair-product-type">Pair, Product Type</a></li>
+            <li><a href="#pair-encoding">Pair encoding</a></li>
+            <li><a href="#either-co-product-sum">Either, Co-Product, Sum</a></li>
+            <li><a href="#special-case-maybe">Special Case: Maybe</a></li>
+            <li><a href="#example-1">Example</a></li>
+            </ul></li>
+            </ul>
+          </li>
+        </ul>
+          -->
 <ul>
-<li>
-<a href="#">Navigation</a>
+<li><a href="#week-1---functions">Week 1 - Functions</a>
 <ul>
-<li><a href="#functions">Functions</a></li>
 <li><a href="#canvas">Canvas</a></li>
 <li><a href="#key-events">Key Events</a></li>
 <li><a href="#game-loop">Game Loop</a></li>
 <li><a href="#resources">Resources</a></li>
 <li><a href="#example">Example</a></li>
-<li><a href="#lambda">Lambda</a></li>
+</ul></li>
+<li><a href="#week-2---lambda">Week 2 - Lambda</a>
+<ul>
 <li><a href="#javascript-variables">JavaScript Variables</a></li>
 <li><a href="#iife">IIFE</a></li>
 <li><a href="#alpha-translation">Alpha Translation</a></li>
 <li><a href="#beta-reduction">Beta Reduction</a></li>
 <li><a href="#eta-reduction">Eta Reduction</a></li>
 <li><a href="#examples">Examples</a></li>
-<li><a href="#atomic-lamda-terms">Atomic Lamda Terms</a></li>
+</ul></li>
+<li><a href="#week-3---lambda">Week 3 - Lambda</a>
+<ul>
+<li><a href="#atomic-lambda-terms">Atomic Lambda Terms</a></li>
 <li><a href="#pair-product-type">Pair, Product Type</a></li>
 <li><a href="#pair-encoding">Pair encoding</a></li>
 <li><a href="#either-co-product-sum">Either, Co-Product, Sum</a></li>
 <li><a href="#special-case-maybe">Special Case: Maybe</a></li>
 <li><a href="#example-1">Example</a></li>
-</ul>
-</li>
+</ul></li>
 </ul>
 </nav>
 <h1 class="title">JavaScript Toolbox</h1>
@@ -145,14 +195,13 @@
         </script>
 </p>
 <p>
-<a href="https://github.com/McSquanchy/webpr-fs21-toolbox" target="_blank"><i>Github</i></a>
+<a href="https://github.com/McSquanchy/webpr-fs21-toolbox" target="_blank">Github</a>
 </p>
 </header>
 <main>
 <hr/>
 <article>
-<p>[toc]</p>
-<h1 id="functions">Functions</h1>
+<h1 id="week-1---functions">Week 1 - Functions</h1>
 <ul>
 <li><p>Parameters are <strong>not</strong> checked</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a><span class="kw">function</span> <span class="fu">fun1</span>(arg) {</span>
@@ -210,36 +259,36 @@
 <span id="cb7-16"><a aria-hidden="true" href="#cb7-16" tabindex="-1"></a>[<span class="dv">1</span><span class="op">,</span><span class="dv">2</span><span class="op">,</span><span class="dv">3</span><span class="op">,</span><span class="dv">4</span>]<span class="op">.</span><span class="fu">filter</span>(<span class="kw">function</span> (value) {<span class="cf">return</span> value <span class="op">%</span> <span class="dv">2</span> <span class="op">===</span> <span class="dv">0</span>})<span class="op">;</span></span>
 <span id="cb7-17"><a aria-hidden="true" href="#cb7-17" tabindex="-1"></a><span class="co">// to:</span></span>
 <span id="cb7-18"><a aria-hidden="true" href="#cb7-18" tabindex="-1"></a>[<span class="dv">1</span><span class="op">,</span><span class="dv">2</span><span class="op">,</span><span class="dv">3</span><span class="op">,</span><span class="dv">4</span>]<span class="op">.</span><span class="fu">filter</span>(value <span class="kw">=&gt;</span> value <span class="op">%</span> <span class="dv">2</span> <span class="op">===</span> <span class="dv">0</span>)<span class="op">;</span></span></code></pre></div>
-<h1 id="canvas">Canvas</h1>
+<h2 id="canvas">Canvas</h2>
 <div class="sourceCode" id="cb8"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb8-1"><a aria-hidden="true" href="#cb8-1" tabindex="-1"></a><span class="kw">const</span> canvas <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">"canvas"</span>)<span class="op">;</span></span>
 <span id="cb8-2"><a aria-hidden="true" href="#cb8-2" tabindex="-1"></a><span class="kw">const</span> context <span class="op">=</span> canvas<span class="op">.</span><span class="fu">getContext</span>(<span class="st">"2d"</span>)<span class="op">;</span></span>
 <span id="cb8-3"><a aria-hidden="true" href="#cb8-3" tabindex="-1"></a>context<span class="op">.</span><span class="at">fillStyle</span> <span class="op">=</span> <span class="st">"black"</span><span class="op">;</span></span>
 <span id="cb8-4"><a aria-hidden="true" href="#cb8-4" tabindex="-1"></a>context<span class="op">.</span><span class="fu">fillRect</span>(<span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> canvas<span class="op">.</span><span class="at">width</span><span class="op">,</span> canvas<span class="op">.</span><span class="at">height</span>)<span class="op">;</span></span></code></pre></div>
-<h1 id="key-events">Key Events</h1>
+<h2 id="key-events">Key Events</h2>
 <div class="sourceCode" id="cb9"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb9-1"><a aria-hidden="true" href="#cb9-1" tabindex="-1"></a><span class="kw">const</span> rightArrow <span class="op">=</span> <span class="dv">39</span><span class="op">;</span></span>
 <span id="cb9-2"><a aria-hidden="true" href="#cb9-2" tabindex="-1"></a><span class="kw">const</span> leftArrow <span class="op">=</span> <span class="dv">37</span><span class="op">;</span></span>
 <span id="cb9-3"><a aria-hidden="true" href="#cb9-3" tabindex="-1"></a><span class="bu">window</span><span class="op">.</span><span class="at">onkeydown</span> <span class="op">=</span> evt <span class="kw">=&gt;</span> {</span>
 <span id="cb9-4"><a aria-hidden="true" href="#cb9-4" tabindex="-1"></a>(evt<span class="op">.</span><span class="at">keyCode</span> <span class="op">===</span> rightArrow) <span class="op">?</span> <span class="op">...</span> <span class="op">:</span> <span class="op">...;</span></span>
 <span id="cb9-5"><a aria-hidden="true" href="#cb9-5" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div>
-<h1 id="game-loop">Game Loop</h1>
+<h2 id="game-loop">Game Loop</h2>
 <div class="sourceCode" id="cb10"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb10-1"><a aria-hidden="true" href="#cb10-1" tabindex="-1"></a><span class="pp">setInterval</span>( () <span class="kw">=&gt;</span> {</span>
 <span id="cb10-2"><a aria-hidden="true" href="#cb10-2" tabindex="-1"></a>    <span class="fu">nextBoard</span>()<span class="op">;</span></span>
 <span id="cb10-3"><a aria-hidden="true" href="#cb10-3" tabindex="-1"></a>    <span class="fu">display</span>(context)<span class="op">;</span></span>
 <span id="cb10-4"><a aria-hidden="true" href="#cb10-4" tabindex="-1"></a>}<span class="op">,</span> <span class="dv">1000</span> <span class="op">/</span> <span class="dv">5</span>)<span class="op">;</span></span></code></pre></div>
-<h1 id="resources">Resources</h1>
+<h2 id="resources">Resources</h2>
 <ul>
 <li>Gabriel Lebec, <a href="https://www.youtube.com/watch?v=3VQ382QG-y4" target="_blank">Fundamentals of Lambda Calculus &amp; Functional Programming in JavaScript</a></li>
 </ul>
-<h1 id="example">Example</h1>
+<h2 id="example">Example</h2>
 <p>A function <code>plus</code> that returns the sum of its arguments:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb11-1"><a aria-hidden="true" href="#cb11-1" tabindex="-1"></a><span class="kw">const</span> plus <span class="op">=</span> x <span class="kw">=&gt;</span> y <span class="kw">=&gt;</span> x <span class="op">+</span> y<span class="op">;</span></span></code></pre></div>
-<h1 id="lambda">Lambda</h1>
-<h1 id="javascript-variables">JavaScript Variables</h1>
+<h1 id="week-2---lambda">Week 2 - Lambda</h1>
+<h2 id="javascript-variables">JavaScript Variables</h2>
 <p>Only use <code>let</code> and <code>const</code>:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb12-1"><a aria-hidden="true" href="#cb12-1" tabindex="-1"></a><span class="kw">let</span> x <span class="op">=</span> <span class="op">...;</span>    <span class="co">// mutable,   local scope</span></span>
 <span id="cb12-2"><a aria-hidden="true" href="#cb12-2" tabindex="-1"></a><span class="kw">const</span> x <span class="op">=</span> <span class="op">...;</span>  <span class="co">// immutable, local scope</span></span></code></pre></div>
 <p><strong><code>let</code></strong> vs <strong><code>var</code></strong>: <strong><code>let</code></strong> allows you to declare variables that are limited to the scope of a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/block" target="_blank">block</a> statement, or expression on which it is used, unlike the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var" target="_blank"><code>var</code></a> keyword, which declares a variable globally, or locally to an entire function regardless of block scope. The other difference between <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var" target="_blank"><code>var</code></a> and <code>let</code> is that the latter is initialized to a value only when a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone" target="_blank">parser evaluates it (see below)</a>.</p>
-<h1 id="iife">IIFE</h1>
+<h2 id="iife">IIFE</h2>
 <blockquote>
 <p>immediately invoked function expression</p>
 </blockquote>
@@ -247,20 +296,20 @@
 <span id="cb13-2"><a aria-hidden="true" href="#cb13-2" tabindex="-1"></a>( <span class="kw">function</span> <span class="fu">foo</span>() {<span class="op">..</span>} ) ()</span>
 <span id="cb13-3"><a aria-hidden="true" href="#cb13-3" tabindex="-1"></a>( <span class="kw">function</span>() {<span class="op">..</span>} ) ()</span>
 <span id="cb13-4"><a aria-hidden="true" href="#cb13-4" tabindex="-1"></a>( () <span class="kw">=&gt;</span> {<span class="op">..</span>} ) ()</span></code></pre></div>
-<h1 id="alpha-translation">Alpha Translation</h1>
+<h2 id="alpha-translation">Alpha Translation</h2>
 <div class="sourceCode" id="cb14"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb14-1"><a aria-hidden="true" href="#cb14-1" tabindex="-1"></a><span class="kw">const</span> id <span class="op">=</span> x <span class="kw">=&gt;</span> x</span>
 <span id="cb14-2"><a aria-hidden="true" href="#cb14-2" tabindex="-1"></a><span class="kw">const</span> id <span class="op">=</span> y <span class="kw">=&gt;</span> y</span></code></pre></div>
-<h1 id="beta-reduction">Beta Reduction</h1>
+<h2 id="beta-reduction">Beta Reduction</h2>
 <div class="sourceCode" id="cb15"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb15-1"><a aria-hidden="true" href="#cb15-1" tabindex="-1"></a>( f <span class="kw">=&gt;</span> x <span class="kw">=&gt;</span> <span class="fu">f</span>(x) ) (id) (<span class="dv">1</span>)</span>
 <span id="cb15-2"><a aria-hidden="true" href="#cb15-2" tabindex="-1"></a>(      x <span class="kw">=&gt;</span> <span class="fu">id</span>(x))      (<span class="dv">1</span>)</span>
 <span id="cb15-3"><a aria-hidden="true" href="#cb15-3" tabindex="-1"></a>(           <span class="fu">id</span>(<span class="dv">1</span>))</span>
 <span id="cb15-4"><a aria-hidden="true" href="#cb15-4" tabindex="-1"></a>(x <span class="kw">=&gt;</span> x) (<span class="dv">1</span>)</span>
 <span id="cb15-5"><a aria-hidden="true" href="#cb15-5" tabindex="-1"></a><span class="dv">1</span></span></code></pre></div>
-<h1 id="eta-reduction">Eta Reduction</h1>
+<h2 id="eta-reduction">Eta Reduction</h2>
 <div class="sourceCode" id="cb16"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb16-1"><a aria-hidden="true" href="#cb16-1" tabindex="-1"></a>x <span class="kw">=&gt;</span> y <span class="kw">=&gt;</span> <span class="fu">plus</span> (x) (y)</span>
 <span id="cb16-2"><a aria-hidden="true" href="#cb16-2" tabindex="-1"></a>x <span class="kw">=&gt;</span>      <span class="fu">plus</span> (x)</span>
 <span id="cb16-3"><a aria-hidden="true" href="#cb16-3" tabindex="-1"></a>          plus</span></code></pre></div>
-<h1 id="examples">Examples</h1>
+<h2 id="examples">Examples</h2>
 <p><code>F3</code> is a proper eta reduction of <code>F2</code></p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb17-1"><a aria-hidden="true" href="#cb17-1" tabindex="-1"></a><span class="kw">const</span> id <span class="op">=</span> x <span class="kw">=&gt;</span> x<span class="op">;</span></span>
 <span id="cb17-2"><a aria-hidden="true" href="#cb17-2" tabindex="-1"></a><span class="kw">const</span> konst <span class="op">=</span> x <span class="kw">=&gt;</span> y <span class="kw">=&gt;</span> x<span class="op">;</span></span>
@@ -281,7 +330,8 @@
 <p><code>id1</code> and <code>id2</code> are alpha-equivalent</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb20-1"><a aria-hidden="true" href="#cb20-1" tabindex="-1"></a><span class="kw">const</span> id1 <span class="op">=</span> x <span class="kw">=&gt;</span> x<span class="op">;</span></span>
 <span id="cb20-2"><a aria-hidden="true" href="#cb20-2" tabindex="-1"></a><span class="kw">const</span> id2 <span class="op">=</span> y <span class="kw">=&gt;</span> y<span class="op">;</span></span></code></pre></div>
-<h1 id="atomic-lamda-terms">Atomic Lamda Terms</h1>
+<h1 id="week-3---lambda">Week 3 - Lambda</h1>
+<h2 id="atomic-lambda-terms">Atomic Lambda Terms</h2>
 <div class="sourceCode" id="cb21"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb21-1"><a aria-hidden="true" href="#cb21-1" tabindex="-1"></a><span class="co">// atoms</span></span>
 <span id="cb21-2"><a aria-hidden="true" href="#cb21-2" tabindex="-1"></a><span class="kw">const</span> id <span class="op">=</span> x <span class="kw">=&gt;</span> x<span class="op">;</span></span>
 <span id="cb21-3"><a aria-hidden="true" href="#cb21-3" tabindex="-1"></a><span class="kw">const</span> konst <span class="op">=</span> x <span class="kw">=&gt;</span> y <span class="kw">=&gt;</span> x<span class="op">;</span></span>
@@ -289,11 +339,11 @@
 <span id="cb21-5"><a aria-hidden="true" href="#cb21-5" tabindex="-1"></a><span class="co">// derived true, false, and, or, equals, â€¦</span></span>
 <span id="cb21-6"><a aria-hidden="true" href="#cb21-6" tabindex="-1"></a><span class="kw">const</span> F <span class="op">=</span> â€¦<span class="op">;</span></span>
 <span id="cb21-7"><a aria-hidden="true" href="#cb21-7" tabindex="-1"></a><span class="kw">const</span> T <span class="op">=</span> â€¦<span class="op">;</span></span></code></pre></div>
-<h1 id="pair-product-type">Pair, Product Type</h1>
+<h2 id="pair-product-type">Pair, Product Type</h2>
 <div class="sourceCode" id="cb22"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb22-1"><a aria-hidden="true" href="#cb22-1" tabindex="-1"></a><span class="kw">const</span> pair <span class="op">=</span> x <span class="kw">=&gt;</span> y <span class="kw">=&gt;</span> f <span class="kw">=&gt;</span> <span class="fu">f</span>(x)(y)<span class="op">;</span></span>
 <span id="cb22-2"><a aria-hidden="true" href="#cb22-2" tabindex="-1"></a><span class="kw">const</span> fst <span class="op">=</span> p <span class="kw">=&gt;</span> <span class="fu">p</span>(T)<span class="op">;</span></span>
 <span id="cb22-3"><a aria-hidden="true" href="#cb22-3" tabindex="-1"></a><span class="kw">const</span> snd <span class="op">=</span> p <span class="kw">=&gt;</span> <span class="fu">p</span>(F)<span class="op">;</span></span></code></pre></div>
-<h1 id="pair-encoding">Pair encoding</h1>
+<h2 id="pair-encoding">Pair encoding</h2>
 <div class="sourceCode" id="cb23"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb23-1"><a aria-hidden="true" href="#cb23-1" tabindex="-1"></a><span class="kw">const</span> person <span class="op">=</span></span>
 <span id="cb23-2"><a aria-hidden="true" href="#cb23-2" tabindex="-1"></a>                firstname <span class="kw">=&gt;</span></span>
 <span id="cb23-3"><a aria-hidden="true" href="#cb23-3" tabindex="-1"></a>                lastname <span class="kw">=&gt;</span></span>
@@ -303,7 +353,7 @@
 <span id="cb23-7"><a aria-hidden="true" href="#cb23-7" tabindex="-1"></a><span class="kw">const</span> firstn <span class="op">=</span> p <span class="kw">=&gt;</span> <span class="fu">fst</span>(<span class="fu">fst</span>(p))<span class="op">;</span></span>
 <span id="cb23-8"><a aria-hidden="true" href="#cb23-8" tabindex="-1"></a><span class="kw">const</span> lastn  <span class="op">=</span> p <span class="kw">=&gt;</span> <span class="fu">snd</span>(<span class="fu">fst</span>(p))<span class="op">;</span></span>
 <span id="cb23-9"><a aria-hidden="true" href="#cb23-9" tabindex="-1"></a><span class="kw">const</span> age    <span class="op">=</span> p <span class="kw">=&gt;</span> <span class="fu">snd</span>(p)<span class="op">;</span></span></code></pre></div>
-<h1 id="either-co-product-sum">Either, Co-Product, Sum</h1>
+<h2 id="either-co-product-sum">Either, Co-Product, Sum</h2>
 <div class="sourceCode" id="cb24"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb24-1"><a aria-hidden="true" href="#cb24-1" tabindex="-1"></a><span class="co">// dual of the product</span></span>
 <span id="cb24-2"><a aria-hidden="true" href="#cb24-2" tabindex="-1"></a><span class="kw">const</span> pair <span class="op">=</span> x <span class="kw">=&gt;</span> y <span class="kw">=&gt;</span> f <span class="kw">=&gt;</span> <span class="fu">f</span>(x)(y)<span class="op">;</span>    <span class="co">// one ctor</span></span>
 <span id="cb24-3"><a aria-hidden="true" href="#cb24-3" tabindex="-1"></a><span class="kw">const</span> fst  <span class="op">=</span> p <span class="kw">=&gt;</span> <span class="fu">p</span>(T)<span class="op">;</span>                 <span class="co">// accessor 1</span></span>
@@ -313,7 +363,7 @@
 <span id="cb24-7"><a aria-hidden="true" href="#cb24-7" tabindex="-1"></a><span class="kw">const</span> Left   <span class="op">=</span> x <span class="kw">=&gt;</span> f <span class="kw">=&gt;</span> g <span class="kw">=&gt;</span> <span class="fu">f</span>(x)<span class="op">;</span>     <span class="co">// ctor 1</span></span>
 <span id="cb24-8"><a aria-hidden="true" href="#cb24-8" tabindex="-1"></a><span class="kw">const</span> Right  <span class="op">=</span> x <span class="kw">=&gt;</span> f <span class="kw">=&gt;</span> g <span class="kw">=&gt;</span> <span class="fu">g</span>(x)<span class="op">;</span>     <span class="co">// ctor 2</span></span>
 <span id="cb24-9"><a aria-hidden="true" href="#cb24-9" tabindex="-1"></a><span class="kw">const</span> either <span class="op">=</span> e <span class="kw">=&gt;</span> f <span class="kw">=&gt;</span> g <span class="kw">=&gt;</span> <span class="fu">e</span>(f)(g)<span class="op">;</span>  <span class="co">// accessor</span></span></code></pre></div>
-<h1 id="special-case-maybe">Special Case: Maybe</h1>
+<h2 id="special-case-maybe">Special Case: Maybe</h2>
 <div class="sourceCode" id="cb25"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb25-1"><a aria-hidden="true" href="#cb25-1" tabindex="-1"></a><span class="co">// go around null / undefined</span></span>
 <span id="cb25-2"><a aria-hidden="true" href="#cb25-2" tabindex="-1"></a><span class="kw">const</span> Nothing <span class="op">=</span> <span class="fu">Left</span> ()<span class="op">;</span></span>
 <span id="cb25-3"><a aria-hidden="true" href="#cb25-3" tabindex="-1"></a><span class="kw">const</span> Just    <span class="op">=</span> Right<span class="op">;</span></span>
@@ -322,11 +372,37 @@
 <span id="cb25-6"><a aria-hidden="true" href="#cb25-6" tabindex="-1"></a><span class="fu">maybe</span> (expressionThatMightGoWrong)</span>
 <span id="cb25-7"><a aria-hidden="true" href="#cb25-7" tabindex="-1"></a>      (handleBad)</span>
 <span id="cb25-8"><a aria-hidden="true" href="#cb25-8" tabindex="-1"></a>      (handleGood)<span class="op">;</span></span></code></pre></div>
-<h1 id="example-1">Example</h1>
+<h2 id="example-1">Example</h2>
 <div class="sourceCode" id="cb26"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb26-1"><a aria-hidden="true" href="#cb26-1" tabindex="-1"></a><span class="co">// error handling with either</span></span>
 <span id="cb26-2"><a aria-hidden="true" href="#cb26-2" tabindex="-1"></a><span class="kw">const</span> eShow <span class="op">=</span> result <span class="kw">=&gt;</span> <span class="fu">result</span> (msg <span class="kw">=&gt;</span> msg) (val <span class="kw">=&gt;</span> <span class="st">"Result is:"</span> <span class="op">+</span> val)<span class="op">;</span></span></code></pre></div>
 <hr/>
 </article>
 </main>
+<script>
+      //Get the button
+      var mybutton = document.getElementById("myBtn");
+
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function () {
+        scrollFunction();
+      };
+
+      function scrollFunction() {
+        if (
+          document.body.scrollTop > 20 ||
+          document.documentElement.scrollTop > 20
+        ) {
+          mybutton.style.display = "block";
+        } else {
+          mybutton.style.display = "none";
+        }
+      }
+
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+    </script>
 </body>
 </html>
