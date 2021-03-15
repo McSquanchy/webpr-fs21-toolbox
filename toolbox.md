@@ -287,3 +287,59 @@ maybe (expressionThatMightGoWrong)
 // error handling with either
 const eShow = result => result (msg => msg) (val => "Result is:" + val);
 ```
+
+# Week 4 - Map/Filter/Reduce
+
+## Map
+
+```javascript
+const times = a => b => a * b;
+
+const twoTimes = times(2);
+
+[1, 2, 3].map(x => times(2)(x));
+[1, 2, 3].map(times(2));
+[1, 2, 3].map(twoTimes);
+```
+
+## Filter
+
+```javascript
+const odd = x => x % 2 === 1;
+
+[1, 2, 3].filter(x => x % 2 === 1);
+[1, 2, 3].filter(x => odd(x));
+[1, 2, 3].filter(odd);
+```
+
+## Reduce
+
+```javascript
+const plus = (accu, cur) => accu + cur;
+
+[1, 2, 3].reduce((accu, cur) => accu + cur);
+[1, 2, 3].reduce(plus);
+
+// variant with initial accu value as 2nd argument
+// then cur starts at first element
+[1, 2, 3].reduce(plus, 0);
+```
+
+## Examples
+
+```javascript
+// function that checks which numbers in an array are divideable 
+// by the given argument
+const divides = x => y => y % x === 0;
+```
+
+```javascript
+// function that joins values of an array together with given argument
+const join = (a) => (b, c) => b + a + c;
+```
+
+```js
+// function that doubles its argument
+const twice = (a) => a * 2;
+const numbers = [1, 2, 3].map(twice); // yields [2,4,6]
+```
