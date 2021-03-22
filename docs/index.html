@@ -152,6 +152,16 @@
             <li><a href="#reduce">Reduce</a></li>
             <li><a href="#examples-1">Examples</a></li>
             </ul></li>
+            <li><a href="#week-5---scripting-pwa-plotter-excel">Week 5 - Scripting, PWA, Plotter, Excel</a>
+            <ul>
+            <li><a href="#why-scripting">Why Scripting?</a></li>
+            <li><a href="#scripting-characteristics">Scripting Characteristics</a></li>
+            <li><a href="#progressive-web-app">Progressive Web App</a></li>
+            <li><a href="#function-plotter-eval">Function Plotter: eval</a></li>
+            <li><a href="#function-plotter-function">Function Plotter: Function()</a></li>
+            <li><a href="#scripting-caution">Scripting Caution</a></li>
+            <li><a href="#examples-2">Examples</a></li>
+            </ul></li>
             </ul>
           </li>
         </ul>
@@ -189,6 +199,16 @@
 <li><a href="#filter">Filter</a></li>
 <li><a href="#reduce">Reduce</a></li>
 <li><a href="#examples-1">Examples</a></li>
+</ul></li>
+<li><a href="#week-5---scripting-pwa-plotter-excel">Week 5 - Scripting, PWA, Plotter, Excel</a>
+<ul>
+<li><a href="#why-scripting">Why Scripting?</a></li>
+<li><a href="#scripting-characteristics">Scripting Characteristics</a></li>
+<li><a href="#progressive-web-app">Progressive Web App</a></li>
+<li><a href="#function-plotter-eval">Function Plotter: eval</a></li>
+<li><a href="#function-plotter-function">Function Plotter: Function()</a></li>
+<li><a href="#scripting-caution">Scripting Caution</a></li>
+<li><a href="#examples-2">Examples</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -422,6 +442,49 @@
 <div class="sourceCode" id="cb32"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb32-1"><a aria-hidden="true" href="#cb32-1" tabindex="-1"></a><span class="co">// function that doubles its argument</span></span>
 <span id="cb32-2"><a aria-hidden="true" href="#cb32-2" tabindex="-1"></a><span class="kw">const</span> twice <span class="op">=</span> (a) <span class="kw">=&gt;</span> a <span class="op">*</span> <span class="dv">2</span><span class="op">;</span></span>
 <span id="cb32-3"><a aria-hidden="true" href="#cb32-3" tabindex="-1"></a><span class="kw">const</span> numbers <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">.</span><span class="fu">map</span>(twice)<span class="op">;</span> <span class="co">// yields [2,4,6]</span></span></code></pre></div>
+<h1 id="week-5---scripting-pwa-plotter-excel">Week 5 - Scripting, PWA, Plotter, Excel</h1>
+<h2 id="why-scripting">Why Scripting?</h2>
+<ul>
+<li>Command Line</li>
+<li>Automation</li>
+<li>Build System</li>
+<li>Templating</li>
+<li>Code Distribution</li>
+<li>Formulae</li>
+<li>Business Rules</li>
+<li>Smart Configuration</li>
+<li>Product Lines</li>
+<li>DSL</li>
+<li>Self Modifying Code</li>
+<li>much more</li>
+</ul>
+<h2 id="scripting-characteristics">Scripting Characteristics</h2>
+<ul>
+<li>Interpreted, not compiled (in principle)</li>
+<li>Lenient type system</li>
+<li><em>Best Effort</em> approach</li>
+</ul>
+<h2 id="progressive-web-app">Progressive Web App</h2>
+<p>Loading test suite dynamically :</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb33-1"><a aria-hidden="true" href="#cb33-1" tabindex="-1"></a><span class="bu">document</span><span class="op">.</span><span class="fu">write</span>(<span class="st">'&lt;script src=...'</span>)<span class="op">;</span></span></code></pre></div>
+<h2 id="function-plotter-eval">Function Plotter: eval</h2>
+<p>Works as if the code was copied verbatim in the place of the eval. =&gt; You share the scope.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb34-1"><a aria-hidden="true" href="#cb34-1" tabindex="-1"></a><span class="pp">eval</span>(<span class="st">'some code'</span>)<span class="op">;</span> <span class="co">// not side effect free!</span></span></code></pre></div>
+<h2 id="function-plotter-function">Function Plotter: Function()</h2>
+<p><code>Function()</code> is like <code>eval()</code> but declares parameters and executes in the global scope. It creates a reference.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb35-1"><a aria-hidden="true" href="#cb35-1" tabindex="-1"></a><span class="kw">const</span> add <span class="op">=</span> <span class="bu">Function</span>(<span class="st">'x'</span><span class="op">,</span> <span class="st">'y'</span><span class="op">,</span> <span class="st">'return x+y'</span>)<span class="op">;</span> <span class="co">// only evaluated once!</span></span>
+<span id="cb35-2"><a aria-hidden="true" href="#cb35-2" tabindex="-1"></a><span class="fu">add</span>(<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span>)<span class="op">;</span></span>
+<span id="cb35-3"><a aria-hidden="true" href="#cb35-3" tabindex="-1"></a><span class="fu">add</span>(<span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>)<span class="op">;</span> <span class="co">// no need to re-parse</span></span></code></pre></div>
+<h2 id="scripting-caution">Scripting Caution</h2>
+<p><em>In JavaScript you cannot exclude possibly harmful side effects from scripts that are loaded from foreign sourcesâ€¦</em></p>
+<ul>
+<li><strong>Privacy, Security, Stability</strong></li>
+</ul>
+<h2 id="examples-2">Examples</h2>
+<p>Calculate the bonus with given attributes:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb36-1"><a aria-hidden="true" href="#cb36-1" tabindex="-1"></a><span class="kw">const</span> bonusCalculation <span class="op">=</span> x <span class="kw">=&gt;</span> x<span class="op">.</span><span class="at">bonus</span> <span class="op">=</span> <span class="pp">eval</span>(x<span class="op">.</span><span class="at">revenue</span>) <span class="op">*</span> factor_<span class="op">;</span></span></code></pre></div>
+<p>Calculate the bonus with given attributes using Function():</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb37-1"><a aria-hidden="true" href="#cb37-1" tabindex="-1"></a><span class="kw">const</span> bonusCalculation <span class="op">=</span> <span class="bu">Function</span>(<span class="st">'x'</span><span class="op">,</span> <span class="st">'return x.bonus = x.revenue *'</span> <span class="op">+</span> factor_)<span class="op">;</span></span></code></pre></div>
 <hr/>
 </article>
 </main>

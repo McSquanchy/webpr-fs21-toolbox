@@ -343,3 +343,72 @@ const join = (a) => (b, c) => b + a + c;
 const twice = (a) => a * 2;
 const numbers = [1, 2, 3].map(twice); // yields [2,4,6]
 ```
+
+# Week 5 - Scripting, PWA, Plotter, Excel
+
+## Why Scripting?
+
+- Command Line
+- Automation
+- Build System
+- Templating
+- Code Distribution
+- Formulae
+- Business Rules
+- Smart Configuration
+- Product Lines
+- DSL
+- Self Modifying Code
+- much more
+
+## Scripting Characteristics
+
+* Interpreted, not compiled (in principle)
+* Lenient type system
+* *Best Effort* approach
+
+## Progressive Web App
+
+Loading test suite dynamically :
+
+```javascript
+document.write('<script src=...');
+```
+
+## Function Plotter: eval
+
+Works as if the code was copied verbatim in the place of the eval. => You share the scope.
+
+```javascript
+eval('some code'); // not side effect free!
+```
+
+## Function Plotter: Function()
+
+`Function()` is like `eval()` but declares parameters and executes in the global scope. It creates a reference.
+
+```javascript
+const add = Function('x', 'y', 'return x+y'); // only evaluated once!
+add(1, 2);
+add(2, 3); // no need to re-parse
+```
+
+## Scripting Caution
+
+*In JavaScript you cannot exclude possibly harmful side effects from scripts that are loaded from foreign sources...*
+
+* **Privacy, Security, Stability**
+
+## Examples
+
+Calculate the bonus with given attributes:
+
+```javascript
+const bonusCalculation = x => x.bonus = eval(x.revenue) * factor_;
+```
+
+Calculate the bonus with given attributes using Function():
+
+```javascript
+const bonusCalculation = Function('x', 'return x.bonus = x.revenue *' + factor_);
+```
