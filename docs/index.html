@@ -510,7 +510,7 @@
 </ul>
 <h2 id="open-dynamic">Open &amp; dynamic</h2>
 <ul>
-<li>JS â€˜Objectsâ€™</li>
+<li>JS Objects</li>
 </ul>
 <div class="sourceCode" id="cb38"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb38-1"><a aria-hidden="true" href="#cb38-1" tabindex="-1"></a><span class="kw">const</span> good <span class="op">=</span> {</span>
 <span id="cb38-2"><a aria-hidden="true" href="#cb38-2" tabindex="-1"></a>    <span class="dt">firstname</span> <span class="op">:</span> <span class="st">"Good"</span><span class="op">,</span></span>
@@ -523,7 +523,7 @@
 <span id="cb38-9"><a aria-hidden="true" href="#cb38-9" tabindex="-1"></a><span class="co">// unobvious how to share structure</span></span>
 <span id="cb38-10"><a aria-hidden="true" href="#cb38-10" tabindex="-1"></a><span class="co">// beware of "this"! See Adam Breindl last week.</span></span></code></pre></div>
 <h2 id="closed-explicit">Closed &amp; explicit</h2>
-<p>Closure scope, no â€˜thisâ€™.</p>
+<p>Closure scope, no this.</p>
 <div class="sourceCode" id="cb39"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb39-1"><a aria-hidden="true" href="#cb39-1" tabindex="-1"></a><span class="kw">function</span> <span class="fu">Person</span>(first<span class="op">,</span> last) {</span>
 <span id="cb39-2"><a aria-hidden="true" href="#cb39-2" tabindex="-1"></a>    <span class="kw">let</span> firstname <span class="op">=</span> first<span class="op">;</span> <span class="co">// optional</span></span>
 <span id="cb39-3"><a aria-hidden="true" href="#cb39-3" tabindex="-1"></a>    <span class="kw">let</span> lastname <span class="op">=</span> last<span class="op">;</span></span>
@@ -535,8 +535,8 @@
 <span id="cb39-9"><a aria-hidden="true" href="#cb39-9" tabindex="-1"></a>}</span>
 <span id="cb39-10"><a aria-hidden="true" href="#cb39-10" tabindex="-1"></a><span class="co">// best safety, easy to share structure, but no class</span></span></code></pre></div>
 <h2 id="mixed-classified">Mixed &amp; classified</h2>
-<p>Depends on â€˜newâ€™. Is the â€˜defaultâ€™ construction.</p>
-<p>Still dynamic but all â€˜instancesâ€™ can be changed at once by changing the prototype!</p>
+<p>Depends on new. Is the default construction.</p>
+<p>Still dynamic but all instances can be changed at once by changing the prototype!</p>
 <div class="sourceCode" id="cb40"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb40-1"><a aria-hidden="true" href="#cb40-1" tabindex="-1"></a><span class="kw">const</span> Person <span class="op">=</span> ( () <span class="kw">=&gt;</span> { <span class="co">// lexical scope</span></span>
 <span id="cb40-2"><a aria-hidden="true" href="#cb40-2" tabindex="-1"></a>    <span class="kw">function</span> <span class="fu">Person</span>(first<span class="op">,</span> last) { <span class="co">// ctor, binding</span></span>
 <span id="cb40-3"><a aria-hidden="true" href="#cb40-3" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="at">firstname</span> <span class="op">=</span> first<span class="op">;</span></span>
@@ -550,7 +550,7 @@
 <span id="cb40-11"><a aria-hidden="true" href="#cb40-11" tabindex="-1"></a><span class="co">// new Person("Good", "Boy") instanceof Person</span></span></code></pre></div>
 <h2 id="prototype">Prototype</h2>
 <ul>
-<li>Classifies objects similar to a â€˜typeâ€™</li>
+<li>Classifies objects similar to a type</li>
 <li>Manages shared properties</li>
 <li>Is itself an object</li>
 <li>Can be checked, e.g.Â by instanceof</li>

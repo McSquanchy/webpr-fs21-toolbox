@@ -421,7 +421,7 @@ const bonusCalculation = Function('x', 'return x.bonus = x.revenue *' + factor_)
 
 ## Open & dynamic
 
-* JS 'Objects'
+* JS Objects
 
 ```javascript
 const good = {
@@ -438,7 +438,7 @@ const good = {
 
 ## Closed & explicit
 
-Closure scope, no 'this'.
+Closure scope, no this.
 
 ```javascript
 function Person(first, last) {
@@ -455,9 +455,9 @@ function Person(first, last) {
 
 ## Mixed & classified
 
-Depends on 'new'. Is the 'default' construction.
+Depends on new. Is the default construction.
 
-Still dynamic but all 'instances' can be changed at once by changing the prototype!
+Still dynamic but all instances can be changed at once by changing the prototype!
 
 ```javascript
 const Person = ( () => { // lexical scope
@@ -475,7 +475,7 @@ const Person = ( () => { // lexical scope
 
 ## Prototype
 
-* Classifies objects similar to a 'type'
+* Classifies objects similar to a type
 * Manages shared properties
 * Is itself an object
 * Can be checked, e.g. by instanceof
