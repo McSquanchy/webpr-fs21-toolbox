@@ -478,7 +478,7 @@ const Person = ( () => { // lexical scope
 * Classifies objects similar to a type
 * Manages shared properties
 * Is itself an object
-* Can be checked, e.g. by instanceof
+* Can be checked, e.g by instanceof
 
 ## New
 
