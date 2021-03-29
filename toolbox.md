@@ -480,7 +480,7 @@ const Person = ( () => { // lexical scope
 * Is itself an object
 * Can be checked, e.g. by instanceof
 
-## 'New'
+## New
 
 * Creates a **new** Runtime-Scope
 * Calls the **constructor**-Function (cannot be a lambda)
