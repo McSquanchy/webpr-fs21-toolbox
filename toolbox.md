@@ -412,3 +412,90 @@ Calculate the bonus with given attributes using Function():
 ```javascript
 const bonusCalculation = Function('x', 'return x.bonus = x.revenue *' + factor_);
 ```
+
+# Week 6 - Objects
+
+**What are objects?**
+
+* Data structures + methods for access and management (+ a location for mutable state, + abstraction and polymorphism)
+
+## Open & dynamic
+
+* JS 'Objects'
+
+```javascript
+const good = {
+	firstname : "Good",
+	lastname : "Boy",
+	getName : function() {
+		return this.firstname + " " + this.lastname
+	}
+};
+// no safety but super dynamic
+// unobvious how to share structure
+// beware of "this"! See Adam Breindl last week.
+```
+
+## Closed & explicit
+
+Closure scope, no 'this'.
+
+```javascript
+function Person(first, last) {
+	let firstname = first; // optional
+	let lastname = last;
+	return {
+		getName: function() {
+			return firstname + " " + lastname }
+		}
+	}
+}
+// best safety, easy to share structure, but no class
+```
+
+## Mixed & classified
+
+Depends on 'new'. Is the 'default' construction.
+
+Still dynamic but all 'instances' can be changed at once by changing the prototype!
+
+```javascript
+const Person = ( () => { // lexical scope
+	function Person(first, last) { // ctor, binding
+		this.firstname = first;
+		this.lastname = last;
+	}
+	Person.prototype.getName = function() {
+		return this.firstname + " " + this.lastname;
+	};
+	return Person;
+}) (); // IIFE
+// new Person("Good", "Boy") instanceof Person
+```
+
+## Prototype
+
+* Classifies objects similar to a 'type'
+* Manages shared properties
+* Is itself an object
+* Can be checked, e.g. by instanceof
+
+## 'New'
+
+* Creates a **new** Runtime-Scope
+* Calls the **constructor**-Function (cannot be a lambda)
+* Sets the prototype  
+
+## Example
+
+Check whether two Arrays are equal:
+
+```javascript
+Array.prototype.eq = function(array) {
+    if (this.length !== array.length) return false;
+    for (let i = 0; i < array.length; i++) {
+        if (this[i] !== array[i]) return false;
+    }
+    return true;
+}
+```

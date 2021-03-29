@@ -162,6 +162,15 @@
             <li><a href="#scripting-caution">Scripting Caution</a></li>
             <li><a href="#examples-2">Examples</a></li>
             </ul></li>
+            <li><a href="#week-6---objects">Week 6 - Objects</a>
+            <ul>
+            <li><a href="#open-dynamic">Open &amp; dynamic</a></li>
+            <li><a href="#closed-explicit">Closed &amp; explicit</a></li>
+            <li><a href="#mixed-classified">Mixed &amp; classified</a></li>
+            <li><a href="#prototype">Prototype</a></li>
+            <li><a href="#new">â€˜Newâ€™</a></li>
+            <li><a href="#example-2">Example</a></li>
+            </ul></li>
             </ul>
           </li>
         </ul>
@@ -209,6 +218,15 @@
 <li><a href="#function-plotter-function">Function Plotter: Function()</a></li>
 <li><a href="#scripting-caution">Scripting Caution</a></li>
 <li><a href="#examples-2">Examples</a></li>
+</ul></li>
+<li><a href="#week-6---objects">Week 6 - Objects</a>
+<ul>
+<li><a href="#open-dynamic">Open &amp; dynamic</a></li>
+<li><a href="#closed-explicit">Closed &amp; explicit</a></li>
+<li><a href="#mixed-classified">Mixed &amp; classified</a></li>
+<li><a href="#prototype">Prototype</a></li>
+<li><a href="#new">â€˜Newâ€™</a></li>
+<li><a href="#example-2">Example</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -485,6 +503,73 @@
 <div class="sourceCode" id="cb36"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb36-1"><a aria-hidden="true" href="#cb36-1" tabindex="-1"></a><span class="kw">const</span> bonusCalculation <span class="op">=</span> x <span class="kw">=&gt;</span> x<span class="op">.</span><span class="at">bonus</span> <span class="op">=</span> <span class="pp">eval</span>(x<span class="op">.</span><span class="at">revenue</span>) <span class="op">*</span> factor_<span class="op">;</span></span></code></pre></div>
 <p>Calculate the bonus with given attributes using Function():</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb37-1"><a aria-hidden="true" href="#cb37-1" tabindex="-1"></a><span class="kw">const</span> bonusCalculation <span class="op">=</span> <span class="bu">Function</span>(<span class="st">'x'</span><span class="op">,</span> <span class="st">'return x.bonus = x.revenue *'</span> <span class="op">+</span> factor_)<span class="op">;</span></span></code></pre></div>
+<h1 id="week-6---objects">Week 6 - Objects</h1>
+<p><strong>What are objects?</strong></p>
+<ul>
+<li>Data structures + methods for access and management (+ a location for mutable state, + abstraction and polymorphism)</li>
+</ul>
+<h2 id="open-dynamic">Open &amp; dynamic</h2>
+<ul>
+<li>JS â€˜Objectsâ€™</li>
+</ul>
+<div class="sourceCode" id="cb38"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb38-1"><a aria-hidden="true" href="#cb38-1" tabindex="-1"></a><span class="kw">const</span> good <span class="op">=</span> {</span>
+<span id="cb38-2"><a aria-hidden="true" href="#cb38-2" tabindex="-1"></a>    <span class="dt">firstname</span> <span class="op">:</span> <span class="st">"Good"</span><span class="op">,</span></span>
+<span id="cb38-3"><a aria-hidden="true" href="#cb38-3" tabindex="-1"></a>    <span class="dt">lastname</span> <span class="op">:</span> <span class="st">"Boy"</span><span class="op">,</span></span>
+<span id="cb38-4"><a aria-hidden="true" href="#cb38-4" tabindex="-1"></a>    <span class="dt">getName</span> <span class="op">:</span> <span class="kw">function</span>() {</span>
+<span id="cb38-5"><a aria-hidden="true" href="#cb38-5" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">this</span><span class="op">.</span><span class="at">firstname</span> <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> <span class="kw">this</span><span class="op">.</span><span class="at">lastname</span></span>
+<span id="cb38-6"><a aria-hidden="true" href="#cb38-6" tabindex="-1"></a>    }</span>
+<span id="cb38-7"><a aria-hidden="true" href="#cb38-7" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb38-8"><a aria-hidden="true" href="#cb38-8" tabindex="-1"></a><span class="co">// no safety but super dynamic</span></span>
+<span id="cb38-9"><a aria-hidden="true" href="#cb38-9" tabindex="-1"></a><span class="co">// unobvious how to share structure</span></span>
+<span id="cb38-10"><a aria-hidden="true" href="#cb38-10" tabindex="-1"></a><span class="co">// beware of "this"! See Adam Breindl last week.</span></span></code></pre></div>
+<h2 id="closed-explicit">Closed &amp; explicit</h2>
+<p>Closure scope, no â€˜thisâ€™.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb39-1"><a aria-hidden="true" href="#cb39-1" tabindex="-1"></a><span class="kw">function</span> <span class="fu">Person</span>(first<span class="op">,</span> last) {</span>
+<span id="cb39-2"><a aria-hidden="true" href="#cb39-2" tabindex="-1"></a>    <span class="kw">let</span> firstname <span class="op">=</span> first<span class="op">;</span> <span class="co">// optional</span></span>
+<span id="cb39-3"><a aria-hidden="true" href="#cb39-3" tabindex="-1"></a>    <span class="kw">let</span> lastname <span class="op">=</span> last<span class="op">;</span></span>
+<span id="cb39-4"><a aria-hidden="true" href="#cb39-4" tabindex="-1"></a>    <span class="cf">return</span> {</span>
+<span id="cb39-5"><a aria-hidden="true" href="#cb39-5" tabindex="-1"></a>        <span class="dt">getName</span><span class="op">:</span> <span class="kw">function</span>() {</span>
+<span id="cb39-6"><a aria-hidden="true" href="#cb39-6" tabindex="-1"></a>            <span class="cf">return</span> firstname <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> lastname }</span>
+<span id="cb39-7"><a aria-hidden="true" href="#cb39-7" tabindex="-1"></a>        }</span>
+<span id="cb39-8"><a aria-hidden="true" href="#cb39-8" tabindex="-1"></a>    }</span>
+<span id="cb39-9"><a aria-hidden="true" href="#cb39-9" tabindex="-1"></a>}</span>
+<span id="cb39-10"><a aria-hidden="true" href="#cb39-10" tabindex="-1"></a><span class="co">// best safety, easy to share structure, but no class</span></span></code></pre></div>
+<h2 id="mixed-classified">Mixed &amp; classified</h2>
+<p>Depends on â€˜newâ€™. Is the â€˜defaultâ€™ construction.</p>
+<p>Still dynamic but all â€˜instancesâ€™ can be changed at once by changing the prototype!</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb40-1"><a aria-hidden="true" href="#cb40-1" tabindex="-1"></a><span class="kw">const</span> Person <span class="op">=</span> ( () <span class="kw">=&gt;</span> { <span class="co">// lexical scope</span></span>
+<span id="cb40-2"><a aria-hidden="true" href="#cb40-2" tabindex="-1"></a>    <span class="kw">function</span> <span class="fu">Person</span>(first<span class="op">,</span> last) { <span class="co">// ctor, binding</span></span>
+<span id="cb40-3"><a aria-hidden="true" href="#cb40-3" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="at">firstname</span> <span class="op">=</span> first<span class="op">;</span></span>
+<span id="cb40-4"><a aria-hidden="true" href="#cb40-4" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="at">lastname</span> <span class="op">=</span> last<span class="op">;</span></span>
+<span id="cb40-5"><a aria-hidden="true" href="#cb40-5" tabindex="-1"></a>    }</span>
+<span id="cb40-6"><a aria-hidden="true" href="#cb40-6" tabindex="-1"></a>    Person<span class="op">.</span><span class="at">prototype</span><span class="op">.</span><span class="at">getName</span> <span class="op">=</span> <span class="kw">function</span>() {</span>
+<span id="cb40-7"><a aria-hidden="true" href="#cb40-7" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">this</span><span class="op">.</span><span class="at">firstname</span> <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> <span class="kw">this</span><span class="op">.</span><span class="at">lastname</span><span class="op">;</span></span>
+<span id="cb40-8"><a aria-hidden="true" href="#cb40-8" tabindex="-1"></a>    }<span class="op">;</span></span>
+<span id="cb40-9"><a aria-hidden="true" href="#cb40-9" tabindex="-1"></a>    <span class="cf">return</span> Person<span class="op">;</span></span>
+<span id="cb40-10"><a aria-hidden="true" href="#cb40-10" tabindex="-1"></a>}) ()<span class="op">;</span> <span class="co">// IIFE</span></span>
+<span id="cb40-11"><a aria-hidden="true" href="#cb40-11" tabindex="-1"></a><span class="co">// new Person("Good", "Boy") instanceof Person</span></span></code></pre></div>
+<h2 id="prototype">Prototype</h2>
+<ul>
+<li>Classifies objects similar to a â€˜typeâ€™</li>
+<li>Manages shared properties</li>
+<li>Is itself an object</li>
+<li>Can be checked, e.g.Â by instanceof</li>
+</ul>
+<h2 id="new">â€˜Newâ€™</h2>
+<ul>
+<li>Creates a <strong>new</strong> Runtime-Scope</li>
+<li>Calls the <strong>constructor</strong>-Function (cannot be a lambda)</li>
+<li>Sets the prototype</li>
+</ul>
+<h2 id="example-2">Example</h2>
+<p>Check whether two Arrays are equal:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb41-1"><a aria-hidden="true" href="#cb41-1" tabindex="-1"></a><span class="bu">Array</span><span class="op">.</span><span class="at">prototype</span><span class="op">.</span><span class="at">eq</span> <span class="op">=</span> <span class="kw">function</span>(array) {</span>
+<span id="cb41-2"><a aria-hidden="true" href="#cb41-2" tabindex="-1"></a>    <span class="cf">if</span> (<span class="kw">this</span><span class="op">.</span><span class="at">length</span> <span class="op">!==</span> array<span class="op">.</span><span class="at">length</span>) <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb41-3"><a aria-hidden="true" href="#cb41-3" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> array<span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb41-4"><a aria-hidden="true" href="#cb41-4" tabindex="-1"></a>        <span class="cf">if</span> (<span class="kw">this</span>[i] <span class="op">!==</span> array[i]) <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb41-5"><a aria-hidden="true" href="#cb41-5" tabindex="-1"></a>    }</span>
+<span id="cb41-6"><a aria-hidden="true" href="#cb41-6" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb41-7"><a aria-hidden="true" href="#cb41-7" tabindex="-1"></a>}</span></code></pre></div>
 <hr/>
 </article>
 </main>
