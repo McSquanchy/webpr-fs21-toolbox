@@ -499,3 +499,55 @@ Array.prototype.eq = function(array) {
     return true;
 }
 ```
+
+# Week 07 - Classes
+
+## `class` Keyword
+
+```javascript
+class Person {
+	constructor(first, last) {
+		this.firstname = first;
+		this.lastname = last
+	}
+	getName() {
+		return this.firstname + " " + this.lastname
+	}
+}
+// new Person("Good", "Boy") instanceof Person
+```
+
+## `extends` Keyword
+
+```javascript
+class Student extends Person {
+	constructor (first, last, grade) {
+		super(first, last); // never forget
+		this.grade = grade;
+	}
+}
+const s = new Student("Top","Student", 5.5);
+```
+
+## Prototype chain
+
+```javascript
+const s = new Student()
+// s.__proto__ === Student.prototype;
+// Object.getPrototypeOf(s) === Student.prototype;
+// => s instanceof Student
+```
+
+## Example
+
+Function composition -> it must work for all functions!
+
+```javascript
+Function.prototype.then = function(fun) {
+    // this(number -> result of the first function 
+    // with the value at the end f.e. ..(1))
+    const compose = fun => number => fun( this(number) );
+    return compose(fun);
+}
+```
+

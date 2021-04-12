@@ -171,6 +171,13 @@
             <li><a href="#new">New</a></li>
             <li><a href="#example-2">Example</a></li>
             </ul></li>
+            <li><a href="#week-07---classes">Week 07 - Classes</a>
+            <ul>
+            <li><a href="#class-keyword"><code>class</code> Keyword</a></li>
+            <li><a href="#extends-keyword"><code>extends</code> Keyword</a></li>
+            <li><a href="#prototype-chain">Prototype chain</a></li>
+            <li><a href="#example-3">Example</a></li>
+            </ul></li>
             </ul>
           </li>
         </ul>
@@ -227,6 +234,13 @@
 <li><a href="#prototype">Prototype</a></li>
 <li><a href="#new">New</a></li>
 <li><a href="#example-2">Example</a></li>
+</ul></li>
+<li><a href="#week-07---classes">Week 07 - Classes</a>
+<ul>
+<li><a href="#class-keyword"><code>class</code> Keyword</a></li>
+<li><a href="#extends-keyword"><code>extends</code> Keyword</a></li>
+<li><a href="#prototype-chain">Prototype chain</a></li>
+<li><a href="#example-3">Example</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -570,6 +584,39 @@
 <span id="cb41-5"><a aria-hidden="true" href="#cb41-5" tabindex="-1"></a>    }</span>
 <span id="cb41-6"><a aria-hidden="true" href="#cb41-6" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
 <span id="cb41-7"><a aria-hidden="true" href="#cb41-7" tabindex="-1"></a>}</span></code></pre></div>
+<h1 id="week-07---classes">Week 07 - Classes</h1>
+<h2 id="class-keyword"><code>class</code> Keyword</h2>
+<div class="sourceCode" id="cb42"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb42-1"><a aria-hidden="true" href="#cb42-1" tabindex="-1"></a><span class="kw">class</span> Person {</span>
+<span id="cb42-2"><a aria-hidden="true" href="#cb42-2" tabindex="-1"></a>    <span class="fu">constructor</span>(first<span class="op">,</span> last) {</span>
+<span id="cb42-3"><a aria-hidden="true" href="#cb42-3" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="at">firstname</span> <span class="op">=</span> first<span class="op">;</span></span>
+<span id="cb42-4"><a aria-hidden="true" href="#cb42-4" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="at">lastname</span> <span class="op">=</span> last</span>
+<span id="cb42-5"><a aria-hidden="true" href="#cb42-5" tabindex="-1"></a>    }</span>
+<span id="cb42-6"><a aria-hidden="true" href="#cb42-6" tabindex="-1"></a>    <span class="fu">getName</span>() {</span>
+<span id="cb42-7"><a aria-hidden="true" href="#cb42-7" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">this</span><span class="op">.</span><span class="at">firstname</span> <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> <span class="kw">this</span><span class="op">.</span><span class="at">lastname</span></span>
+<span id="cb42-8"><a aria-hidden="true" href="#cb42-8" tabindex="-1"></a>    }</span>
+<span id="cb42-9"><a aria-hidden="true" href="#cb42-9" tabindex="-1"></a>}</span>
+<span id="cb42-10"><a aria-hidden="true" href="#cb42-10" tabindex="-1"></a><span class="co">// new Person("Good", "Boy") instanceof Person</span></span></code></pre></div>
+<h2 id="extends-keyword"><code>extends</code> Keyword</h2>
+<div class="sourceCode" id="cb43"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb43-1"><a aria-hidden="true" href="#cb43-1" tabindex="-1"></a><span class="kw">class</span> Student <span class="kw">extends</span> Person {</span>
+<span id="cb43-2"><a aria-hidden="true" href="#cb43-2" tabindex="-1"></a>    <span class="fu">constructor</span> (first<span class="op">,</span> last<span class="op">,</span> grade) {</span>
+<span id="cb43-3"><a aria-hidden="true" href="#cb43-3" tabindex="-1"></a>        <span class="kw">super</span>(first<span class="op">,</span> last)<span class="op">;</span> <span class="co">// never forget</span></span>
+<span id="cb43-4"><a aria-hidden="true" href="#cb43-4" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="at">grade</span> <span class="op">=</span> grade<span class="op">;</span></span>
+<span id="cb43-5"><a aria-hidden="true" href="#cb43-5" tabindex="-1"></a>    }</span>
+<span id="cb43-6"><a aria-hidden="true" href="#cb43-6" tabindex="-1"></a>}</span>
+<span id="cb43-7"><a aria-hidden="true" href="#cb43-7" tabindex="-1"></a><span class="kw">const</span> s <span class="op">=</span> <span class="kw">new</span> <span class="fu">Student</span>(<span class="st">"Top"</span><span class="op">,</span><span class="st">"Student"</span><span class="op">,</span> <span class="fl">5.5</span>)<span class="op">;</span></span></code></pre></div>
+<h2 id="prototype-chain">Prototype chain</h2>
+<div class="sourceCode" id="cb44"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb44-1"><a aria-hidden="true" href="#cb44-1" tabindex="-1"></a><span class="kw">const</span> s <span class="op">=</span> <span class="kw">new</span> <span class="fu">Student</span>()</span>
+<span id="cb44-2"><a aria-hidden="true" href="#cb44-2" tabindex="-1"></a><span class="co">// s.__proto__ === Student.prototype;</span></span>
+<span id="cb44-3"><a aria-hidden="true" href="#cb44-3" tabindex="-1"></a><span class="co">// Object.getPrototypeOf(s) === Student.prototype;</span></span>
+<span id="cb44-4"><a aria-hidden="true" href="#cb44-4" tabindex="-1"></a><span class="co">// =&gt; s instanceof Student</span></span></code></pre></div>
+<h2 id="example-3">Example</h2>
+<p>Function composition -&gt; it must work for all functions!</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb45-1"><a aria-hidden="true" href="#cb45-1" tabindex="-1"></a><span class="bu">Function</span><span class="op">.</span><span class="at">prototype</span><span class="op">.</span><span class="at">then</span> <span class="op">=</span> <span class="kw">function</span>(fun) {</span>
+<span id="cb45-2"><a aria-hidden="true" href="#cb45-2" tabindex="-1"></a>    <span class="co">// this(number -&gt; result of the first function </span></span>
+<span id="cb45-3"><a aria-hidden="true" href="#cb45-3" tabindex="-1"></a>    <span class="co">// with the value at the end f.e. ..(1))</span></span>
+<span id="cb45-4"><a aria-hidden="true" href="#cb45-4" tabindex="-1"></a>    <span class="kw">const</span> compose <span class="op">=</span> fun <span class="kw">=&gt;</span> number <span class="kw">=&gt;</span> <span class="fu">fun</span>( <span class="kw">this</span>(number) )<span class="op">;</span></span>
+<span id="cb45-5"><a aria-hidden="true" href="#cb45-5" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">compose</span>(fun)<span class="op">;</span></span>
+<span id="cb45-6"><a aria-hidden="true" href="#cb45-6" tabindex="-1"></a>}</span></code></pre></div>
 <hr/>
 </article>
 </main>
