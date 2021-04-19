@@ -551,3 +551,82 @@ Function.prototype.then = function(fun) {
 }
 ```
 
+# Week 08 - Moves and User Interfaces
+
+## Compare with Dancing
+
+1. You must learn the moves.
+2. Then you can combine the moves and adapt to the situation at hand.
+
+## Recognize Moves
+
+- Become aware what you do.
+- We program collaboratively and look for moves.
+
+## Task 1: Improve the Tests
+
+- More structure.
+- Better reports when tests fail.
+- smooth transition.
+
+## Task 2: Todo List Example
+
+- What is the expected result?
+- What is the simplest thing that could possibly work?
+
+## Moves - Your Choice
+
+### 0. Explore
+
+- Technical feasibility, hypotheses, border cases.
+- The goal is to learn and verify, delete when finished.
+- Give yourself a timebox.
+
+### 1. Start at the End
+
+- Make static *sketch* of the result before adding dynamic features.
+- Dynamic sketches: all JS, CSS in a single HTML file.
+
+### 2. Extract
+
+- Replace static values with variables.
+- Replace repetitions with mappings and loops.
+
+### 3. Abstract
+
+- Discover the concept behind what you have extracted. Give it a name.
+- It should work for itself and in combination.
+- Revert if you cannot find one.
+
+### 4. Reorganize
+
+- Organize and re-factor to make your future work easier.
+- Facilitate extensions or improvements.
+- Prepare for release.
+
+### 5. Release
+
+- The solution must stand on its own without tacit knowledge or external help.
+- Tests, documentation, examples.
+- Before every push to the Repository.
+
+### 6. Retrospective
+
+- What to keep?
+- What to try differently next time?
+
+## Observations
+
+- Balance & distance
+- Which technologies support my moves: dynamic exploration, refactoring
+- Per feature, per project, whole career, ...
+
+## Example
+
+Failsafe callback:
+
+```javascript
+const failSafe = defaultValue => callback => argToCallback => {
+    return argToCallback === null ? defaultValue : callback(argToCallback);
+}
+```

@@ -178,6 +178,16 @@
             <li><a href="#prototype-chain">Prototype chain</a></li>
             <li><a href="#example-3">Example</a></li>
             </ul></li>
+            <li><a href="#week-08---moves-and-user-interfaces">Week 08 - Moves and User Interfaces</a>
+            <ul>
+            <li><a href="#compare-with-dancing">Compare with Dancing</a></li>
+            <li><a href="#recognize-moves">Recognize Moves</a></li>
+            <li><a href="#task-1-improve-the-tests">Task 1: Improve the Tests</a></li>
+            <li><a href="#task-2-todo-list-example">Task 2: Todo List Example</a></li>
+            <li><a href="#moves---your-choice">Moves - Your Choice</a></li>
+            <li><a href="#observations">Observations</a></li>
+            <li><a href="#example-4">Example</a></li>
+            </ul></li>
             </ul>
           </li>
         </ul>
@@ -241,6 +251,16 @@
 <li><a href="#extends-keyword"><code>extends</code> Keyword</a></li>
 <li><a href="#prototype-chain">Prototype chain</a></li>
 <li><a href="#example-3">Example</a></li>
+</ul></li>
+<li><a href="#week-08---moves-and-user-interfaces">Week 08 - Moves and User Interfaces</a>
+<ul>
+<li><a href="#compare-with-dancing">Compare with Dancing</a></li>
+<li><a href="#recognize-moves">Recognize Moves</a></li>
+<li><a href="#task-1-improve-the-tests">Task 1: Improve the Tests</a></li>
+<li><a href="#task-2-todo-list-example">Task 2: Todo List Example</a></li>
+<li><a href="#moves---your-choice">Moves - Your Choice</a></li>
+<li><a href="#observations">Observations</a></li>
+<li><a href="#example-4">Example</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -617,6 +637,79 @@
 <span id="cb45-4"><a aria-hidden="true" href="#cb45-4" tabindex="-1"></a>    <span class="kw">const</span> compose <span class="op">=</span> fun <span class="kw">=&gt;</span> number <span class="kw">=&gt;</span> <span class="fu">fun</span>( <span class="kw">this</span>(number) )<span class="op">;</span></span>
 <span id="cb45-5"><a aria-hidden="true" href="#cb45-5" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">compose</span>(fun)<span class="op">;</span></span>
 <span id="cb45-6"><a aria-hidden="true" href="#cb45-6" tabindex="-1"></a>}</span></code></pre></div>
+<h1 id="week-08---moves-and-user-interfaces">Week 08 - Moves and User Interfaces</h1>
+<h2 id="compare-with-dancing">Compare with Dancing</h2>
+<ol type="1">
+<li>You must learn the moves.</li>
+<li>Then you can combine the moves and adapt to the situation at hand.</li>
+</ol>
+<h2 id="recognize-moves">Recognize Moves</h2>
+<ul>
+<li>Become aware what you do.</li>
+<li>We program collaboratively and look for moves.</li>
+</ul>
+<h2 id="task-1-improve-the-tests">Task 1: Improve the Tests</h2>
+<ul>
+<li>More structure.</li>
+<li>Better reports when tests fail.</li>
+<li>smooth transition.</li>
+</ul>
+<h2 id="task-2-todo-list-example">Task 2: Todo List Example</h2>
+<ul>
+<li>What is the expected result?</li>
+<li>What is the simplest thing that could possibly work?</li>
+</ul>
+<h2 id="moves---your-choice">Moves - Your Choice</h2>
+<h3 id="explore">0. Explore</h3>
+<ul>
+<li>Technical feasibility, hypotheses, border cases.</li>
+<li>The goal is to learn and verify, delete when finished.</li>
+<li>Give yourself a timebox.</li>
+</ul>
+<h3 id="start-at-the-end">1. Start at the End</h3>
+<ul>
+<li>Make static <em>sketch</em> of the result before adding dynamic features.</li>
+<li>Dynamic sketches: all JS, CSS in a single HTML file.</li>
+</ul>
+<h3 id="extract">2. Extract</h3>
+<ul>
+<li>Replace static values with variables.</li>
+<li>Replace repetitions with mappings and loops.</li>
+</ul>
+<h3 id="abstract">3. Abstract</h3>
+<ul>
+<li>Discover the concept behind what you have extracted. Give it a name.</li>
+<li>It should work for itself and in combination.</li>
+<li>Revert if you cannot find one.</li>
+</ul>
+<h3 id="reorganize">4. Reorganize</h3>
+<ul>
+<li>Organize and re-factor to make your future work easier.</li>
+<li>Facilitate extensions or improvements.</li>
+<li>Prepare for release.</li>
+</ul>
+<h3 id="release">5. Release</h3>
+<ul>
+<li>The solution must stand on its own without tacit knowledge or external help.</li>
+<li>Tests, documentation, examples.</li>
+<li>Before every push to the Repository.</li>
+</ul>
+<h3 id="retrospective">6. Retrospective</h3>
+<ul>
+<li>What to keep?</li>
+<li>What to try differently next time?</li>
+</ul>
+<h2 id="observations">Observations</h2>
+<ul>
+<li>Balance &amp; distance</li>
+<li>Which technologies support my moves: dynamic exploration, refactoring</li>
+<li>Per feature, per project, whole career, â€¦</li>
+</ul>
+<h2 id="example-4">Example</h2>
+<p>Failsafe callback:</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb46-1"><a aria-hidden="true" href="#cb46-1" tabindex="-1"></a><span class="kw">const</span> failSafe <span class="op">=</span> defaultValue <span class="kw">=&gt;</span> callback <span class="kw">=&gt;</span> argToCallback <span class="kw">=&gt;</span> {</span>
+<span id="cb46-2"><a aria-hidden="true" href="#cb46-2" tabindex="-1"></a>    <span class="cf">return</span> argToCallback <span class="op">===</span> <span class="kw">null</span> <span class="op">?</span> defaultValue <span class="op">:</span> <span class="fu">callback</span>(argToCallback)<span class="op">;</span></span>
+<span id="cb46-3"><a aria-hidden="true" href="#cb46-3" tabindex="-1"></a>}</span></code></pre></div>
 <hr/>
 </article>
 </main>
