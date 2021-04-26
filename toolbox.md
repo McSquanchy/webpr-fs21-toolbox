@@ -630,3 +630,61 @@ const failSafe = defaultValue => callback => argToCallback => {
     return argToCallback === null ? defaultValue : callback(argToCallback);
 }
 ```
+
+# 9. UI Engineering, MVC
+
+> Frameworks and APIs change fast. Software design principles are evergreen. Learn principles that translate across language barriers.
+>
+> - Eric Elliot
+
+## Callback - Higher Order Function
+
+Higher-order Function.
+
+```javascript
+function test(name, callback) {
+	const assert = Assert();		// prework
+	callback(assert);				// callback
+	report(name, assert.getOk());	// postwork
+}
+```
+
+## Observable
+
+```javascript
+const Observable = value => {
+	const listeners = []; // many
+	return {
+		onChange: callback => listeners.push(callback),
+		getValue: () => value,
+		setValue: val => {
+			if (value === val) return; // protection
+			// ordering
+            value = val;
+			listeners.forEach(notify => notify(val));
+		}
+	}
+};
+```
+
+## Red-Green-Refactor
+
+![image-20210426110431979](D:\Github\webpr-fs21-toolbox\images\image-20210426110431979.png)
+
+Red-Green-Refactor is a basic concept in **Test-driven Development (TDD)** and consists of three stages:
+
+* **RED**: Write unit tests for whatever it is you want to code
+* **GREEN**: Write a minimal implementation such that the unit tests all pass
+* **REFACTOR**: Refactor the basic implementation and test again, making sure that all tests are still passing
+
+## MVC
+
+![MVC Bild](D:\Github\webpr-fs21-toolbox\images\mvc-1619427740674.PNG)
+
+## Example
+
+Using Observable that it keeps track of the sum of all values:
+
+```javascript
+trackable.onChange( _ => sum += trackable.getValue());
+```

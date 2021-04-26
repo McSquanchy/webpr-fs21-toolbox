@@ -188,6 +188,14 @@
             <li><a href="#observations">Observations</a></li>
             <li><a href="#example-4">Example</a></li>
             </ul></li>
+            <li><a href="#ui-engineering-mvc">9. UI Engineering, MVC</a>
+            <ul>
+            <li><a href="#callback---higher-order-function">Callback - Higher Order Function</a></li>
+            <li><a href="#observable">Observable</a></li>
+            <li><a href="#red-green-refactor">Red-Green-Refactor</a></li>
+            <li><a href="#mvc">MVC</a></li>
+            <li><a href="#example-5">Example</a></li>
+            </ul></li>
             </ul>
           </li>
         </ul>
@@ -261,6 +269,14 @@
 <li><a href="#moves---your-choice">Moves - Your Choice</a></li>
 <li><a href="#observations">Observations</a></li>
 <li><a href="#example-4">Example</a></li>
+</ul></li>
+<li><a href="#ui-engineering-mvc">9. UI Engineering, MVC</a>
+<ul>
+<li><a href="#callback---higher-order-function">Callback - Higher Order Function</a></li>
+<li><a href="#observable">Observable</a></li>
+<li><a href="#red-green-refactor">Red-Green-Refactor</a></li>
+<li><a href="#mvc">MVC</a></li>
+<li><a href="#example-5">Example</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -710,6 +726,51 @@
 <div class="sourceCode" id="cb46"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb46-1"><a aria-hidden="true" href="#cb46-1" tabindex="-1"></a><span class="kw">const</span> failSafe <span class="op">=</span> defaultValue <span class="kw">=&gt;</span> callback <span class="kw">=&gt;</span> argToCallback <span class="kw">=&gt;</span> {</span>
 <span id="cb46-2"><a aria-hidden="true" href="#cb46-2" tabindex="-1"></a>    <span class="cf">return</span> argToCallback <span class="op">===</span> <span class="kw">null</span> <span class="op">?</span> defaultValue <span class="op">:</span> <span class="fu">callback</span>(argToCallback)<span class="op">;</span></span>
 <span id="cb46-3"><a aria-hidden="true" href="#cb46-3" tabindex="-1"></a>}</span></code></pre></div>
+<h1 id="ui-engineering-mvc">9. UI Engineering, MVC</h1>
+<blockquote>
+<p>Frameworks and APIs change fast. Software design principles are evergreen. Learn principles that translate across language barriers.</p>
+<ul>
+<li>Eric Elliot</li>
+</ul>
+</blockquote>
+<h2 id="callback---higher-order-function">Callback - Higher Order Function</h2>
+<p>Higher-order Function.</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb47-1"><a aria-hidden="true" href="#cb47-1" tabindex="-1"></a><span class="kw">function</span> <span class="fu">test</span>(name<span class="op">,</span> callback) {</span>
+<span id="cb47-2"><a aria-hidden="true" href="#cb47-2" tabindex="-1"></a>    <span class="kw">const</span> assert <span class="op">=</span> <span class="fu">Assert</span>()<span class="op">;</span>        <span class="co">// prework</span></span>
+<span id="cb47-3"><a aria-hidden="true" href="#cb47-3" tabindex="-1"></a>    <span class="fu">callback</span>(assert)<span class="op">;</span>               <span class="co">// callback</span></span>
+<span id="cb47-4"><a aria-hidden="true" href="#cb47-4" tabindex="-1"></a>    <span class="fu">report</span>(name<span class="op">,</span> assert<span class="op">.</span><span class="fu">getOk</span>())<span class="op">;</span>   <span class="co">// postwork</span></span>
+<span id="cb47-5"><a aria-hidden="true" href="#cb47-5" tabindex="-1"></a>}</span></code></pre></div>
+<h2 id="observable">Observable</h2>
+<div class="sourceCode" id="cb48"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb48-1"><a aria-hidden="true" href="#cb48-1" tabindex="-1"></a><span class="kw">const</span> Observable <span class="op">=</span> value <span class="kw">=&gt;</span> {</span>
+<span id="cb48-2"><a aria-hidden="true" href="#cb48-2" tabindex="-1"></a>    <span class="kw">const</span> listeners <span class="op">=</span> []<span class="op">;</span> <span class="co">// many</span></span>
+<span id="cb48-3"><a aria-hidden="true" href="#cb48-3" tabindex="-1"></a>    <span class="cf">return</span> {</span>
+<span id="cb48-4"><a aria-hidden="true" href="#cb48-4" tabindex="-1"></a>        <span class="dt">onChange</span><span class="op">:</span> callback <span class="kw">=&gt;</span> listeners<span class="op">.</span><span class="fu">push</span>(callback)<span class="op">,</span></span>
+<span id="cb48-5"><a aria-hidden="true" href="#cb48-5" tabindex="-1"></a>        <span class="dt">getValue</span><span class="op">:</span> () <span class="kw">=&gt;</span> value<span class="op">,</span></span>
+<span id="cb48-6"><a aria-hidden="true" href="#cb48-6" tabindex="-1"></a>        <span class="dt">setValue</span><span class="op">:</span> val <span class="kw">=&gt;</span> {</span>
+<span id="cb48-7"><a aria-hidden="true" href="#cb48-7" tabindex="-1"></a>            <span class="cf">if</span> (value <span class="op">===</span> val) <span class="cf">return</span><span class="op">;</span> <span class="co">// protection</span></span>
+<span id="cb48-8"><a aria-hidden="true" href="#cb48-8" tabindex="-1"></a>            <span class="co">// ordering</span></span>
+<span id="cb48-9"><a aria-hidden="true" href="#cb48-9" tabindex="-1"></a>            value <span class="op">=</span> val<span class="op">;</span></span>
+<span id="cb48-10"><a aria-hidden="true" href="#cb48-10" tabindex="-1"></a>            listeners<span class="op">.</span><span class="fu">forEach</span>(notify <span class="kw">=&gt;</span> <span class="fu">notify</span>(val))<span class="op">;</span></span>
+<span id="cb48-11"><a aria-hidden="true" href="#cb48-11" tabindex="-1"></a>        }</span>
+<span id="cb48-12"><a aria-hidden="true" href="#cb48-12" tabindex="-1"></a>    }</span>
+<span id="cb48-13"><a aria-hidden="true" href="#cb48-13" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div>
+<h2 id="red-green-refactor">Red-Green-Refactor</h2>
+<figure>
+<img alt="image-20210426110431979" src="D:\Github\webpr-fs21-toolbox\images\image-20210426110431979.png"/><figcaption aria-hidden="true">image-20210426110431979</figcaption>
+</figure>
+<p>Red-Green-Refactor is a basic concept in <strong>Test-driven Development (TDD)</strong> and consists of three stages:</p>
+<ul>
+<li><strong>RED</strong>: Write unit tests for whatever it is you want to code</li>
+<li><strong>GREEN</strong>: Write a minimal implementation such that the unit tests all pass</li>
+<li><strong>REFACTOR</strong>: Refactor the basic implementation and test again, making sure that all tests are still passing</li>
+</ul>
+<h2 id="mvc">MVC</h2>
+<figure>
+<img alt="MVC Bild" src="D:\Github\webpr-fs21-toolbox\images\mvc-1619427740674.PNG"/><figcaption aria-hidden="true">MVC Bild</figcaption>
+</figure>
+<h2 id="example-5">Example</h2>
+<p>Using Observable that it keeps track of the sum of all values:</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb49-1"><a aria-hidden="true" href="#cb49-1" tabindex="-1"></a>trackable<span class="op">.</span><span class="fu">onChange</span>( _ <span class="kw">=&gt;</span> sum <span class="op">+=</span> trackable<span class="op">.</span><span class="fu">getValue</span>())<span class="op">;</span></span></code></pre></div>
 <hr/>
 </article>
 </main>
