@@ -669,7 +669,7 @@ const Observable = value => {
 
 ## Red-Green-Refactor
 
-![image-20210426110431979](D:\Github\webpr-fs21-toolbox\images\image-20210426110431979.png)
+![image-20210426110431979](docs\images\rgrf.png)
 
 Red-Green-Refactor is a basic concept in **Test-driven Development (TDD)** and consists of three stages:
 
@@ -679,7 +679,7 @@ Red-Green-Refactor is a basic concept in **Test-driven Development (TDD)** and c
 
 ## MVC
 
-![MVC Bild](D:\Github\webpr-fs21-toolbox\images\mvc-1619427740674.PNG)
+![MVC Bild](docs\images\mvc.PNG)
 
 ## Example
 
@@ -691,7 +691,7 @@ trackable.onChange( _ => sum += trackable.getValue());
 
 # 10. Async Programming
 
-![image-async](D:\Github\webpr-fs21-toolbox\images\image-20210510105652939.png)
+![image-async](docs\images\async.png)
 
 ## Testing
 
