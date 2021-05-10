@@ -633,10 +633,6 @@ const failSafe = defaultValue => callback => argToCallback => {
 
 # 9. UI Engineering, MVC
 
-> Frameworks and APIs change fast. Software design principles are evergreen. Learn principles that translate across language barriers.
->
-> - Eric Elliot
-
 ## Callback - Higher Order Function
 
 Higher-order Function.
@@ -669,7 +665,7 @@ const Observable = value => {
 
 ## Red-Green-Refactor
 
-![image-20210426110431979](docs\images\rgrf.png)
+![redgreenrefactor](images\rgrf.png)
 
 Red-Green-Refactor is a basic concept in **Test-driven Development (TDD)** and consists of three stages:
 
@@ -679,7 +675,7 @@ Red-Green-Refactor is a basic concept in **Test-driven Development (TDD)** and c
 
 ## MVC
 
-![MVC Bild](docs\images\mvc.PNG)
+![mvc](images\mvc.PNG)
 
 ## Example
 
@@ -691,7 +687,7 @@ trackable.onChange( _ => sum += trackable.getValue());
 
 # 10. Async Programming
 
-![image-async](docs\images\async.png)
+![async](images\async.png)
 
 ## Testing
 

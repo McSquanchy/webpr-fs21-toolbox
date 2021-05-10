@@ -743,12 +743,6 @@
 <span id="cb46-2"><a aria-hidden="true" href="#cb46-2" tabindex="-1"></a>    <span class="cf">return</span> argToCallback <span class="op">===</span> <span class="kw">null</span> <span class="op">?</span> defaultValue <span class="op">:</span> <span class="fu">callback</span>(argToCallback)<span class="op">;</span></span>
 <span id="cb46-3"><a aria-hidden="true" href="#cb46-3" tabindex="-1"></a>}</span></code></pre></div>
 <h1 id="ui-engineering-mvc">9. UI Engineering, MVC</h1>
-<blockquote>
-<p>Frameworks and APIs change fast. Software design principles are evergreen. Learn principles that translate across language barriers.</p>
-<ul>
-<li>Eric Elliot</li>
-</ul>
-</blockquote>
 <h2 id="callback---higher-order-function">Callback - Higher Order Function</h2>
 <p>Higher-order Function.</p>
 <div class="sourceCode" id="cb47"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb47-1"><a aria-hidden="true" href="#cb47-1" tabindex="-1"></a><span class="kw">function</span> <span class="fu">test</span>(name<span class="op">,</span> callback) {</span>
@@ -772,7 +766,7 @@
 <span id="cb48-13"><a aria-hidden="true" href="#cb48-13" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div>
 <h2 id="red-green-refactor">Red-Green-Refactor</h2>
 <figure>
-<img alt="image-20210426110431979" src="docs\images\rgrf.png"/><figcaption aria-hidden="true">image-20210426110431979</figcaption>
+<img alt="redgreenrefactor" src="images\rgrf.png"/><figcaption aria-hidden="true">redgreenrefactor</figcaption>
 </figure>
 <p>Red-Green-Refactor is a basic concept in <strong>Test-driven Development (TDD)</strong> and consists of three stages:</p>
 <ul>
@@ -782,14 +776,14 @@
 </ul>
 <h2 id="mvc">MVC</h2>
 <figure>
-<img alt="MVC Bild" src="docs\images\mvc.PNG"/><figcaption aria-hidden="true">MVC Bild</figcaption>
+<img alt="mvc" src="images\mvc.PNG"/><figcaption aria-hidden="true">mvc</figcaption>
 </figure>
 <h2 id="example-5">Example</h2>
 <p>Using Observable that it keeps track of the sum of all values:</p>
 <div class="sourceCode" id="cb49"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb49-1"><a aria-hidden="true" href="#cb49-1" tabindex="-1"></a>trackable<span class="op">.</span><span class="fu">onChange</span>( _ <span class="kw">=&gt;</span> sum <span class="op">+=</span> trackable<span class="op">.</span><span class="fu">getValue</span>())<span class="op">;</span></span></code></pre></div>
 <h1 id="async-programming">10. Async Programming</h1>
 <figure>
-<img alt="image-async" src="docs\images\async.png"/><figcaption aria-hidden="true">image-async</figcaption>
+<img alt="async" src="images\async.png"/><figcaption aria-hidden="true">async</figcaption>
 </figure>
 <h2 id="testing">Testing</h2>
 <div class="sourceCode" id="cb50"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb50-1"><a aria-hidden="true" href="#cb50-1" tabindex="-1"></a><span class="fu">test</span>(<span class="st">"todo-memory-leak"</span><span class="op">,</span> assert <span class="kw">=&gt;</span> {</span>
