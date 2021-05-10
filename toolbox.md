@@ -688,3 +688,109 @@ Using Observable that it keeps track of the sum of all values:
 ```javascript
 trackable.onChange( _ => sum += trackable.getValue());
 ```
+
+# 10. Async Programming
+
+![image-async](D:\Github\webpr-fs21-toolbox\images\image-20210510105652939.png)
+
+## Testing
+
+```javascript
+test("todo-memory-leak", assert => {
+	const todoController = TodoController();
+
+    todoController.onTodoAdd(todo => {
+		todoController.onTodoRemove( (todo, removeMe) => {
+			removeMe(); // idea: self remove
+		});
+	});
+
+    for (let i=0; i<10000; i++){
+		const todo = todoController.addTodo();
+		todoController.removeTodo(todo);
+	}
+});
+```
+
+## Callback, Events
+
+```javascript
+function start() {
+	//...
+	window.onkeydown = evt => {
+		// doSomething();
+	};
+	setInterval(() => {
+		// doSomething();
+	}, 1000 / 5);
+}
+```
+
+## Promise
+
+Most prominent use:
+
+```javascript
+fetch ('http://fhnw.ch/json/students/list')
+.then(response => response.json())
+.then(students => console.log(students.length))
+.catch (err => console.log(err)
+```
+
+Success / Failure callbacks:
+
+```javascript
+// definition
+const processEven = i => new Promise( (resolve, reject) => {
+	if (i % 2 === 0) {
+		resolve(i);
+	} else {
+		reject(i);
+	}
+});
+
+// use
+processEven(4)
+.then ( it => {console.log(it); return it} ) // auto promotion
+.then ( it => processEven(it+1))
+.catch( err => console.log( "Error: " + err))
+```
+
+## Async / Await
+
+```javascript
+const foo = async i => {
+	const x = await processEven(i).catch( err => err);
+	console.log("foo: " + x);
+};
+foo(4);
+```
+
+Other variant:
+
+```javascript
+async function foo(i) {
+	try {
+		const x = await processEven(i);
+		console.log("foo: " + x);
+	}
+	catch(err) { console.log(err); }
+};
+foo(4);
+```
+
+## Example
+
+A NullSafe construction in the style of a `Promise`:
+
+```javascript
+const NullSafe = x => {
+    const isNullSafe = y => y && y.then;
+    const maywrap = y => isNullSafe(y) ? y : NullSafe(y);
+    return {
+        then: fn => (x !== null && x != undefined)
+        			? maywrap(fn(x)) 
+        			: NullSafe(x)
+    }
+};
+```
