@@ -204,6 +204,15 @@
             <li><a href="#async-await">Async / Await</a></li>
             <li><a href="#example-6">Example</a></li>
             </ul></li>
+            <li><a href="#data-flow">11. Data Flow</a>
+            <ul>
+            <li><a href="#coordination-schemata">Coordination schemata</a></li>
+            <li><a href="#no-coordination">No Coordination</a></li>
+            <li><a href="#sequence">Sequence</a></li>
+            <li><a href="#result-dependency">Result Dependency</a></li>
+            <li><a href="#scheduler-idea">Scheduler Idea</a></li>
+            <li><a href="#dataflowvariable">DataFlowVariable</a></li>
+            </ul></li>
             </ul>
           </li>
         </ul>
@@ -293,6 +302,15 @@
 <li><a href="#promise">Promise</a></li>
 <li><a href="#async-await">Async / Await</a></li>
 <li><a href="#example-6">Example</a></li>
+</ul></li>
+<li><a href="#data-flow">11. Data Flow</a>
+<ul>
+<li><a href="#coordination-schemata">Coordination schemata</a></li>
+<li><a href="#no-coordination">No Coordination</a></li>
+<li><a href="#sequence">Sequence</a></li>
+<li><a href="#result-dependency">Result Dependency</a></li>
+<li><a href="#scheduler-idea">Scheduler Idea</a></li>
+<li><a href="#dataflowvariable">DataFlowVariable</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -857,6 +875,49 @@
 <span id="cb56-7"><a aria-hidden="true" href="#cb56-7" tabindex="-1"></a>                    <span class="op">:</span> <span class="fu">NullSafe</span>(x)</span>
 <span id="cb56-8"><a aria-hidden="true" href="#cb56-8" tabindex="-1"></a>    }</span>
 <span id="cb56-9"><a aria-hidden="true" href="#cb56-9" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div>
+<h1 id="data-flow">11. Data Flow</h1>
+<h2 id="coordination-schemata">Coordination schemata</h2>
+<blockquote>
+<p>Similar to concurrency</p>
+</blockquote>
+<ol type="1">
+<li>No coordination needed</li>
+<li>Sequence (of side effects)</li>
+<li>Dependeny on former results</li>
+</ol>
+<h2 id="no-coordination">No Coordination</h2>
+<blockquote>
+<p>Nothing to do !</p>
+</blockquote>
+<ul>
+<li>Execution model: confined</li>
+<li>All actions run independently</li>
+</ul>
+<h2 id="sequence">Sequence</h2>
+<blockquote>
+<p>Actor</p>
+</blockquote>
+<ul>
+<li>In a sequence of actions, each action can only start if the preceding one has finished</li>
+<li>How to achieve this =&gt; Delegated Coordination =&gt; Scheduler</li>
+</ul>
+<h2 id="result-dependency">Result Dependency</h2>
+<ul>
+<li>Action B and C need the result of action A</li>
+<li>A must be executed <strong>exactly once</strong> before B and C</li>
+<li>How to do this =&gt; Implicit Coordination =&gt; DataFlowVariable</li>
+</ul>
+<h2 id="scheduler-idea">Scheduler Idea</h2>
+<ul>
+<li>Queue (FIFO) of functions that are started with a lock</li>
+<li>Callback unlocks</li>
+</ul>
+<h2 id="dataflowvariable">DataFlowVariable</h2>
+<ul>
+<li>Function, that sets a value if it is not already set. Returns the value.</li>
+<li>Lazy: Access to variables that will become available later</li>
+<li>Trick: Do not set the value, but a function that returns the value</li>
+</ul>
 <hr/>
 </article>
 </main>

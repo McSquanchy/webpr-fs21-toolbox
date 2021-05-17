@@ -790,3 +790,45 @@ const NullSafe = x => {
     }
 };
 ```
+
+# 11. Data Flow
+
+## Coordination schemata
+
+> Similar to concurrency
+
+1. No coordination needed
+2. Sequence (of side effects)
+3. Dependeny on former results
+
+## No Coordination
+
+> Nothing to do !
+
+- Execution model: confined
+- All actions run independently
+
+## Sequence
+
+> Actor
+
+- In a sequence of actions, each action can only start if the preceding one has finished
+- How to achieve this => Delegated Coordination => Scheduler
+
+## Result Dependency
+
+- Action B and C need the result of action A
+- A must be executed **exactly once** before B and C
+- How to do this => Implicit Coordination => DataFlowVariable
+
+## Scheduler Idea
+
+- Queue (FIFO) of functions that are started with a lock
+- Callback unlocks
+
+## DataFlowVariable
+
+- Function, that sets a value if it is not already set. Returns the value.
+- Lazy: Access to variables that will become available later
+- Trick: Do not set the value, but a function that returns the value
+
