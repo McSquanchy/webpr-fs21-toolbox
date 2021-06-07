@@ -213,6 +213,37 @@
             <li><a href="#scheduler-idea">Scheduler Idea</a></li>
             <li><a href="#dataflowvariable">DataFlowVariable</a></li>
             </ul></li>
+            <li><a href="#modules">12. Modules</a>
+            <ul>
+            <li><a href="#why-modules">Why Modules?</a></li>
+            <li><a href="#distinguish">Distinguish</a></li>
+            <li><a href="#es6-modules">ES6 Modules</a></li>
+            <li><a href="#package-manager">Package Manager</a></li>
+            <li><a href="#build-tools">Build Tools</a></li>
+            <li><a href="#legacy-module-systems">Legacy module systems</a></li>
+            <li><a href="#legacy-module-loader-bundler">Legacy Module Loader / Bundler</a></li>
+            <li><a href="#modules-are-async">Modules are async</a></li>
+            <li><a href="#import-variants">Import Variants</a></li>
+            <li><a href="#export-variants">Export Variants</a></li>
+            <li><a href="#impacts">Impacts</a></li>
+            <li><a href="#sop---single-origin-policy">SOP - Single Origin Policy</a></li>
+            <li><a href="#useful-tools">Useful Tools</a></li>
+            <li><a href="#resources-1">Resources</a></li>
+            </ul></li>
+            <li><a href="#transpilers-typescript-purescript-elm">13. Transpilers: TypeScript, PureScript, Elm</a>
+            <ul>
+            <li><a href="#what-they-have-in-common">What they have in common</a></li>
+            <li><a href="#the-cycle">The Cycle</a></li>
+            <li><a href="#typescript">TypeScript</a></li>
+            <li><a href="#elm">Elm</a></li>
+            <li><a href="#purescript-pux">PureScript / Pux</a></li>
+            <li><a href="#calling-javascript-ffi">Calling JavaScript (FFI)</a></li>
+            <li><a href="#applicability">Applicability</a></li>
+            <li><a href="#paradigm">Paradigm</a></li>
+            <li><a href="#approach">Approach</a></li>
+            <li><a href="#cool">Cool</a></li>
+            <li><a href="#more-transpilers">More Transpilers</a></li>
+            </ul></li>
             </ul>
           </li>
         </ul>
@@ -311,6 +342,37 @@
 <li><a href="#result-dependency">Result Dependency</a></li>
 <li><a href="#scheduler-idea">Scheduler Idea</a></li>
 <li><a href="#dataflowvariable">DataFlowVariable</a></li>
+</ul></li>
+<li><a href="#modules">12. Modules</a>
+<ul>
+<li><a href="#why-modules">Why Modules?</a></li>
+<li><a href="#distinguish">Distinguish</a></li>
+<li><a href="#es6-modules">ES6 Modules</a></li>
+<li><a href="#package-manager">Package Manager</a></li>
+<li><a href="#build-tools">Build Tools</a></li>
+<li><a href="#legacy-module-systems">Legacy module systems</a></li>
+<li><a href="#legacy-module-loader-bundler">Legacy Module Loader / Bundler</a></li>
+<li><a href="#modules-are-async">Modules are async</a></li>
+<li><a href="#import-variants">Import Variants</a></li>
+<li><a href="#export-variants">Export Variants</a></li>
+<li><a href="#impacts">Impacts</a></li>
+<li><a href="#sop---single-origin-policy">SOP - Single Origin Policy</a></li>
+<li><a href="#useful-tools">Useful Tools</a></li>
+<li><a href="#resources-1">Resources</a></li>
+</ul></li>
+<li><a href="#transpilers-typescript-purescript-elm">13. Transpilers: TypeScript, PureScript, Elm</a>
+<ul>
+<li><a href="#what-they-have-in-common">What they have in common</a></li>
+<li><a href="#the-cycle">The Cycle</a></li>
+<li><a href="#typescript">TypeScript</a></li>
+<li><a href="#elm">Elm</a></li>
+<li><a href="#purescript-pux">PureScript / Pux</a></li>
+<li><a href="#calling-javascript-ffi">Calling JavaScript (FFI)</a></li>
+<li><a href="#applicability">Applicability</a></li>
+<li><a href="#paradigm">Paradigm</a></li>
+<li><a href="#approach">Approach</a></li>
+<li><a href="#cool">Cool</a></li>
+<li><a href="#more-transpilers">More Transpilers</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -918,6 +980,258 @@
 <li>Lazy: Access to variables that will become available later</li>
 <li>Trick: Do not set the value, but a function that returns the value</li>
 </ul>
+<h1 id="modules">12. Modules</h1>
+<h2 id="why-modules">Why Modules?</h2>
+<ul>
+<li>Organize the Code</li>
+<li>Clear dependencies</li>
+<li>Avoid errors: Globals, Scoping, Namespace</li>
+</ul>
+<div class="sourceCode" id="cb57"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb57-1"><a aria-hidden="true" href="#cb57-1" tabindex="-1"></a><span class="co">// avoid something like this in your html document</span></span>
+<span id="cb57-2"><a aria-hidden="true" href="#cb57-2" tabindex="-1"></a><span class="op">&lt;</span>script src<span class="op">=</span><span class="st">"fileA.js"</span><span class="op">&gt;</span></span>
+<span id="cb57-3"><a aria-hidden="true" href="#cb57-3" tabindex="-1"></a><span class="op">&lt;</span>script src<span class="op">=</span><span class="st">"fileB.js"</span><span class="op">&gt;</span></span>
+<span id="cb57-4"><a aria-hidden="true" href="#cb57-4" tabindex="-1"></a><span class="op">&lt;</span>script src<span class="op">=</span><span class="st">"fileC.js"</span><span class="op">&gt;</span></span>
+<span id="cb57-5"><a aria-hidden="true" href="#cb57-5" tabindex="-1"></a><span class="co">// if fileA.js has a reference on fileC.js it won't work !!!</span></span></code></pre></div>
+<h2 id="distinguish">Distinguish</h2>
+<ul>
+<li>How I want to edit the code</li>
+<li>How I want to deliver the code</li>
+</ul>
+<h2 id="es6-modules">ES6 Modules</h2>
+<p>They are notâ€¦</p>
+<ul>
+<li>Packages (those have versions)</li>
+<li>Dependencies, Libraries, Releases</li>
+<li>Units of publication</li>
+<li>Objects</li>
+</ul>
+<h2 id="package-manager">Package Manager</h2>
+<p><code>webpack</code>, <code>npm</code>, <code>bower</code>, <code>yarn</code>, â€¦</p>
+<h2 id="build-tools">Build Tools</h2>
+<p><code>webpack</code>, <code>npm</code>, <code>grunt</code>, <code>gulp</code>, â€¦</p>
+<h2 id="legacy-module-systems">Legacy module systems</h2>
+<p><code>CommonJS</code>, <code>AMD</code>, <code>UMD</code>, â€¦</p>
+<h2 id="legacy-module-loader-bundler">Legacy Module Loader / Bundler</h2>
+<p><code>RequireJS</code>, <code>SystemJS</code>, <code>browserify</code>, â€¦</p>
+<h2 id="modules-are-async">Modules are async</h2>
+<div class="sourceCode" id="cb58"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb58-1"><a aria-hidden="true" href="#cb58-1" tabindex="-1"></a><span class="co">// Use URI format as follows: "./myFile.js"</span></span>
+<span id="cb58-2"><a aria-hidden="true" href="#cb58-2" tabindex="-1"></a><span class="op">&lt;</span>script src<span class="op">=</span><span class="st">"./myFile.js"</span> type<span class="op">=</span><span class="st">"module"</span><span class="op">&gt;</span> <span class="co">// type implies "defer"</span></span>
+<span id="cb58-3"><a aria-hidden="true" href="#cb58-3" tabindex="-1"></a><span class="im">import</span> (<span class="st">"./myFile.js"</span>)<span class="op">.</span><span class="fu">then</span>( modules <span class="kw">=&gt;</span> <span class="op">...</span> )</span>
+<span id="cb58-4"><a aria-hidden="true" href="#cb58-4" tabindex="-1"></a><span class="co">// invasive, transitive impact</span></span></code></pre></div>
+<h2 id="import-variants">Import Variants</h2>
+<p>Always explicit!</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb59-1"><a aria-hidden="true" href="#cb59-1" tabindex="-1"></a><span class="co">// most used</span></span>
+<span id="cb59-2"><a aria-hidden="true" href="#cb59-2" tabindex="-1"></a><span class="im">import</span> <span class="st">"module-name"</span><span class="op">;</span></span>
+<span id="cb59-3"><a aria-hidden="true" href="#cb59-3" tabindex="-1"></a><span class="im">import</span> { export1<span class="op">,</span> export2 } <span class="im">from</span> <span class="st">"module-name"</span><span class="op">;</span></span>
+<span id="cb59-4"><a aria-hidden="true" href="#cb59-4" tabindex="-1"></a></span>
+<span id="cb59-5"><a aria-hidden="true" href="#cb59-5" tabindex="-1"></a><span class="co">// other variants</span></span>
+<span id="cb59-6"><a aria-hidden="true" href="#cb59-6" tabindex="-1"></a><span class="im">import</span> defaultExport <span class="im">from</span> <span class="st">"module-name"</span><span class="op">;</span></span>
+<span id="cb59-7"><a aria-hidden="true" href="#cb59-7" tabindex="-1"></a><span class="im">import</span> <span class="op">*</span> <span class="im">as</span> name <span class="im">from</span> <span class="st">"module-name"</span><span class="op">;</span></span>
+<span id="cb59-8"><a aria-hidden="true" href="#cb59-8" tabindex="-1"></a><span class="im">import</span> { <span class="im">export</span> } <span class="im">from</span> <span class="st">"module-name"</span><span class="op">;</span></span>
+<span id="cb59-9"><a aria-hidden="true" href="#cb59-9" tabindex="-1"></a><span class="im">import</span> { <span class="im">export</span> <span class="im">as</span> alias } <span class="im">from</span> <span class="st">"module-name"</span><span class="op">;</span></span>
+<span id="cb59-10"><a aria-hidden="true" href="#cb59-10" tabindex="-1"></a><span class="kw">var</span> promise <span class="op">=</span> <span class="im">import</span>(<span class="st">"module-name"</span>)<span class="op">;</span></span></code></pre></div>
+<h2 id="export-variants">Export Variants</h2>
+<p>Always explicit!</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb60-1"><a aria-hidden="true" href="#cb60-1" tabindex="-1"></a><span class="co">// most used</span></span>
+<span id="cb60-2"><a aria-hidden="true" href="#cb60-2" tabindex="-1"></a><span class="im">export</span> { name1<span class="op">,</span> name2<span class="op">,</span> <span class="op">...</span> <span class="op">,</span> nameN }<span class="op">;</span></span>
+<span id="cb60-3"><a aria-hidden="true" href="#cb60-3" tabindex="-1"></a></span>
+<span id="cb60-4"><a aria-hidden="true" href="#cb60-4" tabindex="-1"></a><span class="co">// other variants</span></span>
+<span id="cb60-5"><a aria-hidden="true" href="#cb60-5" tabindex="-1"></a><span class="im">export</span> <span class="kw">function</span> <span class="fu">FunctionName</span>() { <span class="op">..</span> }</span>
+<span id="cb60-6"><a aria-hidden="true" href="#cb60-6" tabindex="-1"></a><span class="im">export</span> <span class="kw">const</span> name1<span class="op">,</span> name2<span class="op">,</span> <span class="op">...</span> <span class="op">,</span> nameN<span class="op">;</span> <span class="co">// or let</span></span>
+<span id="cb60-7"><a aria-hidden="true" href="#cb60-7" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> ClassName { <span class="op">..</span> }</span>
+<span id="cb60-8"><a aria-hidden="true" href="#cb60-8" tabindex="-1"></a><span class="im">export</span> <span class="im">default</span> expression<span class="op">;</span></span>
+<span id="cb60-9"><a aria-hidden="true" href="#cb60-9" tabindex="-1"></a><span class="im">export</span> { name1 <span class="im">as</span> <span class="im">default</span><span class="op">,</span> <span class="op">..</span> }<span class="op">;</span></span>
+<span id="cb60-10"><a aria-hidden="true" href="#cb60-10" tabindex="-1"></a><span class="im">export</span> <span class="op">*</span> <span class="im">from</span> <span class="op">..</span> <span class="op">;</span></span>
+<span id="cb60-11"><a aria-hidden="true" href="#cb60-11" tabindex="-1"></a><span class="im">export</span> { name1<span class="op">,</span> name2<span class="op">,</span> <span class="op">...</span> <span class="op">,</span> nameN } <span class="im">from</span> <span class="op">..</span> <span class="op">;</span></span></code></pre></div>
+<h2 id="impacts">Impacts</h2>
+<ul>
+<li>implicit <em>use-strict</em> exports are read-only !</li>
+<li>no Global object, no Global <em>this</em>, no Global hoisting</li>
+<li>implicit <em>defer mode</em> =&gt; <code>document.writeln</code> is no longer useful</li>
+<li>Modules are Namespaces</li>
+<li>Modules are Singletons</li>
+</ul>
+<h2 id="sop---single-origin-policy">SOP - Single Origin Policy</h2>
+<ul>
+<li>Modules are subject to the SOP</li>
+<li>Problem at construction time: the File System is a <strong>null origin</strong></li>
+</ul>
+<h2 id="useful-tools">Useful Tools</h2>
+<ul>
+<li>Developer Mode (suppress SOP) -&gt; donâ€™t forget to set back!</li>
+<li>Local Webserver</li>
+<li>Disable cache!</li>
+<li>Bundler (Rollup, Parcel, Webpack, â€¦)</li>
+<li>Start Browser in Debug mode</li>
+</ul>
+<h2 id="resources-1">Resources</h2>
+<ul>
+<li>https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import</li>
+<li>http://exploringjs.com/es6/ch_modules.html</li>
+</ul>
+<h1 id="transpilers-typescript-purescript-elm">13. Transpilers: TypeScript, PureScript, Elm</h1>
+<h2 id="what-they-have-in-common">What they have in common</h2>
+<ul>
+<li>All are transpiling to JavaScript !</li>
+<li>Allow React / Elm Architecture for functional JavaScript / SPA
+<ul>
+<li>TypeScript + React</li>
+<li>PureScript + Pux / Halogen</li>
+<li>Elm</li>
+</ul></li>
+</ul>
+<h2 id="the-cycle">The Cycle</h2>
+<div class="sourceCode" id="cb61"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb61-1"><a aria-hidden="true" href="#cb61-1" tabindex="-1"></a>View <span class="op">-&gt;</span> Action <span class="op">-&gt;</span> State <span class="op">-&gt;</span> State ___________<span class="op">|</span></span>
+<span id="cb61-2"><a aria-hidden="true" href="#cb61-2" tabindex="-1"></a> <span class="op">^</span>                                          <span class="op">|</span></span>
+<span id="cb61-3"><a aria-hidden="true" href="#cb61-3" tabindex="-1"></a> <span class="op">|</span>__________________________________________<span class="op">|</span></span></code></pre></div>
+<h2 id="typescript">TypeScript</h2>
+<ul>
+<li>Typed state</li>
+<li>Actions as functions / lamdas</li>
+<li>State immutability with discipline</li>
+<li>Object / component abstraction</li>
+</ul>
+<h2 id="elm">Elm</h2>
+<ul>
+<li>Typed state</li>
+<li>Action type with values</li>
+<li>State is immutable</li>
+<li>Update function is a fold</li>
+<li>Function composition</li>
+</ul>
+<h2 id="purescript-pux">PureScript / Pux</h2>
+<ul>
+<li>Like Elm</li>
+<li>But even more Haskell-ish</li>
+<li>https://try.purescript.org/</li>
+</ul>
+<div class="sourceCode" id="cb62"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb62-1"><a aria-hidden="true" href="#cb62-1" tabindex="-1"></a><span class="co">// signature</span></span>
+<span id="cb62-2"><a aria-hidden="true" href="#cb62-2" tabindex="-1"></a><span class="co">// name  quantifier  type variables</span></span>
+<span id="cb62-3"><a aria-hidden="true" href="#cb62-3" tabindex="-1"></a>konst <span class="op">::</span> forall a b <span class="op">.</span> <span class="at">a</span> <span class="op">-&gt;</span> b <span class="op">-&gt;</span> a</span>
+<span id="cb62-4"><a aria-hidden="true" href="#cb62-4" tabindex="-1"></a><span class="co">// definition</span></span>
+<span id="cb62-5"><a aria-hidden="true" href="#cb62-5" tabindex="-1"></a>konst x y <span class="op">=</span> x</span></code></pre></div>
+<h2 id="calling-javascript-ffi">Calling JavaScript (FFI)</h2>
+<table>
+<thead>
+<tr class="header">
+<th>TypeScript</th>
+<th>Type declaration</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>PureScript</strong></td>
+<td><strong>Type declaration</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Elm</strong></td>
+<td><strong>Port / Flag</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="applicability">Applicability</h2>
+<table>
+<thead>
+<tr class="header">
+<th>TypeScript</th>
+<th>JS Environment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>PureScript</strong></td>
+<td><strong>JS Environment</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Elm</strong></td>
+<td><strong>Browser</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="paradigm">Paradigm</h2>
+<table>
+<thead>
+<tr class="header">
+<th>TypeScript</th>
+<th>OO with Generics</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>PureScript</strong></td>
+<td><strong>Functional</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Elm</strong></td>
+<td><strong>Functional</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="approach">Approach</h2>
+<table>
+<thead>
+<tr class="header">
+<th>TypeScript</th>
+<th>Language</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>PureScript</strong></td>
+<td><strong>Language &amp; Tools</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Elm</strong></td>
+<td><strong>Programming System</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="cool">Cool</h2>
+<table>
+<thead>
+<tr class="header">
+<th>TypeScript</th>
+<th>Sum (union) type , String Literal type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>PureScript</strong></td>
+<td><strong>Eff Monad, [GADT]</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Elm</strong></td>
+<td><strong>Time travel debug , SemVer guarantee</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="more-transpilers">More Transpilers</h2>
+<table>
+<thead>
+<tr class="header">
+<th>ClojureScript</th>
+<th>Clojure (Lisp)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>GHCJS</strong></td>
+<td><strong>Haskell</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Babel</strong></td>
+<td><strong>JS</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>CoffeeScript</strong></td>
+<td><strong>JS++</strong></td>
+</tr>
+<tr class="even">
+<td><strong>GrooScript</strong></td>
+<td><strong>Groovy</strong></td>
+</tr>
+</tbody>
+</table>
 <hr/>
 </article>
 </main>
