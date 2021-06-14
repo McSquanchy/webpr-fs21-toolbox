@@ -1071,7 +1071,7 @@ false, null, undefined, "", 0, NaN
 
 **Rule of thumb (reliability)**: object -> string -> number -> boolean
 
-## == vs. ===
+## == vs ===
 
 `==` coerces the operands whereas `===` does not!
 
