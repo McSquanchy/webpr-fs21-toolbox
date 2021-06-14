@@ -1041,3 +1041,96 @@ konst x y = x
 | **CoffeeScript** | **JS++**       |
 | **GrooScript**   | **Groovy**     |
 
+# 14. Crazy Javascript
+
+## Equivalence and Transitivity
+
+```javascript
+a == b == c => a == c
+0 == "0"
+0 == []
+0 == "\t"
+```
+
+## False values
+
+```javascript
+false, null, undefined, "", 0, NaN
+```
+
+**Falsy and truthy:**
+
+* falsy = what coerces to false
+* true = everything that isn't false
+* truthy = what coerces to true
+
+## Coercion
+
+**implicit:** `` "0" === 0, +"0", !"0", !!"0"``
+**explicit**: ``Number("0") == 0``
+
+**Rule of thumb (reliability)**: object -> string -> number -> boolean
+
+## == vs. ===
+
+`==` coerces the operands whereas `===` does not!
+
+`if(x)` should be the same as `if(x == true)` for all x. However:
+
+```javascript
+if("0") 		// no coercion
+if("0" == true) // coercion
+```
+
+**Takeaway**: Prefer `===` over `==`!
+
+## Crazy Numbers
+
+```javascript
+Number("-0") 		// -0
+JSON.parse("-0") 	// -0 but JSON.stringify(-0) // "0"
+String(-0) 			// "0"
+typeof null, null instanceof Object,
+typeof NaN, NaN == NaN, NaN == !NaN
+typeof (1/0)
+0.1 + 0.2 === 0.3
+999999999999999999
+Number.MAX_VALUE > 0
+Number.MIN_VALUE < 0 // ?
+Math.min(1, 2, 3) < Math.max(1, 2, 3)
+Math.min() < Math.max() // ?
+```
+
+## Crazy Comparison
+
+Comparison coerces to numbers: 
+
+```javascript
+1 < 2 < 3 === true
+3 > 2 > 1 === false // why?  
+
+{} == {} 	// false
+{} > {} 	// false
+{} >= {}	// true
+```
+
+## Cool Deconstructor
+
+```javascript
+function foo() {
+    var x = 2, y = 3;
+    return {x: x, y: y};
+}
+
+var {x ,y } = foo(); // extract multiple values from the return object
+```
+
+## Elvis and Guard
+
+```java
+let a = null;
+let b = a ? a : "default"
+let b = a || "default"
+let b = a ? guardedOperation() : a
+let b = a && guardedOperation()
+```
