@@ -1,102 +1,217 @@
 <!DOCTYPE html>
 
 <html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
-<meta content="pandoc" name="generator"/>
-<meta content="width=device-width, initial-scale=1.0, user-scalable=yes" name="viewport"/>
-<meta content="Kevin Buman" name="author"/>
-<title>JavaScript Toolbox</title>
-<style type="text/css">
-      pre > code.sourceCode { white-space: pre; position: relative; }
-      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-      pre > code.sourceCode > span:empty { height: 1.2em; }
-      .sourceCode { overflow: visible; }
-      code.sourceCode > span { color: inherit; text-decoration: inherit; }
-      div.sourceCode { margin: 1em 0; }
-      pre.sourceCode { margin: 0; }
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta content="pandoc" name="generator" />
+    <meta
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+      name="viewport"
+    />
+    <meta content="Kevin Buman" name="author" />
+    <title>JavaScript Toolbox</title>
+    <style type="text/css">
+      pre > code.sourceCode {
+        white-space: pre;
+        position: relative;
+      }
+      pre > code.sourceCode > span {
+        display: inline-block;
+        line-height: 1.25;
+      }
+      pre > code.sourceCode > span:empty {
+        height: 1.2em;
+      }
+      .sourceCode {
+        overflow: visible;
+      }
+      code.sourceCode > span {
+        color: inherit;
+        text-decoration: inherit;
+      }
+      div.sourceCode {
+        margin: 1em 0;
+      }
+      pre.sourceCode {
+        margin: 0;
+      }
       @media screen {
-      div.sourceCode { overflow: auto; }
+        div.sourceCode {
+          overflow: auto;
+        }
       }
       @media print {
-      pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-      }
-      pre.numberSource code
-        { counter-reset: source-line 0; }
-      pre.numberSource code > span
-        { position: relative; left: -4em; counter-increment: source-line; }
-      pre.numberSource code > span > a:first-child::before
-        { content: counter(source-line);
-          position: relative; left: -1em; text-align: right; vertical-align: baseline;
-          border: none; display: inline-block;
-          -webkit-touch-callout: none; -webkit-user-select: none;
-          -khtml-user-select: none; -moz-user-select: none;
-          -ms-user-select: none; user-select: none;
-          padding: 0 4px; width: 4em;
-          color: #aaaaaa;
+        pre > code.sourceCode {
+          white-space: pre-wrap;
         }
-      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-      div.sourceCode
-        {   }
-      @media screen {
-      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+        pre > code.sourceCode > span {
+          text-indent: -5em;
+          padding-left: 5em;
+        }
       }
-      code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-      code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-      code span.at { color: #7d9029; } /* Attribute */
-      code span.bn { color: #40a070; } /* BaseN */
-      code span.bu { } /* BuiltIn */
-      code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-      code span.ch { color: #4070a0; } /* Char */
-      code span.cn { color: #880000; } /* Constant */
-      code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-      code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-      code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-      code span.dt { color: #902000; } /* DataType */
-      code span.dv { color: #40a070; } /* DecVal */
-      code span.er { color: #ff0000; font-weight: bold; } /* Error */
-      code span.ex { } /* Extension */
-      code span.fl { color: #40a070; } /* Float */
-      code span.fu { color: #06287e; } /* Function */
-      code span.im { } /* Import */
-      code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-      code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-      code span.op { color: #666666; } /* Operator */
-      code span.ot { color: #007020; } /* Other */
-      code span.pp { color: #bc7a00; } /* Preprocessor */
-      code span.sc { color: #4070a0; } /* SpecialChar */
-      code span.ss { color: #bb6688; } /* SpecialString */
-      code span.st { color: #4070a0; } /* String */
-      code span.va { color: #19177c; } /* Variable */
-      code span.vs { color: #4070a0; } /* VerbatimString */
-      code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+      pre.numberSource code {
+        counter-reset: source-line 0;
+      }
+      pre.numberSource code > span {
+        position: relative;
+        left: -4em;
+        counter-increment: source-line;
+      }
+      pre.numberSource code > span > a:first-child::before {
+        content: counter(source-line);
+        position: relative;
+        left: -1em;
+        text-align: right;
+        vertical-align: baseline;
+        border: none;
+        display: inline-block;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        padding: 0 4px;
+        width: 4em;
+        color: #aaaaaa;
+      }
+      pre.numberSource {
+        margin-left: 3em;
+        border-left: 1px solid #aaaaaa;
+        padding-left: 4px;
+      }
+      div.sourceCode {
+      }
+      @media screen {
+        pre > code.sourceCode > span > a:first-child::before {
+          text-decoration: underline;
+        }
+      }
+      code span.al {
+        color: #ff0000;
+        font-weight: bold;
+      } /* Alert */
+      code span.an {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Annotation */
+      code span.at {
+        color: #7d9029;
+      } /* Attribute */
+      code span.bn {
+        color: #40a070;
+      } /* BaseN */
+      code span.bu {
+      } /* BuiltIn */
+      code span.cf {
+        color: #007020;
+        font-weight: bold;
+      } /* ControlFlow */
+      code span.ch {
+        color: #4070a0;
+      } /* Char */
+      code span.cn {
+        color: #880000;
+      } /* Constant */
+      code span.co {
+        color: #60a0b0;
+        font-style: italic;
+      } /* Comment */
+      code span.cv {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* CommentVar */
+      code span.do {
+        color: #ba2121;
+        font-style: italic;
+      } /* Documentation */
+      code span.dt {
+        color: #902000;
+      } /* DataType */
+      code span.dv {
+        color: #40a070;
+      } /* DecVal */
+      code span.er {
+        color: #ff0000;
+        font-weight: bold;
+      } /* Error */
+      code span.ex {
+      } /* Extension */
+      code span.fl {
+        color: #40a070;
+      } /* Float */
+      code span.fu {
+        color: #06287e;
+      } /* Function */
+      code span.im {
+      } /* Import */
+      code span.in {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Information */
+      code span.kw {
+        color: #007020;
+        font-weight: bold;
+      } /* Keyword */
+      code span.op {
+        color: #666666;
+      } /* Operator */
+      code span.ot {
+        color: #007020;
+      } /* Other */
+      code span.pp {
+        color: #bc7a00;
+      } /* Preprocessor */
+      code span.sc {
+        color: #4070a0;
+      } /* SpecialChar */
+      code span.ss {
+        color: #bb6688;
+      } /* SpecialString */
+      code span.st {
+        color: #4070a0;
+      } /* String */
+      code span.va {
+        color: #19177c;
+      } /* Variable */
+      code span.vs {
+        color: #4070a0;
+      } /* VerbatimString */
+      code span.wa {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Warning */
     </style>
-<link href="css/mvp.css" rel="stylesheet"/>
-<style type="text/css">
-        :root {
+    <link href="css/mvp.css" rel="stylesheet" />
+    <style type="text/css">
+      :root {
         --color: #2096ba;
         --color-secondary: #2096ba;
         --color-accent: #f7f8fa;
         --color-text: #222426;
         --color-shadow: #c5d2db;
         --width-content: 720px;
-        }
+      }
 
-        code, samp {
-          font-size: 1.2em;
-        }
+      code,
+      samp {
+        font-size: 1.2em;
+      }
 
-        nav {
-          justify-content: space-evenly;
-        }
+      nav {
+        justify-content: space-evenly;
+      }
 
-        a:hover {
-          filter: none;
-          color: #df6e21;
-        }
-          </style>
-<style>
+      a:hover {
+        filter: none;
+        color: #df6e21;
+      }
+    </style>
+    <style>
       html {
         scroll-behavior: smooth;
       }
@@ -109,13 +224,15 @@
         z-index: 99;
       }
     </style>
-</head>
-<body>
-<button id="myBtn" onclick="topFunction()" title="Go to top">Top</button>
-<header id="title-block-header">
-<nav id="TOC">
-<a href=""><img alt="Logo" height="70" src="images/javascript.svg"/></a>
-<!--         <ul>
+  </head>
+  <body>
+    <button id="myBtn" onclick="topFunction()" title="Go to top">Top</button>
+    <header id="title-block-header">
+      <nav id="TOC">
+        <a href=""
+          ><img alt="Logo" height="70" src="images/javascript.svg"
+        /></a>
+        <!--         <ul>
           <li>
             <a href="#">Navigation</a>
             <ul>
@@ -259,179 +376,262 @@
           </li>
         </ul>
           -->
-<ul>
-<li><a href="#week-1---functions">Week 1 - Functions</a>
-<ul>
-<li><a href="#canvas">Canvas</a></li>
-<li><a href="#key-events">Key Events</a></li>
-<li><a href="#game-loop">Game Loop</a></li>
-<li><a href="#resources">Resources</a></li>
-<li><a href="#example">Example</a></li>
-</ul></li>
-<li><a href="#week-2---lambda">Week 2 - Lambda</a>
-<ul>
-<li><a href="#javascript-variables">JavaScript Variables</a></li>
-<li><a href="#iife">IIFE</a></li>
-<li><a href="#alpha-translation">Alpha Translation</a></li>
-<li><a href="#beta-reduction">Beta Reduction</a></li>
-<li><a href="#eta-reduction">Eta Reduction</a></li>
-<li><a href="#examples">Examples</a></li>
-</ul></li>
-<li><a href="#week-3---lambda">Week 3 - Lambda</a>
-<ul>
-<li><a href="#atomic-lambda-terms">Atomic Lambda Terms</a></li>
-<li><a href="#pair-product-type">Pair, Product Type</a></li>
-<li><a href="#pair-encoding">Pair encoding</a></li>
-<li><a href="#either-co-product-sum">Either, Co-Product, Sum</a></li>
-<li><a href="#special-case-maybe">Special Case: Maybe</a></li>
-<li><a href="#example-1">Example</a></li>
-</ul></li>
-<li><a href="#week-4---mapfilterreduce">Week 4 - Map/Filter/Reduce</a>
-<ul>
-<li><a href="#map">Map</a></li>
-<li><a href="#filter">Filter</a></li>
-<li><a href="#reduce">Reduce</a></li>
-<li><a href="#examples-1">Examples</a></li>
-</ul></li>
-<li><a href="#week-5---scripting-pwa-plotter-excel">Week 5 - Scripting, PWA, Plotter, Excel</a>
-<ul>
-<li><a href="#why-scripting">Why Scripting?</a></li>
-<li><a href="#scripting-characteristics">Scripting Characteristics</a></li>
-<li><a href="#progressive-web-app">Progressive Web App</a></li>
-<li><a href="#function-plotter-eval">Function Plotter: eval</a></li>
-<li><a href="#function-plotter-function">Function Plotter: Function()</a></li>
-<li><a href="#scripting-caution">Scripting Caution</a></li>
-<li><a href="#examples-2">Examples</a></li>
-</ul></li>
-<li><a href="#week-6---objects">Week 6 - Objects</a>
-<ul>
-<li><a href="#open-dynamic">Open &amp; dynamic</a></li>
-<li><a href="#closed-explicit">Closed &amp; explicit</a></li>
-<li><a href="#mixed-classified">Mixed &amp; classified</a></li>
-<li><a href="#prototype">Prototype</a></li>
-<li><a href="#new">New</a></li>
-<li><a href="#example-2">Example</a></li>
-</ul></li>
-<li><a href="#week-07---classes">Week 07 - Classes</a>
-<ul>
-<li><a href="#class-keyword"><code>class</code> Keyword</a></li>
-<li><a href="#extends-keyword"><code>extends</code> Keyword</a></li>
-<li><a href="#prototype-chain">Prototype chain</a></li>
-<li><a href="#example-3">Example</a></li>
-</ul></li>
-<li><a href="#week-08---moves-and-user-interfaces">Week 08 - Moves and User Interfaces</a>
-<ul>
-<li><a href="#compare-with-dancing">Compare with Dancing</a></li>
-<li><a href="#recognize-moves">Recognize Moves</a></li>
-<li><a href="#task-1-improve-the-tests">Task 1: Improve the Tests</a></li>
-<li><a href="#task-2-todo-list-example">Task 2: Todo List Example</a></li>
-<li><a href="#moves---your-choice">Moves - Your Choice</a></li>
-<li><a href="#observations">Observations</a></li>
-<li><a href="#example-4">Example</a></li>
-</ul></li>
-<li><a href="#ui-engineering-mvc">9. UI Engineering, MVC</a>
-<ul>
-<li><a href="#callback---higher-order-function">Callback - Higher Order Function</a></li>
-<li><a href="#observable">Observable</a></li>
-<li><a href="#red-green-refactor">Red-Green-Refactor</a></li>
-<li><a href="#mvc">MVC</a></li>
-<li><a href="#example-5">Example</a></li>
-</ul></li>
-<li><a href="#async-programming">10. Async Programming</a>
-<ul>
-<li><a href="#testing">Testing</a></li>
-<li><a href="#callback-events">Callback, Events</a></li>
-<li><a href="#promise">Promise</a></li>
-<li><a href="#async-await">Async / Await</a></li>
-<li><a href="#example-6">Example</a></li>
-</ul></li>
-<li><a href="#data-flow">11. Data Flow</a>
-<ul>
-<li><a href="#coordination-schemata">Coordination schemata</a></li>
-<li><a href="#no-coordination">No Coordination</a></li>
-<li><a href="#sequence">Sequence</a></li>
-<li><a href="#result-dependency">Result Dependency</a></li>
-<li><a href="#scheduler-idea">Scheduler Idea</a></li>
-<li><a href="#dataflowvariable">DataFlowVariable</a></li>
-</ul></li>
-<li><a href="#modules">12. Modules</a>
-<ul>
-<li><a href="#why-modules">Why Modules?</a></li>
-<li><a href="#distinguish">Distinguish</a></li>
-<li><a href="#es6-modules">ES6 Modules</a></li>
-<li><a href="#package-manager">Package Manager</a></li>
-<li><a href="#build-tools">Build Tools</a></li>
-<li><a href="#legacy-module-systems">Legacy module systems</a></li>
-<li><a href="#legacy-module-loader-bundler">Legacy Module Loader / Bundler</a></li>
-<li><a href="#modules-are-async">Modules are async</a></li>
-<li><a href="#import-variants">Import Variants</a></li>
-<li><a href="#export-variants">Export Variants</a></li>
-<li><a href="#impacts">Impacts</a></li>
-<li><a href="#sop---single-origin-policy">SOP - Single Origin Policy</a></li>
-<li><a href="#useful-tools">Useful Tools</a></li>
-<li><a href="#resources-1">Resources</a></li>
-</ul></li>
-<li><a href="#transpilers-typescript-purescript-elm">13. Transpilers: TypeScript, PureScript, Elm</a>
-<ul>
-<li><a href="#what-they-have-in-common">What they have in common</a></li>
-<li><a href="#the-cycle">The Cycle</a></li>
-<li><a href="#typescript">TypeScript</a></li>
-<li><a href="#elm">Elm</a></li>
-<li><a href="#purescript-pux">PureScript / Pux</a></li>
-<li><a href="#calling-javascript-ffi">Calling JavaScript (FFI)</a></li>
-<li><a href="#applicability">Applicability</a></li>
-<li><a href="#paradigm">Paradigm</a></li>
-<li><a href="#approach">Approach</a></li>
-<li><a href="#cool">Cool</a></li>
-<li><a href="#more-transpilers">More Transpilers</a></li>
-</ul></li>
-<li><a href="#crazy-javascript">14. Crazy Javascript</a>
-<ul>
-<li><a href="#equivalence-and-transitivity">Equivalence and Transitivity</a></li>
-<li><a href="#false-values">False values</a></li>
-<li><a href="#coercion">Coercion</a></li>
-<li><a href="#vs">== vs ===</a></li>
-<li><a href="#crazy-numbers">Crazy Numbers</a></li>
-<li><a href="#crazy-comparison">Crazy Comparison</a></li>
-<li><a href="#cool-deconstructor">Cool Deconstructor</a></li>
-<li><a href="#elvis-and-guard">Elvis and Guard</a></li>
-</ul></li>
-</ul>
-</nav>
-<h1 class="title">JavaScript Toolbox</h1>
-<p class="author">Kevin Buman</p>
-<p class="date">
-<script>
-          var today = new Date();
-
-          var date =
-            new Date().getDate() +
-            "." +
-            (new Date().getMonth() + 1) +
-            "." +
-            new Date().getFullYear();
-
-          document.write(date);
-        </script>
-</p>
-<p>
-<a href="https://github.com/McSquanchy/webpr-fs21-toolbox" target="_blank">Github</a>
-</p>
-</header>
-<main>
-<hr/>
-<article>
-<h1 id="week-1---functions">Week 1 - Functions</h1>
-<ul>
-<li><p>Parameters are <strong>not</strong> checked</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a><span class="kw">function</span> <span class="fu">fun1</span>(arg) {</span>
+        <ul>
+          <li>
+            <a href="#week-1---functions">Week 1 - Functions</a>
+            <ul>
+              <li><a href="#canvas">Canvas</a></li>
+              <li><a href="#key-events">Key Events</a></li>
+              <li><a href="#game-loop">Game Loop</a></li>
+              <li><a href="#resources">Resources</a></li>
+              <li><a href="#example">Example</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#week-2---lambda">Week 2 - Lambda</a>
+            <ul>
+              <li><a href="#javascript-variables">JavaScript Variables</a></li>
+              <li><a href="#iife">IIFE</a></li>
+              <li><a href="#alpha-translation">Alpha Translation</a></li>
+              <li><a href="#beta-reduction">Beta Reduction</a></li>
+              <li><a href="#eta-reduction">Eta Reduction</a></li>
+              <li><a href="#examples">Examples</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#week-3---lambda">Week 3 - Lambda</a>
+            <ul>
+              <li><a href="#atomic-lambda-terms">Atomic Lambda Terms</a></li>
+              <li><a href="#pair-product-type">Pair, Product Type</a></li>
+              <li><a href="#pair-encoding">Pair encoding</a></li>
+              <li>
+                <a href="#either-co-product-sum">Either, Co-Product, Sum</a>
+              </li>
+              <li><a href="#special-case-maybe">Special Case: Maybe</a></li>
+              <li><a href="#example-1">Example</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#week-4---mapfilterreduce">Week 4 - Map/Filter/Reduce</a>
+            <ul>
+              <li><a href="#map">Map</a></li>
+              <li><a href="#filter">Filter</a></li>
+              <li><a href="#reduce">Reduce</a></li>
+              <li><a href="#examples-1">Examples</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#week-5---scripting-pwa-plotter-excel"
+              >Week 5 - Scripting, PWA, Plotter, Excel</a
+            >
+            <ul>
+              <li><a href="#why-scripting">Why Scripting?</a></li>
+              <li>
+                <a href="#scripting-characteristics"
+                  >Scripting Characteristics</a
+                >
+              </li>
+              <li><a href="#progressive-web-app">Progressive Web App</a></li>
+              <li>
+                <a href="#function-plotter-eval">Function Plotter: eval</a>
+              </li>
+              <li>
+                <a href="#function-plotter-function"
+                  >Function Plotter: Function()</a
+                >
+              </li>
+              <li><a href="#scripting-caution">Scripting Caution</a></li>
+              <li><a href="#examples-2">Examples</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#week-6---objects">Week 6 - Objects</a>
+            <ul>
+              <li><a href="#open-dynamic">Open &amp; dynamic</a></li>
+              <li><a href="#closed-explicit">Closed &amp; explicit</a></li>
+              <li><a href="#mixed-classified">Mixed &amp; classified</a></li>
+              <li><a href="#prototype">Prototype</a></li>
+              <li><a href="#new">New</a></li>
+              <li><a href="#example-2">Example</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#week-07---classes">Week 07 - Classes</a>
+            <ul>
+              <li>
+                <a href="#class-keyword"><code>class</code> Keyword</a>
+              </li>
+              <li>
+                <a href="#extends-keyword"><code>extends</code> Keyword</a>
+              </li>
+              <li><a href="#prototype-chain">Prototype chain</a></li>
+              <li><a href="#example-3">Example</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#week-08---moves-and-user-interfaces"
+              >Week 08 - Moves and User Interfaces</a
+            >
+            <ul>
+              <li><a href="#compare-with-dancing">Compare with Dancing</a></li>
+              <li><a href="#recognize-moves">Recognize Moves</a></li>
+              <li>
+                <a href="#task-1-improve-the-tests"
+                  >Task 1: Improve the Tests</a
+                >
+              </li>
+              <li>
+                <a href="#task-2-todo-list-example"
+                  >Task 2: Todo List Example</a
+                >
+              </li>
+              <li><a href="#moves---your-choice">Moves - Your Choice</a></li>
+              <li><a href="#observations">Observations</a></li>
+              <li><a href="#example-4">Example</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#ui-engineering-mvc">9. UI Engineering, MVC</a>
+            <ul>
+              <li>
+                <a href="#callback---higher-order-function"
+                  >Callback - Higher Order Function</a
+                >
+              </li>
+              <li><a href="#observable">Observable</a></li>
+              <li><a href="#red-green-refactor">Red-Green-Refactor</a></li>
+              <li><a href="#mvc">MVC</a></li>
+              <li><a href="#example-5">Example</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#async-programming">10. Async Programming</a>
+            <ul>
+              <li><a href="#testing">Testing</a></li>
+              <li><a href="#callback-events">Callback, Events</a></li>
+              <li><a href="#promise">Promise</a></li>
+              <li><a href="#async-await">Async / Await</a></li>
+              <li><a href="#example-6">Example</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#data-flow">11. Data Flow</a>
+            <ul>
+              <li>
+                <a href="#coordination-schemata">Coordination schemata</a>
+              </li>
+              <li><a href="#no-coordination">No Coordination</a></li>
+              <li><a href="#sequence">Sequence</a></li>
+              <li><a href="#result-dependency">Result Dependency</a></li>
+              <li><a href="#scheduler-idea">Scheduler Idea</a></li>
+              <li><a href="#dataflowvariable">DataFlowVariable</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#modules">12. Modules</a>
+            <ul>
+              <li><a href="#why-modules">Why Modules?</a></li>
+              <li><a href="#distinguish">Distinguish</a></li>
+              <li><a href="#es6-modules">ES6 Modules</a></li>
+              <li><a href="#package-manager">Package Manager</a></li>
+              <li><a href="#build-tools">Build Tools</a></li>
+              <li>
+                <a href="#legacy-module-systems">Legacy module systems</a>
+              </li>
+              <li>
+                <a href="#legacy-module-loader-bundler"
+                  >Legacy Module Loader / Bundler</a
+                >
+              </li>
+              <li><a href="#modules-are-async">Modules are async</a></li>
+              <li><a href="#import-variants">Import Variants</a></li>
+              <li><a href="#export-variants">Export Variants</a></li>
+              <li><a href="#impacts">Impacts</a></li>
+              <li>
+                <a href="#sop---single-origin-policy"
+                  >SOP - Single Origin Policy</a
+                >
+              </li>
+              <li><a href="#useful-tools">Useful Tools</a></li>
+              <li><a href="#resources-1">Resources</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#transpilers-typescript-purescript-elm"
+              >13. Transpilers: TypeScript, PureScript, Elm</a
+            >
+            <ul>
+              <li>
+                <a href="#what-they-have-in-common">What they have in common</a>
+              </li>
+              <li><a href="#the-cycle">The Cycle</a></li>
+              <li><a href="#typescript">TypeScript</a></li>
+              <li><a href="#elm">Elm</a></li>
+              <li><a href="#purescript-pux">PureScript / Pux</a></li>
+              <li>
+                <a href="#calling-javascript-ffi">Calling JavaScript (FFI)</a>
+              </li>
+              <li><a href="#applicability">Applicability</a></li>
+              <li><a href="#paradigm">Paradigm</a></li>
+              <li><a href="#approach">Approach</a></li>
+              <li><a href="#cool">Cool</a></li>
+              <li><a href="#more-transpilers">More Transpilers</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#crazy-javascript">14. Crazy Javascript</a>
+            <ul>
+              <li>
+                <a href="#equivalence-and-transitivity"
+                  >Equivalence and Transitivity</a
+                >
+              </li>
+              <li><a href="#false-values">False values</a></li>
+              <li><a href="#coercion">Coercion</a></li>
+              <li><a href="#vs">== vs ===</a></li>
+              <li><a href="#crazy-numbers">Crazy Numbers</a></li>
+              <li><a href="#crazy-comparison">Crazy Comparison</a></li>
+              <li><a href="#cool-deconstructor">Cool Deconstructor</a></li>
+              <li><a href="#elvis-and-guard">Elvis and Guard</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <h1 class="title">JavaScript Toolbox</h1>
+      <p class="author">Kevin Buman</p>
+      <p class="date">18.06.2021</p>
+      <p>
+        <a
+          href="https://github.com/McSquanchy/webpr-fs21-toolbox"
+          target="_blank"
+          >Github</a
+        >
+      </p>
+    </header>
+    <main>
+      <hr />
+      <article>
+        <h1 id="week-1---functions">Week 1 - Functions</h1>
+        <ul>
+          <li>
+            <p>Parameters are <strong>not</strong> checked</p>
+            <div class="sourceCode" id="cb1">
+              <pre
+                class="sourceCode js"
+              ><code class="sourceCode javascript"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a><span class="kw">function</span> <span class="fu">fun1</span>(arg) {</span>
 <span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a>    <span class="cf">return</span> arg<span class="op">;</span></span>
 <span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a>}</span>
 <span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a></span>
 <span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a><span class="fu">fun1</span>()<span class="op">;</span> <span class="co">// undefined</span></span>
-<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a><span class="fu">fun1</span>(<span class="dv">42</span><span class="op">,</span> <span class="dv">35</span><span class="op">,</span> <span class="st">"hello"</span>)<span class="op">;</span> <span class="co">// 42</span></span></code></pre></div></li>
-<li><p><strong>No</strong> function overloading</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb2-1"><a aria-hidden="true" href="#cb2-1" tabindex="-1"></a><span class="kw">function</span> <span class="fu">fun2</span>(arg) {</span>
+<span id="cb1-6"><a aria-hidden="true" href="#cb1-6" tabindex="-1"></a><span class="fu">fun1</span>(<span class="dv">42</span><span class="op">,</span> <span class="dv">35</span><span class="op">,</span> <span class="st">"hello"</span>)<span class="op">;</span> <span class="co">// 42</span></span></code></pre>
+            </div>
+          </li>
+          <li>
+            <p><strong>No</strong> function overloading</p>
+            <div class="sourceCode" id="cb2">
+              <pre
+                class="sourceCode javascript"
+              ><code class="sourceCode javascript"><span id="cb2-1"><a aria-hidden="true" href="#cb2-1" tabindex="-1"></a><span class="kw">function</span> <span class="fu">fun2</span>(arg) {</span>
 <span id="cb2-2"><a aria-hidden="true" href="#cb2-2" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span></span>
 <span id="cb2-3"><a aria-hidden="true" href="#cb2-3" tabindex="-1"></a>}</span>
 <span id="cb2-4"><a aria-hidden="true" href="#cb2-4" tabindex="-1"></a></span>
@@ -440,28 +640,57 @@
 <span id="cb2-7"><a aria-hidden="true" href="#cb2-7" tabindex="-1"></a>} </span>
 <span id="cb2-8"><a aria-hidden="true" href="#cb2-8" tabindex="-1"></a></span>
 <span id="cb2-9"><a aria-hidden="true" href="#cb2-9" tabindex="-1"></a><span class="fu">fun2</span>()<span class="op">;</span> <span class="co">// undefined</span></span>
-<span id="cb2-10"><a aria-hidden="true" href="#cb2-10" tabindex="-1"></a><span class="fu">fun2</span>(<span class="dv">42</span><span class="op">,</span> <span class="dv">35</span><span class="op">,</span> <span class="st">"hello"</span>)<span class="op">;</span> <span class="co">// 42</span></span></code></pre></div></li>
-<li><p><code>return</code> keyword required</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb3-1"><a aria-hidden="true" href="#cb3-1" tabindex="-1"></a><span class="kw">function</span> <span class="fu">noReturn</span>() {</span>
+<span id="cb2-10"><a aria-hidden="true" href="#cb2-10" tabindex="-1"></a><span class="fu">fun2</span>(<span class="dv">42</span><span class="op">,</span> <span class="dv">35</span><span class="op">,</span> <span class="st">"hello"</span>)<span class="op">;</span> <span class="co">// 42</span></span></code></pre>
+            </div>
+          </li>
+          <li>
+            <p><code>return</code> keyword required</p>
+            <div class="sourceCode" id="cb3">
+              <pre
+                class="sourceCode javascript"
+              ><code class="sourceCode javascript"><span id="cb3-1"><a aria-hidden="true" href="#cb3-1" tabindex="-1"></a><span class="kw">function</span> <span class="fu">noReturn</span>() {</span>
 <span id="cb3-2"><a aria-hidden="true" href="#cb3-2" tabindex="-1"></a>    <span class="dv">1</span><span class="op">;</span></span>
 <span id="cb3-3"><a aria-hidden="true" href="#cb3-3" tabindex="-1"></a>}</span>
 <span id="cb3-4"><a aria-hidden="true" href="#cb3-4" tabindex="-1"></a></span>
-<span id="cb3-5"><a aria-hidden="true" href="#cb3-5" tabindex="-1"></a><span class="fu">noReturn</span>()<span class="op">;</span> <span class="co">// undefined</span></span></code></pre></div></li>
-<li><p>Curly brackets constitute a function body</p></li>
-<li><p>Functions can be freely bound to new variables</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb4-1"><a aria-hidden="true" href="#cb4-1" tabindex="-1"></a><span class="kw">const</span> myfun <span class="op">=</span> fun1<span class="op">;</span></span></code></pre></div></li>
-<li><p>Higher-order functions</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb5-1"><a aria-hidden="true" href="#cb5-1" tabindex="-1"></a><span class="kw">function</span> <span class="fu">fun1</span>(fun2) {</span>
+<span id="cb3-5"><a aria-hidden="true" href="#cb3-5" tabindex="-1"></a><span class="fu">noReturn</span>()<span class="op">;</span> <span class="co">// undefined</span></span></code></pre>
+            </div>
+          </li>
+          <li><p>Curly brackets constitute a function body</p></li>
+          <li>
+            <p>Functions can be freely bound to new variables</p>
+            <div class="sourceCode" id="cb4">
+              <pre
+                class="sourceCode javascript"
+              ><code class="sourceCode javascript"><span id="cb4-1"><a aria-hidden="true" href="#cb4-1" tabindex="-1"></a><span class="kw">const</span> myfun <span class="op">=</span> fun1<span class="op">;</span></span></code></pre>
+            </div>
+          </li>
+          <li>
+            <p>Higher-order functions</p>
+            <div class="sourceCode" id="cb5">
+              <pre
+                class="sourceCode javascript"
+              ><code class="sourceCode javascript"><span id="cb5-1"><a aria-hidden="true" href="#cb5-1" tabindex="-1"></a><span class="kw">function</span> <span class="fu">fun1</span>(fun2) {</span>
 <span id="cb5-2"><a aria-hidden="true" href="#cb5-2" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">function</span> <span class="fu">fun3</span>(arg) { </span>
 <span id="cb5-3"><a aria-hidden="true" href="#cb5-3" tabindex="-1"></a>        <span class="cf">return</span> <span class="fu">fun2</span>(arg)<span class="op">;</span></span>
 <span id="cb5-4"><a aria-hidden="true" href="#cb5-4" tabindex="-1"></a>    }<span class="op">;</span></span>
-<span id="cb5-5"><a aria-hidden="true" href="#cb5-5" tabindex="-1"></a>}</span></code></pre></div></li>
-<li><p>Curried functions</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb6-1"><a aria-hidden="true" href="#cb6-1" tabindex="-1"></a><span class="kw">const</span> plus <span class="op">=</span> (x) <span class="kw">=&gt;</span> (y) <span class="kw">=&gt;</span> (x<span class="op">+</span>y)<span class="op">;</span></span>
-<span id="cb6-2"><a aria-hidden="true" href="#cb6-2" tabindex="-1"></a><span class="kw">const</span> intermediate <span class="op">=</span> <span class="fu">plus</span>(<span class="dv">3</span>)<span class="op">;</span></span></code></pre></div>
-<p>Lambda Expressions</p></li>
-</ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb7-1"><a aria-hidden="true" href="#cb7-1" tabindex="-1"></a><span class="kw">const</span> sum <span class="op">=</span> <span class="kw">function</span> (a<span class="op">,</span> b) { <span class="cf">return</span> a <span class="op">+</span> b }<span class="op">;</span></span>
+<span id="cb5-5"><a aria-hidden="true" href="#cb5-5" tabindex="-1"></a>}</span></code></pre>
+            </div>
+          </li>
+          <li>
+            <p>Curried functions</p>
+            <div class="sourceCode" id="cb6">
+              <pre
+                class="sourceCode javascript"
+              ><code class="sourceCode javascript"><span id="cb6-1"><a aria-hidden="true" href="#cb6-1" tabindex="-1"></a><span class="kw">const</span> plus <span class="op">=</span> (x) <span class="kw">=&gt;</span> (y) <span class="kw">=&gt;</span> (x<span class="op">+</span>y)<span class="op">;</span></span>
+<span id="cb6-2"><a aria-hidden="true" href="#cb6-2" tabindex="-1"></a><span class="kw">const</span> intermediate <span class="op">=</span> <span class="fu">plus</span>(<span class="dv">3</span>)<span class="op">;</span></span></code></pre>
+            </div>
+            <p>Lambda Expressions</p>
+          </li>
+        </ul>
+        <div class="sourceCode" id="cb7">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb7-1"><a aria-hidden="true" href="#cb7-1" tabindex="-1"></a><span class="kw">const</span> sum <span class="op">=</span> <span class="kw">function</span> (a<span class="op">,</span> b) { <span class="cf">return</span> a <span class="op">+</span> b }<span class="op">;</span></span>
 <span id="cb7-2"><a aria-hidden="true" href="#cb7-2" tabindex="-1"></a></span>
 <span id="cb7-3"><a aria-hidden="true" href="#cb7-3" tabindex="-1"></a><span class="co">// can be written as:</span></span>
 <span id="cb7-4"><a aria-hidden="true" href="#cb7-4" tabindex="-1"></a><span class="kw">const</span> sum <span class="op">=</span> (a<span class="op">,</span> b) <span class="kw">=&gt;</span> a <span class="op">+</span> b<span class="op">;</span></span>
@@ -478,93 +707,196 @@
 <span id="cb7-15"><a aria-hidden="true" href="#cb7-15" tabindex="-1"></a><span class="co">// application:</span></span>
 <span id="cb7-16"><a aria-hidden="true" href="#cb7-16" tabindex="-1"></a>[<span class="dv">1</span><span class="op">,</span><span class="dv">2</span><span class="op">,</span><span class="dv">3</span><span class="op">,</span><span class="dv">4</span>]<span class="op">.</span><span class="fu">filter</span>(<span class="kw">function</span> (value) {<span class="cf">return</span> value <span class="op">%</span> <span class="dv">2</span> <span class="op">===</span> <span class="dv">0</span>})<span class="op">;</span></span>
 <span id="cb7-17"><a aria-hidden="true" href="#cb7-17" tabindex="-1"></a><span class="co">// to:</span></span>
-<span id="cb7-18"><a aria-hidden="true" href="#cb7-18" tabindex="-1"></a>[<span class="dv">1</span><span class="op">,</span><span class="dv">2</span><span class="op">,</span><span class="dv">3</span><span class="op">,</span><span class="dv">4</span>]<span class="op">.</span><span class="fu">filter</span>(value <span class="kw">=&gt;</span> value <span class="op">%</span> <span class="dv">2</span> <span class="op">===</span> <span class="dv">0</span>)<span class="op">;</span></span></code></pre></div>
-<h2 id="canvas">Canvas</h2>
-<div class="sourceCode" id="cb8"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb8-1"><a aria-hidden="true" href="#cb8-1" tabindex="-1"></a><span class="kw">const</span> canvas <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">"canvas"</span>)<span class="op">;</span></span>
+<span id="cb7-18"><a aria-hidden="true" href="#cb7-18" tabindex="-1"></a>[<span class="dv">1</span><span class="op">,</span><span class="dv">2</span><span class="op">,</span><span class="dv">3</span><span class="op">,</span><span class="dv">4</span>]<span class="op">.</span><span class="fu">filter</span>(value <span class="kw">=&gt;</span> value <span class="op">%</span> <span class="dv">2</span> <span class="op">===</span> <span class="dv">0</span>)<span class="op">;</span></span></code></pre>
+        </div>
+        <h2 id="canvas">Canvas</h2>
+        <div class="sourceCode" id="cb8">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb8-1"><a aria-hidden="true" href="#cb8-1" tabindex="-1"></a><span class="kw">const</span> canvas <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">"canvas"</span>)<span class="op">;</span></span>
 <span id="cb8-2"><a aria-hidden="true" href="#cb8-2" tabindex="-1"></a><span class="kw">const</span> context <span class="op">=</span> canvas<span class="op">.</span><span class="fu">getContext</span>(<span class="st">"2d"</span>)<span class="op">;</span></span>
 <span id="cb8-3"><a aria-hidden="true" href="#cb8-3" tabindex="-1"></a>context<span class="op">.</span><span class="at">fillStyle</span> <span class="op">=</span> <span class="st">"black"</span><span class="op">;</span></span>
-<span id="cb8-4"><a aria-hidden="true" href="#cb8-4" tabindex="-1"></a>context<span class="op">.</span><span class="fu">fillRect</span>(<span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> canvas<span class="op">.</span><span class="at">width</span><span class="op">,</span> canvas<span class="op">.</span><span class="at">height</span>)<span class="op">;</span></span></code></pre></div>
-<h2 id="key-events">Key Events</h2>
-<div class="sourceCode" id="cb9"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb9-1"><a aria-hidden="true" href="#cb9-1" tabindex="-1"></a><span class="kw">const</span> rightArrow <span class="op">=</span> <span class="dv">39</span><span class="op">;</span></span>
+<span id="cb8-4"><a aria-hidden="true" href="#cb8-4" tabindex="-1"></a>context<span class="op">.</span><span class="fu">fillRect</span>(<span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> canvas<span class="op">.</span><span class="at">width</span><span class="op">,</span> canvas<span class="op">.</span><span class="at">height</span>)<span class="op">;</span></span></code></pre>
+        </div>
+        <h2 id="key-events">Key Events</h2>
+        <div class="sourceCode" id="cb9">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb9-1"><a aria-hidden="true" href="#cb9-1" tabindex="-1"></a><span class="kw">const</span> rightArrow <span class="op">=</span> <span class="dv">39</span><span class="op">;</span></span>
 <span id="cb9-2"><a aria-hidden="true" href="#cb9-2" tabindex="-1"></a><span class="kw">const</span> leftArrow <span class="op">=</span> <span class="dv">37</span><span class="op">;</span></span>
 <span id="cb9-3"><a aria-hidden="true" href="#cb9-3" tabindex="-1"></a><span class="bu">window</span><span class="op">.</span><span class="at">onkeydown</span> <span class="op">=</span> evt <span class="kw">=&gt;</span> {</span>
 <span id="cb9-4"><a aria-hidden="true" href="#cb9-4" tabindex="-1"></a>(evt<span class="op">.</span><span class="at">keyCode</span> <span class="op">===</span> rightArrow) <span class="op">?</span> <span class="op">...</span> <span class="op">:</span> <span class="op">...;</span></span>
-<span id="cb9-5"><a aria-hidden="true" href="#cb9-5" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div>
-<h2 id="game-loop">Game Loop</h2>
-<div class="sourceCode" id="cb10"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb10-1"><a aria-hidden="true" href="#cb10-1" tabindex="-1"></a><span class="pp">setInterval</span>( () <span class="kw">=&gt;</span> {</span>
+<span id="cb9-5"><a aria-hidden="true" href="#cb9-5" tabindex="-1"></a>}<span class="op">;</span></span></code></pre>
+        </div>
+        <h2 id="game-loop">Game Loop</h2>
+        <div class="sourceCode" id="cb10">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb10-1"><a aria-hidden="true" href="#cb10-1" tabindex="-1"></a><span class="pp">setInterval</span>( () <span class="kw">=&gt;</span> {</span>
 <span id="cb10-2"><a aria-hidden="true" href="#cb10-2" tabindex="-1"></a>    <span class="fu">nextBoard</span>()<span class="op">;</span></span>
 <span id="cb10-3"><a aria-hidden="true" href="#cb10-3" tabindex="-1"></a>    <span class="fu">display</span>(context)<span class="op">;</span></span>
-<span id="cb10-4"><a aria-hidden="true" href="#cb10-4" tabindex="-1"></a>}<span class="op">,</span> <span class="dv">1000</span> <span class="op">/</span> <span class="dv">5</span>)<span class="op">;</span></span></code></pre></div>
-<h2 id="resources">Resources</h2>
-<ul>
-<li>Gabriel Lebec, <a href="https://www.youtube.com/watch?v=3VQ382QG-y4" target="_blank">Fundamentals of Lambda Calculus &amp; Functional Programming in JavaScript</a></li>
-</ul>
-<h2 id="example">Example</h2>
-<p>A function <code>plus</code> that returns the sum of its arguments:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb11-1"><a aria-hidden="true" href="#cb11-1" tabindex="-1"></a><span class="kw">const</span> plus <span class="op">=</span> x <span class="kw">=&gt;</span> y <span class="kw">=&gt;</span> x <span class="op">+</span> y<span class="op">;</span></span></code></pre></div>
-<h1 id="week-2---lambda">Week 2 - Lambda</h1>
-<h2 id="javascript-variables">JavaScript Variables</h2>
-<p>Only use <code>let</code> and <code>const</code>:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb12-1"><a aria-hidden="true" href="#cb12-1" tabindex="-1"></a><span class="kw">let</span> x <span class="op">=</span> <span class="op">...;</span>    <span class="co">// mutable,   local scope</span></span>
-<span id="cb12-2"><a aria-hidden="true" href="#cb12-2" tabindex="-1"></a><span class="kw">const</span> x <span class="op">=</span> <span class="op">...;</span>  <span class="co">// immutable, local scope</span></span></code></pre></div>
-<p><strong><code>let</code></strong> vs <strong><code>var</code></strong>: <strong><code>let</code></strong> allows you to declare variables that are limited to the scope of a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/block" target="_blank">block</a> statement, or expression on which it is used, unlike the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var" target="_blank"><code>var</code></a> keyword, which declares a variable globally, or locally to an entire function regardless of block scope. The other difference between <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var" target="_blank"><code>var</code></a> and <code>let</code> is that the latter is initialized to a value only when a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone" target="_blank">parser evaluates it (see below)</a>.</p>
-<h2 id="iife">IIFE</h2>
-<blockquote>
-<p>immediately invoked function expression</p>
-</blockquote>
-<div class="sourceCode" id="cb13"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb13-1"><a aria-hidden="true" href="#cb13-1" tabindex="-1"></a><span class="kw">function</span> <span class="fu">foo</span>() {<span class="op">..</span>}<span class="op">;</span> <span class="fu">foo</span>()</span>
+<span id="cb10-4"><a aria-hidden="true" href="#cb10-4" tabindex="-1"></a>}<span class="op">,</span> <span class="dv">1000</span> <span class="op">/</span> <span class="dv">5</span>)<span class="op">;</span></span></code></pre>
+        </div>
+        <h2 id="resources">Resources</h2>
+        <ul>
+          <li>
+            Gabriel Lebec,
+            <a
+              href="https://www.youtube.com/watch?v=3VQ382QG-y4"
+              target="_blank"
+              >Fundamentals of Lambda Calculus &amp; Functional Programming in
+              JavaScript</a
+            >
+          </li>
+        </ul>
+        <h2 id="example">Example</h2>
+        <p>
+          A function <code>plus</code> that returns the sum of its arguments:
+        </p>
+        <div class="sourceCode" id="cb11">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb11-1"><a aria-hidden="true" href="#cb11-1" tabindex="-1"></a><span class="kw">const</span> plus <span class="op">=</span> x <span class="kw">=&gt;</span> y <span class="kw">=&gt;</span> x <span class="op">+</span> y<span class="op">;</span></span></code></pre>
+        </div>
+        <h1 id="week-2---lambda">Week 2 - Lambda</h1>
+        <h2 id="javascript-variables">JavaScript Variables</h2>
+        <p>Only use <code>let</code> and <code>const</code>:</p>
+        <div class="sourceCode" id="cb12">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb12-1"><a aria-hidden="true" href="#cb12-1" tabindex="-1"></a><span class="kw">let</span> x <span class="op">=</span> <span class="op">...;</span>    <span class="co">// mutable,   local scope</span></span>
+<span id="cb12-2"><a aria-hidden="true" href="#cb12-2" tabindex="-1"></a><span class="kw">const</span> x <span class="op">=</span> <span class="op">...;</span>  <span class="co">// immutable, local scope</span></span></code></pre>
+        </div>
+        <p>
+          <strong><code>let</code></strong> vs <strong><code>var</code></strong
+          >: <strong><code>let</code></strong> allows you to declare variables
+          that are limited to the scope of a
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/block"
+            target="_blank"
+            >block</a
+          >
+          statement, or expression on which it is used, unlike the
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var"
+            target="_blank"
+            ><code>var</code></a
+          >
+          keyword, which declares a variable globally, or locally to an entire
+          function regardless of block scope. The other difference between
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var"
+            target="_blank"
+            ><code>var</code></a
+          >
+          and <code>let</code> is that the latter is initialized to a value only
+          when a
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone"
+            target="_blank"
+            >parser evaluates it (see below)</a
+          >.
+        </p>
+        <h2 id="iife">IIFE</h2>
+        <blockquote>
+          <p>immediately invoked function expression</p>
+        </blockquote>
+        <div class="sourceCode" id="cb13">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb13-1"><a aria-hidden="true" href="#cb13-1" tabindex="-1"></a><span class="kw">function</span> <span class="fu">foo</span>() {<span class="op">..</span>}<span class="op">;</span> <span class="fu">foo</span>()</span>
 <span id="cb13-2"><a aria-hidden="true" href="#cb13-2" tabindex="-1"></a>( <span class="kw">function</span> <span class="fu">foo</span>() {<span class="op">..</span>} ) ()</span>
 <span id="cb13-3"><a aria-hidden="true" href="#cb13-3" tabindex="-1"></a>( <span class="kw">function</span>() {<span class="op">..</span>} ) ()</span>
-<span id="cb13-4"><a aria-hidden="true" href="#cb13-4" tabindex="-1"></a>( () <span class="kw">=&gt;</span> {<span class="op">..</span>} ) ()</span></code></pre></div>
-<h2 id="alpha-translation">Alpha Translation</h2>
-<div class="sourceCode" id="cb14"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb14-1"><a aria-hidden="true" href="#cb14-1" tabindex="-1"></a><span class="kw">const</span> id <span class="op">=</span> x <span class="kw">=&gt;</span> x</span>
-<span id="cb14-2"><a aria-hidden="true" href="#cb14-2" tabindex="-1"></a><span class="kw">const</span> id <span class="op">=</span> y <span class="kw">=&gt;</span> y</span></code></pre></div>
-<h2 id="beta-reduction">Beta Reduction</h2>
-<div class="sourceCode" id="cb15"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb15-1"><a aria-hidden="true" href="#cb15-1" tabindex="-1"></a>( f <span class="kw">=&gt;</span> x <span class="kw">=&gt;</span> <span class="fu">f</span>(x) ) (id) (<span class="dv">1</span>)</span>
+<span id="cb13-4"><a aria-hidden="true" href="#cb13-4" tabindex="-1"></a>( () <span class="kw">=&gt;</span> {<span class="op">..</span>} ) ()</span></code></pre>
+        </div>
+        <h2 id="alpha-translation">Alpha Translation</h2>
+        <div class="sourceCode" id="cb14">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb14-1"><a aria-hidden="true" href="#cb14-1" tabindex="-1"></a><span class="kw">const</span> id <span class="op">=</span> x <span class="kw">=&gt;</span> x</span>
+<span id="cb14-2"><a aria-hidden="true" href="#cb14-2" tabindex="-1"></a><span class="kw">const</span> id <span class="op">=</span> y <span class="kw">=&gt;</span> y</span></code></pre>
+        </div>
+        <h2 id="beta-reduction">Beta Reduction</h2>
+        <div class="sourceCode" id="cb15">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb15-1"><a aria-hidden="true" href="#cb15-1" tabindex="-1"></a>( f <span class="kw">=&gt;</span> x <span class="kw">=&gt;</span> <span class="fu">f</span>(x) ) (id) (<span class="dv">1</span>)</span>
 <span id="cb15-2"><a aria-hidden="true" href="#cb15-2" tabindex="-1"></a>(      x <span class="kw">=&gt;</span> <span class="fu">id</span>(x))      (<span class="dv">1</span>)</span>
 <span id="cb15-3"><a aria-hidden="true" href="#cb15-3" tabindex="-1"></a>(           <span class="fu">id</span>(<span class="dv">1</span>))</span>
 <span id="cb15-4"><a aria-hidden="true" href="#cb15-4" tabindex="-1"></a>(x <span class="kw">=&gt;</span> x) (<span class="dv">1</span>)</span>
-<span id="cb15-5"><a aria-hidden="true" href="#cb15-5" tabindex="-1"></a><span class="dv">1</span></span></code></pre></div>
-<h2 id="eta-reduction">Eta Reduction</h2>
-<div class="sourceCode" id="cb16"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb16-1"><a aria-hidden="true" href="#cb16-1" tabindex="-1"></a>x <span class="kw">=&gt;</span> y <span class="kw">=&gt;</span> <span class="fu">plus</span> (x) (y)</span>
+<span id="cb15-5"><a aria-hidden="true" href="#cb15-5" tabindex="-1"></a><span class="dv">1</span></span></code></pre>
+        </div>
+        <h2 id="eta-reduction">Eta Reduction</h2>
+        <div class="sourceCode" id="cb16">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb16-1"><a aria-hidden="true" href="#cb16-1" tabindex="-1"></a>x <span class="kw">=&gt;</span> y <span class="kw">=&gt;</span> <span class="fu">plus</span> (x) (y)</span>
 <span id="cb16-2"><a aria-hidden="true" href="#cb16-2" tabindex="-1"></a>x <span class="kw">=&gt;</span>      <span class="fu">plus</span> (x)</span>
-<span id="cb16-3"><a aria-hidden="true" href="#cb16-3" tabindex="-1"></a>          plus</span></code></pre></div>
-<h2 id="examples">Examples</h2>
-<p><code>F3</code> is a proper eta reduction of <code>F2</code></p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb17-1"><a aria-hidden="true" href="#cb17-1" tabindex="-1"></a><span class="kw">const</span> id <span class="op">=</span> x <span class="kw">=&gt;</span> x<span class="op">;</span></span>
+<span id="cb16-3"><a aria-hidden="true" href="#cb16-3" tabindex="-1"></a>          plus</span></code></pre>
+        </div>
+        <h2 id="examples">Examples</h2>
+        <p><code>F3</code> is a proper eta reduction of <code>F2</code></p>
+        <div class="sourceCode" id="cb17">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb17-1"><a aria-hidden="true" href="#cb17-1" tabindex="-1"></a><span class="kw">const</span> id <span class="op">=</span> x <span class="kw">=&gt;</span> x<span class="op">;</span></span>
 <span id="cb17-2"><a aria-hidden="true" href="#cb17-2" tabindex="-1"></a><span class="kw">const</span> konst <span class="op">=</span> x <span class="kw">=&gt;</span> y <span class="kw">=&gt;</span> x<span class="op">;</span></span>
 <span id="cb17-3"><a aria-hidden="true" href="#cb17-3" tabindex="-1"></a></span>
 <span id="cb17-4"><a aria-hidden="true" href="#cb17-4" tabindex="-1"></a><span class="kw">const</span> F1 <span class="op">=</span> x <span class="kw">=&gt;</span> y <span class="kw">=&gt;</span> <span class="fu">konst</span> (id) (x) (y)<span class="op">;</span></span>
 <span id="cb17-5"><a aria-hidden="true" href="#cb17-5" tabindex="-1"></a><span class="kw">const</span> F2 <span class="op">=</span> x <span class="kw">=&gt;</span>      <span class="fu">konst</span> (id) (x)<span class="op">;</span></span>
-<span id="cb17-6"><a aria-hidden="true" href="#cb17-6" tabindex="-1"></a><span class="kw">const</span> F3 <span class="op">=</span>           <span class="fu">konst</span> (id)<span class="op">;</span></span></code></pre></div>
-<p><code>a1</code> is a proper beta expansion of <code>a2</code></p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb18-1"><a aria-hidden="true" href="#cb18-1" tabindex="-1"></a><span class="kw">const</span> id <span class="op">=</span> x <span class="kw">=&gt;</span> x<span class="op">;</span></span>
+<span id="cb17-6"><a aria-hidden="true" href="#cb17-6" tabindex="-1"></a><span class="kw">const</span> F3 <span class="op">=</span>           <span class="fu">konst</span> (id)<span class="op">;</span></span></code></pre>
+        </div>
+        <p><code>a1</code> is a proper beta expansion of <code>a2</code></p>
+        <div class="sourceCode" id="cb18">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb18-1"><a aria-hidden="true" href="#cb18-1" tabindex="-1"></a><span class="kw">const</span> id <span class="op">=</span> x <span class="kw">=&gt;</span> x<span class="op">;</span></span>
 <span id="cb18-2"><a aria-hidden="true" href="#cb18-2" tabindex="-1"></a></span>
 <span id="cb18-3"><a aria-hidden="true" href="#cb18-3" tabindex="-1"></a><span class="kw">const</span> a1 <span class="op">=</span> y <span class="kw">=&gt;</span> <span class="fu">id</span>(y)<span class="op">;</span></span>
-<span id="cb18-4"><a aria-hidden="true" href="#cb18-4" tabindex="-1"></a><span class="kw">const</span> a2 <span class="op">=</span> y <span class="kw">=&gt;</span> y<span class="op">;</span></span></code></pre></div>
-<p><code>a2</code> is a proper beta reduction of <code>a1</code></p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb19-1"><a aria-hidden="true" href="#cb19-1" tabindex="-1"></a><span class="kw">const</span> id <span class="op">=</span> x <span class="kw">=&gt;</span> x<span class="op">;</span></span>
+<span id="cb18-4"><a aria-hidden="true" href="#cb18-4" tabindex="-1"></a><span class="kw">const</span> a2 <span class="op">=</span> y <span class="kw">=&gt;</span> y<span class="op">;</span></span></code></pre>
+        </div>
+        <p><code>a2</code> is a proper beta reduction of <code>a1</code></p>
+        <div class="sourceCode" id="cb19">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb19-1"><a aria-hidden="true" href="#cb19-1" tabindex="-1"></a><span class="kw">const</span> id <span class="op">=</span> x <span class="kw">=&gt;</span> x<span class="op">;</span></span>
 <span id="cb19-2"><a aria-hidden="true" href="#cb19-2" tabindex="-1"></a></span>
 <span id="cb19-3"><a aria-hidden="true" href="#cb19-3" tabindex="-1"></a><span class="kw">const</span> a1 <span class="op">=</span> y <span class="kw">=&gt;</span> <span class="fu">id</span>(y)<span class="op">;</span></span>
-<span id="cb19-4"><a aria-hidden="true" href="#cb19-4" tabindex="-1"></a><span class="kw">const</span> a2 <span class="op">=</span> y <span class="kw">=&gt;</span> y<span class="op">;</span></span></code></pre></div>
-<p><code>id1</code> and <code>id2</code> are alpha-equivalent</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb20-1"><a aria-hidden="true" href="#cb20-1" tabindex="-1"></a><span class="kw">const</span> id1 <span class="op">=</span> x <span class="kw">=&gt;</span> x<span class="op">;</span></span>
-<span id="cb20-2"><a aria-hidden="true" href="#cb20-2" tabindex="-1"></a><span class="kw">const</span> id2 <span class="op">=</span> y <span class="kw">=&gt;</span> y<span class="op">;</span></span></code></pre></div>
-<h1 id="week-3---lambda">Week 3 - Lambda</h1>
-<h2 id="atomic-lambda-terms">Atomic Lambda Terms</h2>
-<div class="sourceCode" id="cb21"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb21-1"><a aria-hidden="true" href="#cb21-1" tabindex="-1"></a><span class="co">// atoms</span></span>
+<span id="cb19-4"><a aria-hidden="true" href="#cb19-4" tabindex="-1"></a><span class="kw">const</span> a2 <span class="op">=</span> y <span class="kw">=&gt;</span> y<span class="op">;</span></span></code></pre>
+        </div>
+        <p><code>id1</code> and <code>id2</code> are alpha-equivalent</p>
+        <div class="sourceCode" id="cb20">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb20-1"><a aria-hidden="true" href="#cb20-1" tabindex="-1"></a><span class="kw">const</span> id1 <span class="op">=</span> x <span class="kw">=&gt;</span> x<span class="op">;</span></span>
+<span id="cb20-2"><a aria-hidden="true" href="#cb20-2" tabindex="-1"></a><span class="kw">const</span> id2 <span class="op">=</span> y <span class="kw">=&gt;</span> y<span class="op">;</span></span></code></pre>
+        </div>
+        <h1 id="week-3---lambda">Week 3 - Lambda</h1>
+        <h2 id="atomic-lambda-terms">Atomic Lambda Terms</h2>
+        <div class="sourceCode" id="cb21">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb21-1"><a aria-hidden="true" href="#cb21-1" tabindex="-1"></a><span class="co">// atoms</span></span>
 <span id="cb21-2"><a aria-hidden="true" href="#cb21-2" tabindex="-1"></a><span class="kw">const</span> id <span class="op">=</span> x <span class="kw">=&gt;</span> x<span class="op">;</span></span>
 <span id="cb21-3"><a aria-hidden="true" href="#cb21-3" tabindex="-1"></a><span class="kw">const</span> konst <span class="op">=</span> x <span class="kw">=&gt;</span> y <span class="kw">=&gt;</span> x<span class="op">;</span></span>
 <span id="cb21-4"><a aria-hidden="true" href="#cb21-4" tabindex="-1"></a></span>
 <span id="cb21-5"><a aria-hidden="true" href="#cb21-5" tabindex="-1"></a><span class="co">// derived true, false, and, or, equals, â€¦</span></span>
 <span id="cb21-6"><a aria-hidden="true" href="#cb21-6" tabindex="-1"></a><span class="kw">const</span> F <span class="op">=</span> â€¦<span class="op">;</span></span>
-<span id="cb21-7"><a aria-hidden="true" href="#cb21-7" tabindex="-1"></a><span class="kw">const</span> T <span class="op">=</span> â€¦<span class="op">;</span></span></code></pre></div>
-<h2 id="pair-product-type">Pair, Product Type</h2>
-<div class="sourceCode" id="cb22"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb22-1"><a aria-hidden="true" href="#cb22-1" tabindex="-1"></a><span class="kw">const</span> pair <span class="op">=</span> x <span class="kw">=&gt;</span> y <span class="kw">=&gt;</span> f <span class="kw">=&gt;</span> <span class="fu">f</span>(x)(y)<span class="op">;</span></span>
+<span id="cb21-7"><a aria-hidden="true" href="#cb21-7" tabindex="-1"></a><span class="kw">const</span> T <span class="op">=</span> â€¦<span class="op">;</span></span></code></pre>
+        </div>
+        <h2 id="pair-product-type">Pair, Product Type</h2>
+        <div class="sourceCode" id="cb22">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb22-1"><a aria-hidden="true" href="#cb22-1" tabindex="-1"></a><span class="kw">const</span> pair <span class="op">=</span> x <span class="kw">=&gt;</span> y <span class="kw">=&gt;</span> f <span class="kw">=&gt;</span> <span class="fu">f</span>(x)(y)<span class="op">;</span></span>
 <span id="cb22-2"><a aria-hidden="true" href="#cb22-2" tabindex="-1"></a><span class="kw">const</span> fst <span class="op">=</span> p <span class="kw">=&gt;</span> <span class="fu">p</span>(T)<span class="op">;</span></span>
-<span id="cb22-3"><a aria-hidden="true" href="#cb22-3" tabindex="-1"></a><span class="kw">const</span> snd <span class="op">=</span> p <span class="kw">=&gt;</span> <span class="fu">p</span>(F)<span class="op">;</span></span></code></pre></div>
-<h2 id="pair-encoding">Pair encoding</h2>
-<div class="sourceCode" id="cb23"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb23-1"><a aria-hidden="true" href="#cb23-1" tabindex="-1"></a><span class="kw">const</span> person <span class="op">=</span></span>
+<span id="cb22-3"><a aria-hidden="true" href="#cb22-3" tabindex="-1"></a><span class="kw">const</span> snd <span class="op">=</span> p <span class="kw">=&gt;</span> <span class="fu">p</span>(F)<span class="op">;</span></span></code></pre>
+        </div>
+        <h2 id="pair-encoding">Pair encoding</h2>
+        <div class="sourceCode" id="cb23">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb23-1"><a aria-hidden="true" href="#cb23-1" tabindex="-1"></a><span class="kw">const</span> person <span class="op">=</span></span>
 <span id="cb23-2"><a aria-hidden="true" href="#cb23-2" tabindex="-1"></a>                firstname <span class="kw">=&gt;</span></span>
 <span id="cb23-3"><a aria-hidden="true" href="#cb23-3" tabindex="-1"></a>                lastname <span class="kw">=&gt;</span></span>
 <span id="cb23-4"><a aria-hidden="true" href="#cb23-4" tabindex="-1"></a>                age <span class="kw">=&gt;</span></span>
@@ -572,9 +904,13 @@
 <span id="cb23-6"><a aria-hidden="true" href="#cb23-6" tabindex="-1"></a></span>
 <span id="cb23-7"><a aria-hidden="true" href="#cb23-7" tabindex="-1"></a><span class="kw">const</span> firstn <span class="op">=</span> p <span class="kw">=&gt;</span> <span class="fu">fst</span>(<span class="fu">fst</span>(p))<span class="op">;</span></span>
 <span id="cb23-8"><a aria-hidden="true" href="#cb23-8" tabindex="-1"></a><span class="kw">const</span> lastn  <span class="op">=</span> p <span class="kw">=&gt;</span> <span class="fu">snd</span>(<span class="fu">fst</span>(p))<span class="op">;</span></span>
-<span id="cb23-9"><a aria-hidden="true" href="#cb23-9" tabindex="-1"></a><span class="kw">const</span> age    <span class="op">=</span> p <span class="kw">=&gt;</span> <span class="fu">snd</span>(p)<span class="op">;</span></span></code></pre></div>
-<h2 id="either-co-product-sum">Either, Co-Product, Sum</h2>
-<div class="sourceCode" id="cb24"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb24-1"><a aria-hidden="true" href="#cb24-1" tabindex="-1"></a><span class="co">// dual of the product</span></span>
+<span id="cb23-9"><a aria-hidden="true" href="#cb23-9" tabindex="-1"></a><span class="kw">const</span> age    <span class="op">=</span> p <span class="kw">=&gt;</span> <span class="fu">snd</span>(p)<span class="op">;</span></span></code></pre>
+        </div>
+        <h2 id="either-co-product-sum">Either, Co-Product, Sum</h2>
+        <div class="sourceCode" id="cb24">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb24-1"><a aria-hidden="true" href="#cb24-1" tabindex="-1"></a><span class="co">// dual of the product</span></span>
 <span id="cb24-2"><a aria-hidden="true" href="#cb24-2" tabindex="-1"></a><span class="kw">const</span> pair <span class="op">=</span> x <span class="kw">=&gt;</span> y <span class="kw">=&gt;</span> f <span class="kw">=&gt;</span> <span class="fu">f</span>(x)(y)<span class="op">;</span>    <span class="co">// one ctor</span></span>
 <span id="cb24-3"><a aria-hidden="true" href="#cb24-3" tabindex="-1"></a><span class="kw">const</span> fst  <span class="op">=</span> p <span class="kw">=&gt;</span> <span class="fu">p</span>(T)<span class="op">;</span>                 <span class="co">// accessor 1</span></span>
 <span id="cb24-4"><a aria-hidden="true" href="#cb24-4" tabindex="-1"></a><span class="kw">const</span> snd  <span class="op">=</span> p <span class="kw">=&gt;</span> <span class="fu">p</span>(F)<span class="op">;</span>                 <span class="co">// accessor 2</span></span>
@@ -582,105 +918,177 @@
 <span id="cb24-6"><a aria-hidden="true" href="#cb24-6" tabindex="-1"></a><span class="co">// here we have now the basic sum type</span></span>
 <span id="cb24-7"><a aria-hidden="true" href="#cb24-7" tabindex="-1"></a><span class="kw">const</span> Left   <span class="op">=</span> x <span class="kw">=&gt;</span> f <span class="kw">=&gt;</span> g <span class="kw">=&gt;</span> <span class="fu">f</span>(x)<span class="op">;</span>     <span class="co">// ctor 1</span></span>
 <span id="cb24-8"><a aria-hidden="true" href="#cb24-8" tabindex="-1"></a><span class="kw">const</span> Right  <span class="op">=</span> x <span class="kw">=&gt;</span> f <span class="kw">=&gt;</span> g <span class="kw">=&gt;</span> <span class="fu">g</span>(x)<span class="op">;</span>     <span class="co">// ctor 2</span></span>
-<span id="cb24-9"><a aria-hidden="true" href="#cb24-9" tabindex="-1"></a><span class="kw">const</span> either <span class="op">=</span> e <span class="kw">=&gt;</span> f <span class="kw">=&gt;</span> g <span class="kw">=&gt;</span> <span class="fu">e</span>(f)(g)<span class="op">;</span>  <span class="co">// accessor</span></span></code></pre></div>
-<h2 id="special-case-maybe">Special Case: Maybe</h2>
-<div class="sourceCode" id="cb25"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb25-1"><a aria-hidden="true" href="#cb25-1" tabindex="-1"></a><span class="co">// go around null / undefined</span></span>
+<span id="cb24-9"><a aria-hidden="true" href="#cb24-9" tabindex="-1"></a><span class="kw">const</span> either <span class="op">=</span> e <span class="kw">=&gt;</span> f <span class="kw">=&gt;</span> g <span class="kw">=&gt;</span> <span class="fu">e</span>(f)(g)<span class="op">;</span>  <span class="co">// accessor</span></span></code></pre>
+        </div>
+        <h2 id="special-case-maybe">Special Case: Maybe</h2>
+        <div class="sourceCode" id="cb25">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb25-1"><a aria-hidden="true" href="#cb25-1" tabindex="-1"></a><span class="co">// go around null / undefined</span></span>
 <span id="cb25-2"><a aria-hidden="true" href="#cb25-2" tabindex="-1"></a><span class="kw">const</span> Nothing <span class="op">=</span> <span class="fu">Left</span> ()<span class="op">;</span></span>
 <span id="cb25-3"><a aria-hidden="true" href="#cb25-3" tabindex="-1"></a><span class="kw">const</span> Just    <span class="op">=</span> Right<span class="op">;</span></span>
 <span id="cb25-4"><a aria-hidden="true" href="#cb25-4" tabindex="-1"></a><span class="kw">const</span> maybe   <span class="op">=</span> either<span class="op">;</span></span>
 <span id="cb25-5"><a aria-hidden="true" href="#cb25-5" tabindex="-1"></a></span>
 <span id="cb25-6"><a aria-hidden="true" href="#cb25-6" tabindex="-1"></a><span class="fu">maybe</span> (expressionThatMightGoWrong)</span>
 <span id="cb25-7"><a aria-hidden="true" href="#cb25-7" tabindex="-1"></a>      (handleBad)</span>
-<span id="cb25-8"><a aria-hidden="true" href="#cb25-8" tabindex="-1"></a>      (handleGood)<span class="op">;</span></span></code></pre></div>
-<h2 id="example-1">Example</h2>
-<div class="sourceCode" id="cb26"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb26-1"><a aria-hidden="true" href="#cb26-1" tabindex="-1"></a><span class="co">// error handling with either</span></span>
-<span id="cb26-2"><a aria-hidden="true" href="#cb26-2" tabindex="-1"></a><span class="kw">const</span> eShow <span class="op">=</span> result <span class="kw">=&gt;</span> <span class="fu">result</span> (msg <span class="kw">=&gt;</span> msg) (val <span class="kw">=&gt;</span> <span class="st">"Result is:"</span> <span class="op">+</span> val)<span class="op">;</span></span></code></pre></div>
-<h1 id="week-4---mapfilterreduce">Week 4 - Map/Filter/Reduce</h1>
-<h2 id="map">Map</h2>
-<div class="sourceCode" id="cb27"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb27-1"><a aria-hidden="true" href="#cb27-1" tabindex="-1"></a><span class="kw">const</span> times <span class="op">=</span> a <span class="kw">=&gt;</span> b <span class="kw">=&gt;</span> a <span class="op">*</span> b<span class="op">;</span></span>
+<span id="cb25-8"><a aria-hidden="true" href="#cb25-8" tabindex="-1"></a>      (handleGood)<span class="op">;</span></span></code></pre>
+        </div>
+        <h2 id="example-1">Example</h2>
+        <div class="sourceCode" id="cb26">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb26-1"><a aria-hidden="true" href="#cb26-1" tabindex="-1"></a><span class="co">// error handling with either</span></span>
+<span id="cb26-2"><a aria-hidden="true" href="#cb26-2" tabindex="-1"></a><span class="kw">const</span> eShow <span class="op">=</span> result <span class="kw">=&gt;</span> <span class="fu">result</span> (msg <span class="kw">=&gt;</span> msg) (val <span class="kw">=&gt;</span> <span class="st">"Result is:"</span> <span class="op">+</span> val)<span class="op">;</span></span></code></pre>
+        </div>
+        <h1 id="week-4---mapfilterreduce">Week 4 - Map/Filter/Reduce</h1>
+        <h2 id="map">Map</h2>
+        <div class="sourceCode" id="cb27">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb27-1"><a aria-hidden="true" href="#cb27-1" tabindex="-1"></a><span class="kw">const</span> times <span class="op">=</span> a <span class="kw">=&gt;</span> b <span class="kw">=&gt;</span> a <span class="op">*</span> b<span class="op">;</span></span>
 <span id="cb27-2"><a aria-hidden="true" href="#cb27-2" tabindex="-1"></a></span>
 <span id="cb27-3"><a aria-hidden="true" href="#cb27-3" tabindex="-1"></a><span class="kw">const</span> twoTimes <span class="op">=</span> <span class="fu">times</span>(<span class="dv">2</span>)<span class="op">;</span></span>
 <span id="cb27-4"><a aria-hidden="true" href="#cb27-4" tabindex="-1"></a></span>
 <span id="cb27-5"><a aria-hidden="true" href="#cb27-5" tabindex="-1"></a>[<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">.</span><span class="fu">map</span>(x <span class="kw">=&gt;</span> <span class="fu">times</span>(<span class="dv">2</span>)(x))<span class="op">;</span></span>
 <span id="cb27-6"><a aria-hidden="true" href="#cb27-6" tabindex="-1"></a>[<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">.</span><span class="fu">map</span>(<span class="fu">times</span>(<span class="dv">2</span>))<span class="op">;</span></span>
-<span id="cb27-7"><a aria-hidden="true" href="#cb27-7" tabindex="-1"></a>[<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">.</span><span class="fu">map</span>(twoTimes)<span class="op">;</span></span></code></pre></div>
-<h2 id="filter">Filter</h2>
-<div class="sourceCode" id="cb28"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb28-1"><a aria-hidden="true" href="#cb28-1" tabindex="-1"></a><span class="kw">const</span> odd <span class="op">=</span> x <span class="kw">=&gt;</span> x <span class="op">%</span> <span class="dv">2</span> <span class="op">===</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb27-7"><a aria-hidden="true" href="#cb27-7" tabindex="-1"></a>[<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">.</span><span class="fu">map</span>(twoTimes)<span class="op">;</span></span></code></pre>
+        </div>
+        <h2 id="filter">Filter</h2>
+        <div class="sourceCode" id="cb28">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb28-1"><a aria-hidden="true" href="#cb28-1" tabindex="-1"></a><span class="kw">const</span> odd <span class="op">=</span> x <span class="kw">=&gt;</span> x <span class="op">%</span> <span class="dv">2</span> <span class="op">===</span> <span class="dv">1</span><span class="op">;</span></span>
 <span id="cb28-2"><a aria-hidden="true" href="#cb28-2" tabindex="-1"></a></span>
 <span id="cb28-3"><a aria-hidden="true" href="#cb28-3" tabindex="-1"></a>[<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">.</span><span class="fu">filter</span>(x <span class="kw">=&gt;</span> x <span class="op">%</span> <span class="dv">2</span> <span class="op">===</span> <span class="dv">1</span>)<span class="op">;</span></span>
 <span id="cb28-4"><a aria-hidden="true" href="#cb28-4" tabindex="-1"></a>[<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">.</span><span class="fu">filter</span>(x <span class="kw">=&gt;</span> <span class="fu">odd</span>(x))<span class="op">;</span></span>
-<span id="cb28-5"><a aria-hidden="true" href="#cb28-5" tabindex="-1"></a>[<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">.</span><span class="fu">filter</span>(odd)<span class="op">;</span></span></code></pre></div>
-<h2 id="reduce">Reduce</h2>
-<div class="sourceCode" id="cb29"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb29-1"><a aria-hidden="true" href="#cb29-1" tabindex="-1"></a><span class="kw">const</span> plus <span class="op">=</span> (accu<span class="op">,</span> cur) <span class="kw">=&gt;</span> accu <span class="op">+</span> cur<span class="op">;</span></span>
+<span id="cb28-5"><a aria-hidden="true" href="#cb28-5" tabindex="-1"></a>[<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">.</span><span class="fu">filter</span>(odd)<span class="op">;</span></span></code></pre>
+        </div>
+        <h2 id="reduce">Reduce</h2>
+        <div class="sourceCode" id="cb29">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb29-1"><a aria-hidden="true" href="#cb29-1" tabindex="-1"></a><span class="kw">const</span> plus <span class="op">=</span> (accu<span class="op">,</span> cur) <span class="kw">=&gt;</span> accu <span class="op">+</span> cur<span class="op">;</span></span>
 <span id="cb29-2"><a aria-hidden="true" href="#cb29-2" tabindex="-1"></a></span>
 <span id="cb29-3"><a aria-hidden="true" href="#cb29-3" tabindex="-1"></a>[<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">.</span><span class="fu">reduce</span>((accu<span class="op">,</span> cur) <span class="kw">=&gt;</span> accu <span class="op">+</span> cur)<span class="op">;</span></span>
 <span id="cb29-4"><a aria-hidden="true" href="#cb29-4" tabindex="-1"></a>[<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">.</span><span class="fu">reduce</span>(plus)<span class="op">;</span></span>
 <span id="cb29-5"><a aria-hidden="true" href="#cb29-5" tabindex="-1"></a></span>
 <span id="cb29-6"><a aria-hidden="true" href="#cb29-6" tabindex="-1"></a><span class="co">// variant with initial accu value as 2nd argument</span></span>
 <span id="cb29-7"><a aria-hidden="true" href="#cb29-7" tabindex="-1"></a><span class="co">// then cur starts at first element</span></span>
-<span id="cb29-8"><a aria-hidden="true" href="#cb29-8" tabindex="-1"></a>[<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">.</span><span class="fu">reduce</span>(plus<span class="op">,</span> <span class="dv">0</span>)<span class="op">;</span></span></code></pre></div>
-<h2 id="examples-1">Examples</h2>
-<div class="sourceCode" id="cb30"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb30-1"><a aria-hidden="true" href="#cb30-1" tabindex="-1"></a><span class="co">// function that checks which numbers in an array are divideable </span></span>
+<span id="cb29-8"><a aria-hidden="true" href="#cb29-8" tabindex="-1"></a>[<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">.</span><span class="fu">reduce</span>(plus<span class="op">,</span> <span class="dv">0</span>)<span class="op">;</span></span></code></pre>
+        </div>
+        <h2 id="examples-1">Examples</h2>
+        <div class="sourceCode" id="cb30">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb30-1"><a aria-hidden="true" href="#cb30-1" tabindex="-1"></a><span class="co">// function that checks which numbers in an array are divideable </span></span>
 <span id="cb30-2"><a aria-hidden="true" href="#cb30-2" tabindex="-1"></a><span class="co">// by the given argument</span></span>
-<span id="cb30-3"><a aria-hidden="true" href="#cb30-3" tabindex="-1"></a><span class="kw">const</span> divides <span class="op">=</span> x <span class="kw">=&gt;</span> y <span class="kw">=&gt;</span> y <span class="op">%</span> x <span class="op">===</span> <span class="dv">0</span><span class="op">;</span></span></code></pre></div>
-<div class="sourceCode" id="cb31"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb31-1"><a aria-hidden="true" href="#cb31-1" tabindex="-1"></a><span class="co">// function that joins values of an array together with given argument</span></span>
-<span id="cb31-2"><a aria-hidden="true" href="#cb31-2" tabindex="-1"></a><span class="kw">const</span> join <span class="op">=</span> (a) <span class="kw">=&gt;</span> (b<span class="op">,</span> c) <span class="kw">=&gt;</span> b <span class="op">+</span> a <span class="op">+</span> c<span class="op">;</span></span></code></pre></div>
-<div class="sourceCode" id="cb32"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb32-1"><a aria-hidden="true" href="#cb32-1" tabindex="-1"></a><span class="co">// function that doubles its argument</span></span>
+<span id="cb30-3"><a aria-hidden="true" href="#cb30-3" tabindex="-1"></a><span class="kw">const</span> divides <span class="op">=</span> x <span class="kw">=&gt;</span> y <span class="kw">=&gt;</span> y <span class="op">%</span> x <span class="op">===</span> <span class="dv">0</span><span class="op">;</span></span></code></pre>
+        </div>
+        <div class="sourceCode" id="cb31">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb31-1"><a aria-hidden="true" href="#cb31-1" tabindex="-1"></a><span class="co">// function that joins values of an array together with given argument</span></span>
+<span id="cb31-2"><a aria-hidden="true" href="#cb31-2" tabindex="-1"></a><span class="kw">const</span> join <span class="op">=</span> (a) <span class="kw">=&gt;</span> (b<span class="op">,</span> c) <span class="kw">=&gt;</span> b <span class="op">+</span> a <span class="op">+</span> c<span class="op">;</span></span></code></pre>
+        </div>
+        <div class="sourceCode" id="cb32">
+          <pre
+            class="sourceCode js"
+          ><code class="sourceCode javascript"><span id="cb32-1"><a aria-hidden="true" href="#cb32-1" tabindex="-1"></a><span class="co">// function that doubles its argument</span></span>
 <span id="cb32-2"><a aria-hidden="true" href="#cb32-2" tabindex="-1"></a><span class="kw">const</span> twice <span class="op">=</span> (a) <span class="kw">=&gt;</span> a <span class="op">*</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb32-3"><a aria-hidden="true" href="#cb32-3" tabindex="-1"></a><span class="kw">const</span> numbers <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">.</span><span class="fu">map</span>(twice)<span class="op">;</span> <span class="co">// yields [2,4,6]</span></span></code></pre></div>
-<h1 id="week-5---scripting-pwa-plotter-excel">Week 5 - Scripting, PWA, Plotter, Excel</h1>
-<h2 id="why-scripting">Why Scripting?</h2>
-<ul>
-<li>Command Line</li>
-<li>Automation</li>
-<li>Build System</li>
-<li>Templating</li>
-<li>Code Distribution</li>
-<li>Formulae</li>
-<li>Business Rules</li>
-<li>Smart Configuration</li>
-<li>Product Lines</li>
-<li>DSL</li>
-<li>Self Modifying Code</li>
-<li>much more</li>
-</ul>
-<h2 id="scripting-characteristics">Scripting Characteristics</h2>
-<ul>
-<li>Interpreted, not compiled (in principle)</li>
-<li>Lenient type system</li>
-<li><em>Best Effort</em> approach</li>
-</ul>
-<h2 id="progressive-web-app">Progressive Web App</h2>
-<p>Loading test suite dynamically :</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb33-1"><a aria-hidden="true" href="#cb33-1" tabindex="-1"></a><span class="bu">document</span><span class="op">.</span><span class="fu">write</span>(<span class="st">'&lt;script src=...'</span>)<span class="op">;</span></span></code></pre></div>
-<h2 id="function-plotter-eval">Function Plotter: eval</h2>
-<p>Works as if the code was copied verbatim in the place of the eval. =&gt; You share the scope.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb34-1"><a aria-hidden="true" href="#cb34-1" tabindex="-1"></a><span class="pp">eval</span>(<span class="st">'some code'</span>)<span class="op">;</span> <span class="co">// not side effect free!</span></span></code></pre></div>
-<h2 id="function-plotter-function">Function Plotter: Function()</h2>
-<p><code>Function()</code> is like <code>eval()</code> but declares parameters and executes in the global scope. It creates a reference.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb35-1"><a aria-hidden="true" href="#cb35-1" tabindex="-1"></a><span class="kw">const</span> add <span class="op">=</span> <span class="bu">Function</span>(<span class="st">'x'</span><span class="op">,</span> <span class="st">'y'</span><span class="op">,</span> <span class="st">'return x+y'</span>)<span class="op">;</span> <span class="co">// only evaluated once!</span></span>
+<span id="cb32-3"><a aria-hidden="true" href="#cb32-3" tabindex="-1"></a><span class="kw">const</span> numbers <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">.</span><span class="fu">map</span>(twice)<span class="op">;</span> <span class="co">// yields [2,4,6]</span></span></code></pre>
+        </div>
+        <h1 id="week-5---scripting-pwa-plotter-excel">
+          Week 5 - Scripting, PWA, Plotter, Excel
+        </h1>
+        <h2 id="why-scripting">Why Scripting?</h2>
+        <ul>
+          <li>Command Line</li>
+          <li>Automation</li>
+          <li>Build System</li>
+          <li>Templating</li>
+          <li>Code Distribution</li>
+          <li>Formulae</li>
+          <li>Business Rules</li>
+          <li>Smart Configuration</li>
+          <li>Product Lines</li>
+          <li>DSL</li>
+          <li>Self Modifying Code</li>
+          <li>much more</li>
+        </ul>
+        <h2 id="scripting-characteristics">Scripting Characteristics</h2>
+        <ul>
+          <li>Interpreted, not compiled (in principle)</li>
+          <li>Lenient type system</li>
+          <li><em>Best Effort</em> approach</li>
+        </ul>
+        <h2 id="progressive-web-app">Progressive Web App</h2>
+        <p>Loading test suite dynamically :</p>
+        <div class="sourceCode" id="cb33">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb33-1"><a aria-hidden="true" href="#cb33-1" tabindex="-1"></a><span class="bu">document</span><span class="op">.</span><span class="fu">write</span>(<span class="st">'&lt;script src=...'</span>)<span class="op">;</span></span></code></pre>
+        </div>
+        <h2 id="function-plotter-eval">Function Plotter: eval</h2>
+        <p>
+          Works as if the code was copied verbatim in the place of the eval.
+          =&gt; You share the scope.
+        </p>
+        <div class="sourceCode" id="cb34">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb34-1"><a aria-hidden="true" href="#cb34-1" tabindex="-1"></a><span class="pp">eval</span>(<span class="st">'some code'</span>)<span class="op">;</span> <span class="co">// not side effect free!</span></span></code></pre>
+        </div>
+        <h2 id="function-plotter-function">Function Plotter: Function()</h2>
+        <p>
+          <code>Function()</code> is like <code>eval()</code> but declares
+          parameters and executes in the global scope. It creates a reference.
+        </p>
+        <div class="sourceCode" id="cb35">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb35-1"><a aria-hidden="true" href="#cb35-1" tabindex="-1"></a><span class="kw">const</span> add <span class="op">=</span> <span class="bu">Function</span>(<span class="st">'x'</span><span class="op">,</span> <span class="st">'y'</span><span class="op">,</span> <span class="st">'return x+y'</span>)<span class="op">;</span> <span class="co">// only evaluated once!</span></span>
 <span id="cb35-2"><a aria-hidden="true" href="#cb35-2" tabindex="-1"></a><span class="fu">add</span>(<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span>)<span class="op">;</span></span>
-<span id="cb35-3"><a aria-hidden="true" href="#cb35-3" tabindex="-1"></a><span class="fu">add</span>(<span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>)<span class="op">;</span> <span class="co">// no need to re-parse</span></span></code></pre></div>
-<h2 id="scripting-caution">Scripting Caution</h2>
-<p><em>In JavaScript you cannot exclude possibly harmful side effects from scripts that are loaded from foreign sourcesâ€¦</em></p>
-<ul>
-<li><strong>Privacy, Security, Stability</strong></li>
-</ul>
-<h2 id="examples-2">Examples</h2>
-<p>Calculate the bonus with given attributes:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb36-1"><a aria-hidden="true" href="#cb36-1" tabindex="-1"></a><span class="kw">const</span> bonusCalculation <span class="op">=</span> x <span class="kw">=&gt;</span> x<span class="op">.</span><span class="at">bonus</span> <span class="op">=</span> <span class="pp">eval</span>(x<span class="op">.</span><span class="at">revenue</span>) <span class="op">*</span> factor_<span class="op">;</span></span></code></pre></div>
-<p>Calculate the bonus with given attributes using Function():</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb37-1"><a aria-hidden="true" href="#cb37-1" tabindex="-1"></a><span class="kw">const</span> bonusCalculation <span class="op">=</span> <span class="bu">Function</span>(<span class="st">'x'</span><span class="op">,</span> <span class="st">'return x.bonus = x.revenue *'</span> <span class="op">+</span> factor_)<span class="op">;</span></span></code></pre></div>
-<h1 id="week-6---objects">Week 6 - Objects</h1>
-<p><strong>What are objects?</strong></p>
-<ul>
-<li>Data structures + methods for access and management (+ a location for mutable state, + abstraction and polymorphism)</li>
-</ul>
-<h2 id="open-dynamic">Open &amp; dynamic</h2>
-<ul>
-<li>JS Objects</li>
-</ul>
-<div class="sourceCode" id="cb38"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb38-1"><a aria-hidden="true" href="#cb38-1" tabindex="-1"></a><span class="kw">const</span> good <span class="op">=</span> {</span>
+<span id="cb35-3"><a aria-hidden="true" href="#cb35-3" tabindex="-1"></a><span class="fu">add</span>(<span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>)<span class="op">;</span> <span class="co">// no need to re-parse</span></span></code></pre>
+        </div>
+        <h2 id="scripting-caution">Scripting Caution</h2>
+        <p>
+          <em
+            >In JavaScript you cannot exclude possibly harmful side effects from
+            scripts that are loaded from foreign sourcesâ€¦</em
+          >
+        </p>
+        <ul>
+          <li><strong>Privacy, Security, Stability</strong></li>
+        </ul>
+        <h2 id="examples-2">Examples</h2>
+        <p>Calculate the bonus with given attributes:</p>
+        <div class="sourceCode" id="cb36">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb36-1"><a aria-hidden="true" href="#cb36-1" tabindex="-1"></a><span class="kw">const</span> bonusCalculation <span class="op">=</span> x <span class="kw">=&gt;</span> x<span class="op">.</span><span class="at">bonus</span> <span class="op">=</span> <span class="pp">eval</span>(x<span class="op">.</span><span class="at">revenue</span>) <span class="op">*</span> factor_<span class="op">;</span></span></code></pre>
+        </div>
+        <p>Calculate the bonus with given attributes using Function():</p>
+        <div class="sourceCode" id="cb37">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb37-1"><a aria-hidden="true" href="#cb37-1" tabindex="-1"></a><span class="kw">const</span> bonusCalculation <span class="op">=</span> <span class="bu">Function</span>(<span class="st">'x'</span><span class="op">,</span> <span class="st">'return x.bonus = x.revenue *'</span> <span class="op">+</span> factor_)<span class="op">;</span></span></code></pre>
+        </div>
+        <h1 id="week-6---objects">Week 6 - Objects</h1>
+        <p><strong>What are objects?</strong></p>
+        <ul>
+          <li>
+            Data structures + methods for access and management (+ a location
+            for mutable state, + abstraction and polymorphism)
+          </li>
+        </ul>
+        <h2 id="open-dynamic">Open &amp; dynamic</h2>
+        <ul>
+          <li>JS Objects</li>
+        </ul>
+        <div class="sourceCode" id="cb38">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb38-1"><a aria-hidden="true" href="#cb38-1" tabindex="-1"></a><span class="kw">const</span> good <span class="op">=</span> {</span>
 <span id="cb38-2"><a aria-hidden="true" href="#cb38-2" tabindex="-1"></a>    <span class="dt">firstname</span> <span class="op">:</span> <span class="st">"Good"</span><span class="op">,</span></span>
 <span id="cb38-3"><a aria-hidden="true" href="#cb38-3" tabindex="-1"></a>    <span class="dt">lastname</span> <span class="op">:</span> <span class="st">"Boy"</span><span class="op">,</span></span>
 <span id="cb38-4"><a aria-hidden="true" href="#cb38-4" tabindex="-1"></a>    <span class="dt">getName</span> <span class="op">:</span> <span class="kw">function</span>() {</span>
@@ -689,10 +1097,14 @@
 <span id="cb38-7"><a aria-hidden="true" href="#cb38-7" tabindex="-1"></a>}<span class="op">;</span></span>
 <span id="cb38-8"><a aria-hidden="true" href="#cb38-8" tabindex="-1"></a><span class="co">// no safety but super dynamic</span></span>
 <span id="cb38-9"><a aria-hidden="true" href="#cb38-9" tabindex="-1"></a><span class="co">// unobvious how to share structure</span></span>
-<span id="cb38-10"><a aria-hidden="true" href="#cb38-10" tabindex="-1"></a><span class="co">// beware of "this"! See Adam Breindl last week.</span></span></code></pre></div>
-<h2 id="closed-explicit">Closed &amp; explicit</h2>
-<p>Closure scope, no this.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb39-1"><a aria-hidden="true" href="#cb39-1" tabindex="-1"></a><span class="kw">function</span> <span class="fu">Person</span>(first<span class="op">,</span> last) {</span>
+<span id="cb38-10"><a aria-hidden="true" href="#cb38-10" tabindex="-1"></a><span class="co">// beware of "this"! See Adam Breindl last week.</span></span></code></pre>
+        </div>
+        <h2 id="closed-explicit">Closed &amp; explicit</h2>
+        <p>Closure scope, no this.</p>
+        <div class="sourceCode" id="cb39">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb39-1"><a aria-hidden="true" href="#cb39-1" tabindex="-1"></a><span class="kw">function</span> <span class="fu">Person</span>(first<span class="op">,</span> last) {</span>
 <span id="cb39-2"><a aria-hidden="true" href="#cb39-2" tabindex="-1"></a>    <span class="kw">let</span> firstname <span class="op">=</span> first<span class="op">;</span> <span class="co">// optional</span></span>
 <span id="cb39-3"><a aria-hidden="true" href="#cb39-3" tabindex="-1"></a>    <span class="kw">let</span> lastname <span class="op">=</span> last<span class="op">;</span></span>
 <span id="cb39-4"><a aria-hidden="true" href="#cb39-4" tabindex="-1"></a>    <span class="cf">return</span> {</span>
@@ -701,11 +1113,18 @@
 <span id="cb39-7"><a aria-hidden="true" href="#cb39-7" tabindex="-1"></a>        }</span>
 <span id="cb39-8"><a aria-hidden="true" href="#cb39-8" tabindex="-1"></a>    }</span>
 <span id="cb39-9"><a aria-hidden="true" href="#cb39-9" tabindex="-1"></a>}</span>
-<span id="cb39-10"><a aria-hidden="true" href="#cb39-10" tabindex="-1"></a><span class="co">// best safety, easy to share structure, but no class</span></span></code></pre></div>
-<h2 id="mixed-classified">Mixed &amp; classified</h2>
-<p>Depends on new. Is the default construction.</p>
-<p>Still dynamic but all instances can be changed at once by changing the prototype!</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb40-1"><a aria-hidden="true" href="#cb40-1" tabindex="-1"></a><span class="kw">const</span> Person <span class="op">=</span> ( () <span class="kw">=&gt;</span> { <span class="co">// lexical scope</span></span>
+<span id="cb39-10"><a aria-hidden="true" href="#cb39-10" tabindex="-1"></a><span class="co">// best safety, easy to share structure, but no class</span></span></code></pre>
+        </div>
+        <h2 id="mixed-classified">Mixed &amp; classified</h2>
+        <p>Depends on new. Is the default construction.</p>
+        <p>
+          Still dynamic but all instances can be changed at once by changing the
+          prototype!
+        </p>
+        <div class="sourceCode" id="cb40">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb40-1"><a aria-hidden="true" href="#cb40-1" tabindex="-1"></a><span class="kw">const</span> Person <span class="op">=</span> ( () <span class="kw">=&gt;</span> { <span class="co">// lexical scope</span></span>
 <span id="cb40-2"><a aria-hidden="true" href="#cb40-2" tabindex="-1"></a>    <span class="kw">function</span> <span class="fu">Person</span>(first<span class="op">,</span> last) { <span class="co">// ctor, binding</span></span>
 <span id="cb40-3"><a aria-hidden="true" href="#cb40-3" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="at">firstname</span> <span class="op">=</span> first<span class="op">;</span></span>
 <span id="cb40-4"><a aria-hidden="true" href="#cb40-4" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="at">lastname</span> <span class="op">=</span> last<span class="op">;</span></span>
@@ -715,32 +1134,42 @@
 <span id="cb40-8"><a aria-hidden="true" href="#cb40-8" tabindex="-1"></a>    }<span class="op">;</span></span>
 <span id="cb40-9"><a aria-hidden="true" href="#cb40-9" tabindex="-1"></a>    <span class="cf">return</span> Person<span class="op">;</span></span>
 <span id="cb40-10"><a aria-hidden="true" href="#cb40-10" tabindex="-1"></a>}) ()<span class="op">;</span> <span class="co">// IIFE</span></span>
-<span id="cb40-11"><a aria-hidden="true" href="#cb40-11" tabindex="-1"></a><span class="co">// new Person("Good", "Boy") instanceof Person</span></span></code></pre></div>
-<h2 id="prototype">Prototype</h2>
-<ul>
-<li>Classifies objects similar to a type</li>
-<li>Manages shared properties</li>
-<li>Is itself an object</li>
-<li>Can be checked, e.g by instanceof</li>
-</ul>
-<h2 id="new">New</h2>
-<ul>
-<li>Creates a <strong>new</strong> Runtime-Scope</li>
-<li>Calls the <strong>constructor</strong>-Function (cannot be a lambda)</li>
-<li>Sets the prototype</li>
-</ul>
-<h2 id="example-2">Example</h2>
-<p>Check whether two Arrays are equal:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb41-1"><a aria-hidden="true" href="#cb41-1" tabindex="-1"></a><span class="bu">Array</span><span class="op">.</span><span class="at">prototype</span><span class="op">.</span><span class="at">eq</span> <span class="op">=</span> <span class="kw">function</span>(array) {</span>
+<span id="cb40-11"><a aria-hidden="true" href="#cb40-11" tabindex="-1"></a><span class="co">// new Person("Good", "Boy") instanceof Person</span></span></code></pre>
+        </div>
+        <h2 id="prototype">Prototype</h2>
+        <ul>
+          <li>Classifies objects similar to a type</li>
+          <li>Manages shared properties</li>
+          <li>Is itself an object</li>
+          <li>Can be checked, e.g by instanceof</li>
+        </ul>
+        <h2 id="new">New</h2>
+        <ul>
+          <li>Creates a <strong>new</strong> Runtime-Scope</li>
+          <li>
+            Calls the <strong>constructor</strong>-Function (cannot be a lambda)
+          </li>
+          <li>Sets the prototype</li>
+        </ul>
+        <h2 id="example-2">Example</h2>
+        <p>Check whether two Arrays are equal:</p>
+        <div class="sourceCode" id="cb41">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb41-1"><a aria-hidden="true" href="#cb41-1" tabindex="-1"></a><span class="bu">Array</span><span class="op">.</span><span class="at">prototype</span><span class="op">.</span><span class="at">eq</span> <span class="op">=</span> <span class="kw">function</span>(array) {</span>
 <span id="cb41-2"><a aria-hidden="true" href="#cb41-2" tabindex="-1"></a>    <span class="cf">if</span> (<span class="kw">this</span><span class="op">.</span><span class="at">length</span> <span class="op">!==</span> array<span class="op">.</span><span class="at">length</span>) <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
 <span id="cb41-3"><a aria-hidden="true" href="#cb41-3" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> array<span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) {</span>
 <span id="cb41-4"><a aria-hidden="true" href="#cb41-4" tabindex="-1"></a>        <span class="cf">if</span> (<span class="kw">this</span>[i] <span class="op">!==</span> array[i]) <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></span>
 <span id="cb41-5"><a aria-hidden="true" href="#cb41-5" tabindex="-1"></a>    }</span>
 <span id="cb41-6"><a aria-hidden="true" href="#cb41-6" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></span>
-<span id="cb41-7"><a aria-hidden="true" href="#cb41-7" tabindex="-1"></a>}</span></code></pre></div>
-<h1 id="week-07---classes">Week 07 - Classes</h1>
-<h2 id="class-keyword"><code>class</code> Keyword</h2>
-<div class="sourceCode" id="cb42"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb42-1"><a aria-hidden="true" href="#cb42-1" tabindex="-1"></a><span class="kw">class</span> Person {</span>
+<span id="cb41-7"><a aria-hidden="true" href="#cb41-7" tabindex="-1"></a>}</span></code></pre>
+        </div>
+        <h1 id="week-07---classes">Week 07 - Classes</h1>
+        <h2 id="class-keyword"><code>class</code> Keyword</h2>
+        <div class="sourceCode" id="cb42">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb42-1"><a aria-hidden="true" href="#cb42-1" tabindex="-1"></a><span class="kw">class</span> Person {</span>
 <span id="cb42-2"><a aria-hidden="true" href="#cb42-2" tabindex="-1"></a>    <span class="fu">constructor</span>(first<span class="op">,</span> last) {</span>
 <span id="cb42-3"><a aria-hidden="true" href="#cb42-3" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="at">firstname</span> <span class="op">=</span> first<span class="op">;</span></span>
 <span id="cb42-4"><a aria-hidden="true" href="#cb42-4" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="at">lastname</span> <span class="op">=</span> last</span>
@@ -749,111 +1178,152 @@
 <span id="cb42-7"><a aria-hidden="true" href="#cb42-7" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">this</span><span class="op">.</span><span class="at">firstname</span> <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> <span class="kw">this</span><span class="op">.</span><span class="at">lastname</span></span>
 <span id="cb42-8"><a aria-hidden="true" href="#cb42-8" tabindex="-1"></a>    }</span>
 <span id="cb42-9"><a aria-hidden="true" href="#cb42-9" tabindex="-1"></a>}</span>
-<span id="cb42-10"><a aria-hidden="true" href="#cb42-10" tabindex="-1"></a><span class="co">// new Person("Good", "Boy") instanceof Person</span></span></code></pre></div>
-<h2 id="extends-keyword"><code>extends</code> Keyword</h2>
-<div class="sourceCode" id="cb43"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb43-1"><a aria-hidden="true" href="#cb43-1" tabindex="-1"></a><span class="kw">class</span> Student <span class="kw">extends</span> Person {</span>
+<span id="cb42-10"><a aria-hidden="true" href="#cb42-10" tabindex="-1"></a><span class="co">// new Person("Good", "Boy") instanceof Person</span></span></code></pre>
+        </div>
+        <h2 id="extends-keyword"><code>extends</code> Keyword</h2>
+        <div class="sourceCode" id="cb43">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb43-1"><a aria-hidden="true" href="#cb43-1" tabindex="-1"></a><span class="kw">class</span> Student <span class="kw">extends</span> Person {</span>
 <span id="cb43-2"><a aria-hidden="true" href="#cb43-2" tabindex="-1"></a>    <span class="fu">constructor</span> (first<span class="op">,</span> last<span class="op">,</span> grade) {</span>
 <span id="cb43-3"><a aria-hidden="true" href="#cb43-3" tabindex="-1"></a>        <span class="kw">super</span>(first<span class="op">,</span> last)<span class="op">;</span> <span class="co">// never forget</span></span>
 <span id="cb43-4"><a aria-hidden="true" href="#cb43-4" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="at">grade</span> <span class="op">=</span> grade<span class="op">;</span></span>
 <span id="cb43-5"><a aria-hidden="true" href="#cb43-5" tabindex="-1"></a>    }</span>
 <span id="cb43-6"><a aria-hidden="true" href="#cb43-6" tabindex="-1"></a>}</span>
-<span id="cb43-7"><a aria-hidden="true" href="#cb43-7" tabindex="-1"></a><span class="kw">const</span> s <span class="op">=</span> <span class="kw">new</span> <span class="fu">Student</span>(<span class="st">"Top"</span><span class="op">,</span><span class="st">"Student"</span><span class="op">,</span> <span class="fl">5.5</span>)<span class="op">;</span></span></code></pre></div>
-<h2 id="prototype-chain">Prototype chain</h2>
-<div class="sourceCode" id="cb44"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb44-1"><a aria-hidden="true" href="#cb44-1" tabindex="-1"></a><span class="kw">const</span> s <span class="op">=</span> <span class="kw">new</span> <span class="fu">Student</span>()</span>
+<span id="cb43-7"><a aria-hidden="true" href="#cb43-7" tabindex="-1"></a><span class="kw">const</span> s <span class="op">=</span> <span class="kw">new</span> <span class="fu">Student</span>(<span class="st">"Top"</span><span class="op">,</span><span class="st">"Student"</span><span class="op">,</span> <span class="fl">5.5</span>)<span class="op">;</span></span></code></pre>
+        </div>
+        <h2 id="prototype-chain">Prototype chain</h2>
+        <div class="sourceCode" id="cb44">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb44-1"><a aria-hidden="true" href="#cb44-1" tabindex="-1"></a><span class="kw">const</span> s <span class="op">=</span> <span class="kw">new</span> <span class="fu">Student</span>()</span>
 <span id="cb44-2"><a aria-hidden="true" href="#cb44-2" tabindex="-1"></a><span class="co">// s.__proto__ === Student.prototype;</span></span>
 <span id="cb44-3"><a aria-hidden="true" href="#cb44-3" tabindex="-1"></a><span class="co">// Object.getPrototypeOf(s) === Student.prototype;</span></span>
-<span id="cb44-4"><a aria-hidden="true" href="#cb44-4" tabindex="-1"></a><span class="co">// =&gt; s instanceof Student</span></span></code></pre></div>
-<h2 id="example-3">Example</h2>
-<p>Function composition -&gt; it must work for all functions!</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb45-1"><a aria-hidden="true" href="#cb45-1" tabindex="-1"></a><span class="bu">Function</span><span class="op">.</span><span class="at">prototype</span><span class="op">.</span><span class="at">then</span> <span class="op">=</span> <span class="kw">function</span>(fun) {</span>
+<span id="cb44-4"><a aria-hidden="true" href="#cb44-4" tabindex="-1"></a><span class="co">// =&gt; s instanceof Student</span></span></code></pre>
+        </div>
+        <h2 id="example-3">Example</h2>
+        <p>Function composition -&gt; it must work for all functions!</p>
+        <div class="sourceCode" id="cb45">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb45-1"><a aria-hidden="true" href="#cb45-1" tabindex="-1"></a><span class="bu">Function</span><span class="op">.</span><span class="at">prototype</span><span class="op">.</span><span class="at">then</span> <span class="op">=</span> <span class="kw">function</span>(fun) {</span>
 <span id="cb45-2"><a aria-hidden="true" href="#cb45-2" tabindex="-1"></a>    <span class="co">// this(number -&gt; result of the first function </span></span>
 <span id="cb45-3"><a aria-hidden="true" href="#cb45-3" tabindex="-1"></a>    <span class="co">// with the value at the end f.e. ..(1))</span></span>
 <span id="cb45-4"><a aria-hidden="true" href="#cb45-4" tabindex="-1"></a>    <span class="kw">const</span> compose <span class="op">=</span> fun <span class="kw">=&gt;</span> number <span class="kw">=&gt;</span> <span class="fu">fun</span>( <span class="kw">this</span>(number) )<span class="op">;</span></span>
 <span id="cb45-5"><a aria-hidden="true" href="#cb45-5" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">compose</span>(fun)<span class="op">;</span></span>
-<span id="cb45-6"><a aria-hidden="true" href="#cb45-6" tabindex="-1"></a>}</span></code></pre></div>
-<h1 id="week-08---moves-and-user-interfaces">Week 08 - Moves and User Interfaces</h1>
-<h2 id="compare-with-dancing">Compare with Dancing</h2>
-<ol type="1">
-<li>You must learn the moves.</li>
-<li>Then you can combine the moves and adapt to the situation at hand.</li>
-</ol>
-<h2 id="recognize-moves">Recognize Moves</h2>
-<ul>
-<li>Become aware what you do.</li>
-<li>We program collaboratively and look for moves.</li>
-</ul>
-<h2 id="task-1-improve-the-tests">Task 1: Improve the Tests</h2>
-<ul>
-<li>More structure.</li>
-<li>Better reports when tests fail.</li>
-<li>smooth transition.</li>
-</ul>
-<h2 id="task-2-todo-list-example">Task 2: Todo List Example</h2>
-<ul>
-<li>What is the expected result?</li>
-<li>What is the simplest thing that could possibly work?</li>
-</ul>
-<h2 id="moves---your-choice">Moves - Your Choice</h2>
-<h3 id="explore">0. Explore</h3>
-<ul>
-<li>Technical feasibility, hypotheses, border cases.</li>
-<li>The goal is to learn and verify, delete when finished.</li>
-<li>Give yourself a timebox.</li>
-</ul>
-<h3 id="start-at-the-end">1. Start at the End</h3>
-<ul>
-<li>Make static <em>sketch</em> of the result before adding dynamic features.</li>
-<li>Dynamic sketches: all JS, CSS in a single HTML file.</li>
-</ul>
-<h3 id="extract">2. Extract</h3>
-<ul>
-<li>Replace static values with variables.</li>
-<li>Replace repetitions with mappings and loops.</li>
-</ul>
-<h3 id="abstract">3. Abstract</h3>
-<ul>
-<li>Discover the concept behind what you have extracted. Give it a name.</li>
-<li>It should work for itself and in combination.</li>
-<li>Revert if you cannot find one.</li>
-</ul>
-<h3 id="reorganize">4. Reorganize</h3>
-<ul>
-<li>Organize and re-factor to make your future work easier.</li>
-<li>Facilitate extensions or improvements.</li>
-<li>Prepare for release.</li>
-</ul>
-<h3 id="release">5. Release</h3>
-<ul>
-<li>The solution must stand on its own without tacit knowledge or external help.</li>
-<li>Tests, documentation, examples.</li>
-<li>Before every push to the Repository.</li>
-</ul>
-<h3 id="retrospective">6. Retrospective</h3>
-<ul>
-<li>What to keep?</li>
-<li>What to try differently next time?</li>
-</ul>
-<h2 id="observations">Observations</h2>
-<ul>
-<li>Balance &amp; distance</li>
-<li>Which technologies support my moves: dynamic exploration, refactoring</li>
-<li>Per feature, per project, whole career, â€¦</li>
-</ul>
-<h2 id="example-4">Example</h2>
-<p>Failsafe callback:</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb46-1"><a aria-hidden="true" href="#cb46-1" tabindex="-1"></a><span class="kw">const</span> failSafe <span class="op">=</span> defaultValue <span class="kw">=&gt;</span> callback <span class="kw">=&gt;</span> argToCallback <span class="kw">=&gt;</span> {</span>
+<span id="cb45-6"><a aria-hidden="true" href="#cb45-6" tabindex="-1"></a>}</span></code></pre>
+        </div>
+        <h1 id="week-08---moves-and-user-interfaces">
+          Week 08 - Moves and User Interfaces
+        </h1>
+        <h2 id="compare-with-dancing">Compare with Dancing</h2>
+        <ol type="1">
+          <li>You must learn the moves.</li>
+          <li>
+            Then you can combine the moves and adapt to the situation at hand.
+          </li>
+        </ol>
+        <h2 id="recognize-moves">Recognize Moves</h2>
+        <ul>
+          <li>Become aware what you do.</li>
+          <li>We program collaboratively and look for moves.</li>
+        </ul>
+        <h2 id="task-1-improve-the-tests">Task 1: Improve the Tests</h2>
+        <ul>
+          <li>More structure.</li>
+          <li>Better reports when tests fail.</li>
+          <li>smooth transition.</li>
+        </ul>
+        <h2 id="task-2-todo-list-example">Task 2: Todo List Example</h2>
+        <ul>
+          <li>What is the expected result?</li>
+          <li>What is the simplest thing that could possibly work?</li>
+        </ul>
+        <h2 id="moves---your-choice">Moves - Your Choice</h2>
+        <h3 id="explore">0. Explore</h3>
+        <ul>
+          <li>Technical feasibility, hypotheses, border cases.</li>
+          <li>The goal is to learn and verify, delete when finished.</li>
+          <li>Give yourself a timebox.</li>
+        </ul>
+        <h3 id="start-at-the-end">1. Start at the End</h3>
+        <ul>
+          <li>
+            Make static <em>sketch</em> of the result before adding dynamic
+            features.
+          </li>
+          <li>Dynamic sketches: all JS, CSS in a single HTML file.</li>
+        </ul>
+        <h3 id="extract">2. Extract</h3>
+        <ul>
+          <li>Replace static values with variables.</li>
+          <li>Replace repetitions with mappings and loops.</li>
+        </ul>
+        <h3 id="abstract">3. Abstract</h3>
+        <ul>
+          <li>
+            Discover the concept behind what you have extracted. Give it a name.
+          </li>
+          <li>It should work for itself and in combination.</li>
+          <li>Revert if you cannot find one.</li>
+        </ul>
+        <h3 id="reorganize">4. Reorganize</h3>
+        <ul>
+          <li>Organize and re-factor to make your future work easier.</li>
+          <li>Facilitate extensions or improvements.</li>
+          <li>Prepare for release.</li>
+        </ul>
+        <h3 id="release">5. Release</h3>
+        <ul>
+          <li>
+            The solution must stand on its own without tacit knowledge or
+            external help.
+          </li>
+          <li>Tests, documentation, examples.</li>
+          <li>Before every push to the Repository.</li>
+        </ul>
+        <h3 id="retrospective">6. Retrospective</h3>
+        <ul>
+          <li>What to keep?</li>
+          <li>What to try differently next time?</li>
+        </ul>
+        <h2 id="observations">Observations</h2>
+        <ul>
+          <li>Balance &amp; distance</li>
+          <li>
+            Which technologies support my moves: dynamic exploration,
+            refactoring
+          </li>
+          <li>Per feature, per project, whole career, â€¦</li>
+        </ul>
+        <h2 id="example-4">Example</h2>
+        <p>Failsafe callback:</p>
+        <div class="sourceCode" id="cb46">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb46-1"><a aria-hidden="true" href="#cb46-1" tabindex="-1"></a><span class="kw">const</span> failSafe <span class="op">=</span> defaultValue <span class="kw">=&gt;</span> callback <span class="kw">=&gt;</span> argToCallback <span class="kw">=&gt;</span> {</span>
 <span id="cb46-2"><a aria-hidden="true" href="#cb46-2" tabindex="-1"></a>    <span class="cf">return</span> argToCallback <span class="op">===</span> <span class="kw">null</span> <span class="op">?</span> defaultValue <span class="op">:</span> <span class="fu">callback</span>(argToCallback)<span class="op">;</span></span>
-<span id="cb46-3"><a aria-hidden="true" href="#cb46-3" tabindex="-1"></a>}</span></code></pre></div>
-<h1 id="ui-engineering-mvc">9. UI Engineering, MVC</h1>
-<h2 id="callback---higher-order-function">Callback - Higher Order Function</h2>
-<p>Higher-order Function.</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb47-1"><a aria-hidden="true" href="#cb47-1" tabindex="-1"></a><span class="kw">function</span> <span class="fu">test</span>(name<span class="op">,</span> callback) {</span>
+<span id="cb46-3"><a aria-hidden="true" href="#cb46-3" tabindex="-1"></a>}</span></code></pre>
+        </div>
+        <h1 id="ui-engineering-mvc">9. UI Engineering, MVC</h1>
+        <h2 id="callback---higher-order-function">
+          Callback - Higher Order Function
+        </h2>
+        <p>Higher-order Function.</p>
+        <div class="sourceCode" id="cb47">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb47-1"><a aria-hidden="true" href="#cb47-1" tabindex="-1"></a><span class="kw">function</span> <span class="fu">test</span>(name<span class="op">,</span> callback) {</span>
 <span id="cb47-2"><a aria-hidden="true" href="#cb47-2" tabindex="-1"></a>    <span class="kw">const</span> assert <span class="op">=</span> <span class="fu">Assert</span>()<span class="op">;</span>        <span class="co">// prework</span></span>
 <span id="cb47-3"><a aria-hidden="true" href="#cb47-3" tabindex="-1"></a>    <span class="fu">callback</span>(assert)<span class="op">;</span>               <span class="co">// callback</span></span>
 <span id="cb47-4"><a aria-hidden="true" href="#cb47-4" tabindex="-1"></a>    <span class="fu">report</span>(name<span class="op">,</span> assert<span class="op">.</span><span class="fu">getOk</span>())<span class="op">;</span>   <span class="co">// postwork</span></span>
-<span id="cb47-5"><a aria-hidden="true" href="#cb47-5" tabindex="-1"></a>}</span></code></pre></div>
-<h2 id="observable">Observable</h2>
-<div class="sourceCode" id="cb48"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb48-1"><a aria-hidden="true" href="#cb48-1" tabindex="-1"></a><span class="kw">const</span> Observable <span class="op">=</span> value <span class="kw">=&gt;</span> {</span>
+<span id="cb47-5"><a aria-hidden="true" href="#cb47-5" tabindex="-1"></a>}</span></code></pre>
+        </div>
+        <h2 id="observable">Observable</h2>
+        <div class="sourceCode" id="cb48">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb48-1"><a aria-hidden="true" href="#cb48-1" tabindex="-1"></a><span class="kw">const</span> Observable <span class="op">=</span> value <span class="kw">=&gt;</span> {</span>
 <span id="cb48-2"><a aria-hidden="true" href="#cb48-2" tabindex="-1"></a>    <span class="kw">const</span> listeners <span class="op">=</span> []<span class="op">;</span> <span class="co">// many</span></span>
 <span id="cb48-3"><a aria-hidden="true" href="#cb48-3" tabindex="-1"></a>    <span class="cf">return</span> {</span>
 <span id="cb48-4"><a aria-hidden="true" href="#cb48-4" tabindex="-1"></a>        <span class="dt">onChange</span><span class="op">:</span> callback <span class="kw">=&gt;</span> listeners<span class="op">.</span><span class="fu">push</span>(callback)<span class="op">,</span></span>
@@ -865,30 +1335,54 @@
 <span id="cb48-10"><a aria-hidden="true" href="#cb48-10" tabindex="-1"></a>            listeners<span class="op">.</span><span class="fu">forEach</span>(notify <span class="kw">=&gt;</span> <span class="fu">notify</span>(val))<span class="op">;</span></span>
 <span id="cb48-11"><a aria-hidden="true" href="#cb48-11" tabindex="-1"></a>        }</span>
 <span id="cb48-12"><a aria-hidden="true" href="#cb48-12" tabindex="-1"></a>    }</span>
-<span id="cb48-13"><a aria-hidden="true" href="#cb48-13" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div>
-<h2 id="red-green-refactor">Red-Green-Refactor</h2>
-<figure>
-<img alt="redgreenrefactor" src="images\rgrf.png"/><figcaption aria-hidden="true">redgreenrefactor</figcaption>
-</figure>
-<p>Red-Green-Refactor is a basic concept in <strong>Test-driven Development (TDD)</strong> and consists of three stages:</p>
-<ul>
-<li><strong>RED</strong>: Write unit tests for whatever it is you want to code</li>
-<li><strong>GREEN</strong>: Write a minimal implementation such that the unit tests all pass</li>
-<li><strong>REFACTOR</strong>: Refactor the basic implementation and test again, making sure that all tests are still passing</li>
-</ul>
-<h2 id="mvc">MVC</h2>
-<figure>
-<img alt="mvc" src="images\mvc.PNG"/><figcaption aria-hidden="true">mvc</figcaption>
-</figure>
-<h2 id="example-5">Example</h2>
-<p>Using Observable that it keeps track of the sum of all values:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb49-1"><a aria-hidden="true" href="#cb49-1" tabindex="-1"></a>trackable<span class="op">.</span><span class="fu">onChange</span>( _ <span class="kw">=&gt;</span> sum <span class="op">+=</span> trackable<span class="op">.</span><span class="fu">getValue</span>())<span class="op">;</span></span></code></pre></div>
-<h1 id="async-programming">10. Async Programming</h1>
-<figure>
-<img alt="async" src="images\async.png"/><figcaption aria-hidden="true">async</figcaption>
-</figure>
-<h2 id="testing">Testing</h2>
-<div class="sourceCode" id="cb50"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb50-1"><a aria-hidden="true" href="#cb50-1" tabindex="-1"></a><span class="fu">test</span>(<span class="st">"todo-memory-leak"</span><span class="op">,</span> assert <span class="kw">=&gt;</span> {</span>
+<span id="cb48-13"><a aria-hidden="true" href="#cb48-13" tabindex="-1"></a>}<span class="op">;</span></span></code></pre>
+        </div>
+        <h2 id="red-green-refactor">Red-Green-Refactor</h2>
+        <figure>
+          <img alt="redgreenrefactor" src="images\rgrf.png" />
+          <figcaption aria-hidden="true">redgreenrefactor</figcaption>
+        </figure>
+        <p>
+          Red-Green-Refactor is a basic concept in
+          <strong>Test-driven Development (TDD)</strong> and consists of three
+          stages:
+        </p>
+        <ul>
+          <li>
+            <strong>RED</strong>: Write unit tests for whatever it is you want
+            to code
+          </li>
+          <li>
+            <strong>GREEN</strong>: Write a minimal implementation such that the
+            unit tests all pass
+          </li>
+          <li>
+            <strong>REFACTOR</strong>: Refactor the basic implementation and
+            test again, making sure that all tests are still passing
+          </li>
+        </ul>
+        <h2 id="mvc">MVC</h2>
+        <figure>
+          <img alt="mvc" src="images\mvc.PNG" />
+          <figcaption aria-hidden="true">mvc</figcaption>
+        </figure>
+        <h2 id="example-5">Example</h2>
+        <p>Using Observable that it keeps track of the sum of all values:</p>
+        <div class="sourceCode" id="cb49">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb49-1"><a aria-hidden="true" href="#cb49-1" tabindex="-1"></a>trackable<span class="op">.</span><span class="fu">onChange</span>( _ <span class="kw">=&gt;</span> sum <span class="op">+=</span> trackable<span class="op">.</span><span class="fu">getValue</span>())<span class="op">;</span></span></code></pre>
+        </div>
+        <h1 id="async-programming">10. Async Programming</h1>
+        <figure>
+          <img alt="async" src="images\async.png" />
+          <figcaption aria-hidden="true">async</figcaption>
+        </figure>
+        <h2 id="testing">Testing</h2>
+        <div class="sourceCode" id="cb50">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb50-1"><a aria-hidden="true" href="#cb50-1" tabindex="-1"></a><span class="fu">test</span>(<span class="st">"todo-memory-leak"</span><span class="op">,</span> assert <span class="kw">=&gt;</span> {</span>
 <span id="cb50-2"><a aria-hidden="true" href="#cb50-2" tabindex="-1"></a>    <span class="kw">const</span> todoController <span class="op">=</span> <span class="fu">TodoController</span>()<span class="op">;</span></span>
 <span id="cb50-3"><a aria-hidden="true" href="#cb50-3" tabindex="-1"></a></span>
 <span id="cb50-4"><a aria-hidden="true" href="#cb50-4" tabindex="-1"></a>    todoController<span class="op">.</span><span class="fu">onTodoAdd</span>(todo <span class="kw">=&gt;</span> {</span>
@@ -901,9 +1395,13 @@
 <span id="cb50-11"><a aria-hidden="true" href="#cb50-11" tabindex="-1"></a>        <span class="kw">const</span> todo <span class="op">=</span> todoController<span class="op">.</span><span class="fu">addTodo</span>()<span class="op">;</span></span>
 <span id="cb50-12"><a aria-hidden="true" href="#cb50-12" tabindex="-1"></a>        todoController<span class="op">.</span><span class="fu">removeTodo</span>(todo)<span class="op">;</span></span>
 <span id="cb50-13"><a aria-hidden="true" href="#cb50-13" tabindex="-1"></a>    }</span>
-<span id="cb50-14"><a aria-hidden="true" href="#cb50-14" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
-<h2 id="callback-events">Callback, Events</h2>
-<div class="sourceCode" id="cb51"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb51-1"><a aria-hidden="true" href="#cb51-1" tabindex="-1"></a><span class="kw">function</span> <span class="fu">start</span>() {</span>
+<span id="cb50-14"><a aria-hidden="true" href="#cb50-14" tabindex="-1"></a>})<span class="op">;</span></span></code></pre>
+        </div>
+        <h2 id="callback-events">Callback, Events</h2>
+        <div class="sourceCode" id="cb51">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb51-1"><a aria-hidden="true" href="#cb51-1" tabindex="-1"></a><span class="kw">function</span> <span class="fu">start</span>() {</span>
 <span id="cb51-2"><a aria-hidden="true" href="#cb51-2" tabindex="-1"></a>    <span class="co">//...</span></span>
 <span id="cb51-3"><a aria-hidden="true" href="#cb51-3" tabindex="-1"></a>    <span class="bu">window</span><span class="op">.</span><span class="at">onkeydown</span> <span class="op">=</span> evt <span class="kw">=&gt;</span> {</span>
 <span id="cb51-4"><a aria-hidden="true" href="#cb51-4" tabindex="-1"></a>        <span class="co">// doSomething();</span></span>
@@ -911,15 +1409,23 @@
 <span id="cb51-6"><a aria-hidden="true" href="#cb51-6" tabindex="-1"></a>    <span class="pp">setInterval</span>(() <span class="kw">=&gt;</span> {</span>
 <span id="cb51-7"><a aria-hidden="true" href="#cb51-7" tabindex="-1"></a>        <span class="co">// doSomething();</span></span>
 <span id="cb51-8"><a aria-hidden="true" href="#cb51-8" tabindex="-1"></a>    }<span class="op">,</span> <span class="dv">1000</span> <span class="op">/</span> <span class="dv">5</span>)<span class="op">;</span></span>
-<span id="cb51-9"><a aria-hidden="true" href="#cb51-9" tabindex="-1"></a>}</span></code></pre></div>
-<h2 id="promise">Promise</h2>
-<p>Most prominent use:</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb52-1"><a aria-hidden="true" href="#cb52-1" tabindex="-1"></a><span class="fu">fetch</span> (<span class="st">'http://fhnw.ch/json/students/list'</span>)</span>
+<span id="cb51-9"><a aria-hidden="true" href="#cb51-9" tabindex="-1"></a>}</span></code></pre>
+        </div>
+        <h2 id="promise">Promise</h2>
+        <p>Most prominent use:</p>
+        <div class="sourceCode" id="cb52">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb52-1"><a aria-hidden="true" href="#cb52-1" tabindex="-1"></a><span class="fu">fetch</span> (<span class="st">'http://fhnw.ch/json/students/list'</span>)</span>
 <span id="cb52-2"><a aria-hidden="true" href="#cb52-2" tabindex="-1"></a><span class="op">.</span><span class="fu">then</span>(response <span class="kw">=&gt;</span> response<span class="op">.</span><span class="fu">json</span>())</span>
 <span id="cb52-3"><a aria-hidden="true" href="#cb52-3" tabindex="-1"></a><span class="op">.</span><span class="fu">then</span>(students <span class="kw">=&gt;</span> <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(students<span class="op">.</span><span class="at">length</span>))</span>
-<span id="cb52-4"><a aria-hidden="true" href="#cb52-4" tabindex="-1"></a><span class="op">.</span><span class="fu">catch</span> (err <span class="kw">=&gt;</span> <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(err)</span></code></pre></div>
-<p>Success / Failure callbacks:</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb53-1"><a aria-hidden="true" href="#cb53-1" tabindex="-1"></a><span class="co">// definition</span></span>
+<span id="cb52-4"><a aria-hidden="true" href="#cb52-4" tabindex="-1"></a><span class="op">.</span><span class="fu">catch</span> (err <span class="kw">=&gt;</span> <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(err)</span></code></pre>
+        </div>
+        <p>Success / Failure callbacks:</p>
+        <div class="sourceCode" id="cb53">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb53-1"><a aria-hidden="true" href="#cb53-1" tabindex="-1"></a><span class="co">// definition</span></span>
 <span id="cb53-2"><a aria-hidden="true" href="#cb53-2" tabindex="-1"></a><span class="kw">const</span> processEven <span class="op">=</span> i <span class="kw">=&gt;</span> <span class="kw">new</span> <span class="bu">Promise</span>( (resolve<span class="op">,</span> reject) <span class="kw">=&gt;</span> {</span>
 <span id="cb53-3"><a aria-hidden="true" href="#cb53-3" tabindex="-1"></a>    <span class="cf">if</span> (i <span class="op">%</span> <span class="dv">2</span> <span class="op">===</span> <span class="dv">0</span>) {</span>
 <span id="cb53-4"><a aria-hidden="true" href="#cb53-4" tabindex="-1"></a>        <span class="fu">resolve</span>(i)<span class="op">;</span></span>
@@ -932,25 +1438,37 @@
 <span id="cb53-11"><a aria-hidden="true" href="#cb53-11" tabindex="-1"></a><span class="fu">processEven</span>(<span class="dv">4</span>)</span>
 <span id="cb53-12"><a aria-hidden="true" href="#cb53-12" tabindex="-1"></a><span class="op">.</span><span class="fu">then</span> ( it <span class="kw">=&gt;</span> {<span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(it)<span class="op">;</span> <span class="cf">return</span> it} ) <span class="co">// auto promotion</span></span>
 <span id="cb53-13"><a aria-hidden="true" href="#cb53-13" tabindex="-1"></a><span class="op">.</span><span class="fu">then</span> ( it <span class="kw">=&gt;</span> <span class="fu">processEven</span>(it<span class="op">+</span><span class="dv">1</span>))</span>
-<span id="cb53-14"><a aria-hidden="true" href="#cb53-14" tabindex="-1"></a><span class="op">.</span><span class="fu">catch</span>( err <span class="kw">=&gt;</span> <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>( <span class="st">"Error: "</span> <span class="op">+</span> err))</span></code></pre></div>
-<h2 id="async-await">Async / Await</h2>
-<div class="sourceCode" id="cb54"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb54-1"><a aria-hidden="true" href="#cb54-1" tabindex="-1"></a><span class="kw">const</span> foo <span class="op">=</span> <span class="kw">async</span> i <span class="kw">=&gt;</span> {</span>
+<span id="cb53-14"><a aria-hidden="true" href="#cb53-14" tabindex="-1"></a><span class="op">.</span><span class="fu">catch</span>( err <span class="kw">=&gt;</span> <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>( <span class="st">"Error: "</span> <span class="op">+</span> err))</span></code></pre>
+        </div>
+        <h2 id="async-await">Async / Await</h2>
+        <div class="sourceCode" id="cb54">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb54-1"><a aria-hidden="true" href="#cb54-1" tabindex="-1"></a><span class="kw">const</span> foo <span class="op">=</span> <span class="kw">async</span> i <span class="kw">=&gt;</span> {</span>
 <span id="cb54-2"><a aria-hidden="true" href="#cb54-2" tabindex="-1"></a>    <span class="kw">const</span> x <span class="op">=</span> <span class="cf">await</span> <span class="fu">processEven</span>(i)<span class="op">.</span><span class="fu">catch</span>( err <span class="kw">=&gt;</span> err)<span class="op">;</span></span>
 <span id="cb54-3"><a aria-hidden="true" href="#cb54-3" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"foo: "</span> <span class="op">+</span> x)<span class="op">;</span></span>
 <span id="cb54-4"><a aria-hidden="true" href="#cb54-4" tabindex="-1"></a>}<span class="op">;</span></span>
-<span id="cb54-5"><a aria-hidden="true" href="#cb54-5" tabindex="-1"></a><span class="fu">foo</span>(<span class="dv">4</span>)<span class="op">;</span></span></code></pre></div>
-<p>Other variant:</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb55-1"><a aria-hidden="true" href="#cb55-1" tabindex="-1"></a><span class="kw">async</span> <span class="kw">function</span> <span class="fu">foo</span>(i) {</span>
+<span id="cb54-5"><a aria-hidden="true" href="#cb54-5" tabindex="-1"></a><span class="fu">foo</span>(<span class="dv">4</span>)<span class="op">;</span></span></code></pre>
+        </div>
+        <p>Other variant:</p>
+        <div class="sourceCode" id="cb55">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb55-1"><a aria-hidden="true" href="#cb55-1" tabindex="-1"></a><span class="kw">async</span> <span class="kw">function</span> <span class="fu">foo</span>(i) {</span>
 <span id="cb55-2"><a aria-hidden="true" href="#cb55-2" tabindex="-1"></a>    <span class="cf">try</span> {</span>
 <span id="cb55-3"><a aria-hidden="true" href="#cb55-3" tabindex="-1"></a>        <span class="kw">const</span> x <span class="op">=</span> <span class="cf">await</span> <span class="fu">processEven</span>(i)<span class="op">;</span></span>
 <span id="cb55-4"><a aria-hidden="true" href="#cb55-4" tabindex="-1"></a>        <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"foo: "</span> <span class="op">+</span> x)<span class="op">;</span></span>
 <span id="cb55-5"><a aria-hidden="true" href="#cb55-5" tabindex="-1"></a>    }</span>
 <span id="cb55-6"><a aria-hidden="true" href="#cb55-6" tabindex="-1"></a>    <span class="cf">catch</span>(err) { <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(err)<span class="op">;</span> }</span>
 <span id="cb55-7"><a aria-hidden="true" href="#cb55-7" tabindex="-1"></a>}<span class="op">;</span></span>
-<span id="cb55-8"><a aria-hidden="true" href="#cb55-8" tabindex="-1"></a><span class="fu">foo</span>(<span class="dv">4</span>)<span class="op">;</span></span></code></pre></div>
-<h2 id="example-6">Example</h2>
-<p>A NullSafe construction in the style of a <code>Promise</code>:</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb56-1"><a aria-hidden="true" href="#cb56-1" tabindex="-1"></a><span class="kw">const</span> NullSafe <span class="op">=</span> x <span class="kw">=&gt;</span> {</span>
+<span id="cb55-8"><a aria-hidden="true" href="#cb55-8" tabindex="-1"></a><span class="fu">foo</span>(<span class="dv">4</span>)<span class="op">;</span></span></code></pre>
+        </div>
+        <h2 id="example-6">Example</h2>
+        <p>A NullSafe construction in the style of a <code>Promise</code>:</p>
+        <div class="sourceCode" id="cb56">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb56-1"><a aria-hidden="true" href="#cb56-1" tabindex="-1"></a><span class="kw">const</span> NullSafe <span class="op">=</span> x <span class="kw">=&gt;</span> {</span>
 <span id="cb56-2"><a aria-hidden="true" href="#cb56-2" tabindex="-1"></a>    <span class="kw">const</span> isNullSafe <span class="op">=</span> y <span class="kw">=&gt;</span> y <span class="op">&amp;&amp;</span> y<span class="op">.</span><span class="at">then</span><span class="op">;</span></span>
 <span id="cb56-3"><a aria-hidden="true" href="#cb56-3" tabindex="-1"></a>    <span class="kw">const</span> maywrap <span class="op">=</span> y <span class="kw">=&gt;</span> <span class="fu">isNullSafe</span>(y) <span class="op">?</span> y <span class="op">:</span> <span class="fu">NullSafe</span>(y)<span class="op">;</span></span>
 <span id="cb56-4"><a aria-hidden="true" href="#cb56-4" tabindex="-1"></a>    <span class="cf">return</span> {</span>
@@ -958,91 +1476,128 @@
 <span id="cb56-6"><a aria-hidden="true" href="#cb56-6" tabindex="-1"></a>                    <span class="op">?</span> <span class="fu">maywrap</span>(<span class="fu">fn</span>(x)) </span>
 <span id="cb56-7"><a aria-hidden="true" href="#cb56-7" tabindex="-1"></a>                    <span class="op">:</span> <span class="fu">NullSafe</span>(x)</span>
 <span id="cb56-8"><a aria-hidden="true" href="#cb56-8" tabindex="-1"></a>    }</span>
-<span id="cb56-9"><a aria-hidden="true" href="#cb56-9" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div>
-<h1 id="data-flow">11. Data Flow</h1>
-<h2 id="coordination-schemata">Coordination schemata</h2>
-<blockquote>
-<p>Similar to concurrency</p>
-</blockquote>
-<ol type="1">
-<li>No coordination needed</li>
-<li>Sequence (of side effects)</li>
-<li>Dependeny on former results</li>
-</ol>
-<h2 id="no-coordination">No Coordination</h2>
-<blockquote>
-<p>Nothing to do !</p>
-</blockquote>
-<ul>
-<li>Execution model: confined</li>
-<li>All actions run independently</li>
-</ul>
-<h2 id="sequence">Sequence</h2>
-<blockquote>
-<p>Actor</p>
-</blockquote>
-<ul>
-<li>In a sequence of actions, each action can only start if the preceding one has finished</li>
-<li>How to achieve this =&gt; Delegated Coordination =&gt; Scheduler</li>
-</ul>
-<h2 id="result-dependency">Result Dependency</h2>
-<ul>
-<li>Action B and C need the result of action A</li>
-<li>A must be executed <strong>exactly once</strong> before B and C</li>
-<li>How to do this =&gt; Implicit Coordination =&gt; DataFlowVariable</li>
-</ul>
-<h2 id="scheduler-idea">Scheduler Idea</h2>
-<ul>
-<li>Queue (FIFO) of functions that are started with a lock</li>
-<li>Callback unlocks</li>
-</ul>
-<h2 id="dataflowvariable">DataFlowVariable</h2>
-<ul>
-<li>Function, that sets a value if it is not already set. Returns the value.</li>
-<li>Lazy: Access to variables that will become available later</li>
-<li>Trick: Do not set the value, but a function that returns the value</li>
-</ul>
-<h1 id="modules">12. Modules</h1>
-<h2 id="why-modules">Why Modules?</h2>
-<ul>
-<li>Organize the Code</li>
-<li>Clear dependencies</li>
-<li>Avoid errors: Globals, Scoping, Namespace</li>
-</ul>
-<div class="sourceCode" id="cb57"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb57-1"><a aria-hidden="true" href="#cb57-1" tabindex="-1"></a><span class="co">// avoid something like this in your html document</span></span>
+<span id="cb56-9"><a aria-hidden="true" href="#cb56-9" tabindex="-1"></a>}<span class="op">;</span></span></code></pre>
+        </div>
+        <h1 id="data-flow">11. Data Flow</h1>
+        <h2 id="coordination-schemata">Coordination schemata</h2>
+        <blockquote>
+          <p>Similar to concurrency</p>
+        </blockquote>
+        <ol type="1">
+          <li>No coordination needed</li>
+          <li>Sequence (of side effects)</li>
+          <li>Dependeny on former results</li>
+        </ol>
+        <h2 id="no-coordination">No Coordination</h2>
+        <blockquote>
+          <p>Nothing to do !</p>
+        </blockquote>
+        <ul>
+          <li>Execution model: confined</li>
+          <li>All actions run independently</li>
+        </ul>
+        <h2 id="sequence">Sequence</h2>
+        <blockquote>
+          <p>Actor</p>
+        </blockquote>
+        <ul>
+          <li>
+            In a sequence of actions, each action can only start if the
+            preceding one has finished
+          </li>
+          <li>
+            How to achieve this =&gt; Delegated Coordination =&gt; Scheduler
+          </li>
+        </ul>
+        <h2 id="result-dependency">Result Dependency</h2>
+        <ul>
+          <li>Action B and C need the result of action A</li>
+          <li>
+            A must be executed <strong>exactly once</strong> before B and C
+          </li>
+          <li>
+            How to do this =&gt; Implicit Coordination =&gt; DataFlowVariable
+          </li>
+        </ul>
+        <h2 id="scheduler-idea">Scheduler Idea</h2>
+        <ul>
+          <li>Queue (FIFO) of functions that are started with a lock</li>
+          <li>Callback unlocks</li>
+        </ul>
+        <h2 id="dataflowvariable">DataFlowVariable</h2>
+        <ul>
+          <li>
+            Function, that sets a value if it is not already set. Returns the
+            value.
+          </li>
+          <li>Lazy: Access to variables that will become available later</li>
+          <li>
+            Trick: Do not set the value, but a function that returns the value
+          </li>
+        </ul>
+        <h1 id="modules">12. Modules</h1>
+        <h2 id="why-modules">Why Modules?</h2>
+        <ul>
+          <li>Organize the Code</li>
+          <li>Clear dependencies</li>
+          <li>Avoid errors: Globals, Scoping, Namespace</li>
+        </ul>
+        <div class="sourceCode" id="cb57">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb57-1"><a aria-hidden="true" href="#cb57-1" tabindex="-1"></a><span class="co">// avoid something like this in your html document</span></span>
 <span id="cb57-2"><a aria-hidden="true" href="#cb57-2" tabindex="-1"></a><span class="op">&lt;</span>script src<span class="op">=</span><span class="st">"fileA.js"</span><span class="op">&gt;</span></span>
 <span id="cb57-3"><a aria-hidden="true" href="#cb57-3" tabindex="-1"></a><span class="op">&lt;</span>script src<span class="op">=</span><span class="st">"fileB.js"</span><span class="op">&gt;</span></span>
 <span id="cb57-4"><a aria-hidden="true" href="#cb57-4" tabindex="-1"></a><span class="op">&lt;</span>script src<span class="op">=</span><span class="st">"fileC.js"</span><span class="op">&gt;</span></span>
-<span id="cb57-5"><a aria-hidden="true" href="#cb57-5" tabindex="-1"></a><span class="co">// if fileA.js has a reference on fileC.js it won't work !!!</span></span></code></pre></div>
-<h2 id="distinguish">Distinguish</h2>
-<ul>
-<li>How I want to edit the code</li>
-<li>How I want to deliver the code</li>
-</ul>
-<h2 id="es6-modules">ES6 Modules</h2>
-<p>They are notâ€¦</p>
-<ul>
-<li>Packages (those have versions)</li>
-<li>Dependencies, Libraries, Releases</li>
-<li>Units of publication</li>
-<li>Objects</li>
-</ul>
-<h2 id="package-manager">Package Manager</h2>
-<p><code>webpack</code>, <code>npm</code>, <code>bower</code>, <code>yarn</code>, â€¦</p>
-<h2 id="build-tools">Build Tools</h2>
-<p><code>webpack</code>, <code>npm</code>, <code>grunt</code>, <code>gulp</code>, â€¦</p>
-<h2 id="legacy-module-systems">Legacy module systems</h2>
-<p><code>CommonJS</code>, <code>AMD</code>, <code>UMD</code>, â€¦</p>
-<h2 id="legacy-module-loader-bundler">Legacy Module Loader / Bundler</h2>
-<p><code>RequireJS</code>, <code>SystemJS</code>, <code>browserify</code>, â€¦</p>
-<h2 id="modules-are-async">Modules are async</h2>
-<div class="sourceCode" id="cb58"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb58-1"><a aria-hidden="true" href="#cb58-1" tabindex="-1"></a><span class="co">// Use URI format as follows: "./myFile.js"</span></span>
+<span id="cb57-5"><a aria-hidden="true" href="#cb57-5" tabindex="-1"></a><span class="co">// if fileA.js has a reference on fileC.js it won't work !!!</span></span></code></pre>
+        </div>
+        <h2 id="distinguish">Distinguish</h2>
+        <ul>
+          <li>How I want to edit the code</li>
+          <li>How I want to deliver the code</li>
+        </ul>
+        <h2 id="es6-modules">ES6 Modules</h2>
+        <p>They are notâ€¦</p>
+        <ul>
+          <li>Packages (those have versions)</li>
+          <li>Dependencies, Libraries, Releases</li>
+          <li>Units of publication</li>
+          <li>Objects</li>
+        </ul>
+        <h2 id="package-manager">Package Manager</h2>
+        <p>
+          <code>webpack</code>, <code>npm</code>, <code>bower</code>,
+          <code>yarn</code>, â€¦
+        </p>
+        <h2 id="build-tools">Build Tools</h2>
+        <p>
+          <code>webpack</code>, <code>npm</code>, <code>grunt</code>,
+          <code>gulp</code>, â€¦
+        </p>
+        <h2 id="legacy-module-systems">Legacy module systems</h2>
+        <p><code>CommonJS</code>, <code>AMD</code>, <code>UMD</code>, â€¦</p>
+        <h2 id="legacy-module-loader-bundler">
+          Legacy Module Loader / Bundler
+        </h2>
+        <p>
+          <code>RequireJS</code>, <code>SystemJS</code>,
+          <code>browserify</code>, â€¦
+        </p>
+        <h2 id="modules-are-async">Modules are async</h2>
+        <div class="sourceCode" id="cb58">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb58-1"><a aria-hidden="true" href="#cb58-1" tabindex="-1"></a><span class="co">// Use URI format as follows: "./myFile.js"</span></span>
 <span id="cb58-2"><a aria-hidden="true" href="#cb58-2" tabindex="-1"></a><span class="op">&lt;</span>script src<span class="op">=</span><span class="st">"./myFile.js"</span> type<span class="op">=</span><span class="st">"module"</span><span class="op">&gt;</span> <span class="co">// type implies "defer"</span></span>
 <span id="cb58-3"><a aria-hidden="true" href="#cb58-3" tabindex="-1"></a><span class="im">import</span> (<span class="st">"./myFile.js"</span>)<span class="op">.</span><span class="fu">then</span>( modules <span class="kw">=&gt;</span> <span class="op">...</span> )</span>
-<span id="cb58-4"><a aria-hidden="true" href="#cb58-4" tabindex="-1"></a><span class="co">// invasive, transitive impact</span></span></code></pre></div>
-<h2 id="import-variants">Import Variants</h2>
-<p>Always explicit!</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb59-1"><a aria-hidden="true" href="#cb59-1" tabindex="-1"></a><span class="co">// most used</span></span>
+<span id="cb58-4"><a aria-hidden="true" href="#cb58-4" tabindex="-1"></a><span class="co">// invasive, transitive impact</span></span></code></pre>
+        </div>
+        <h2 id="import-variants">Import Variants</h2>
+        <p>Always explicit!</p>
+        <div class="sourceCode" id="cb59">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb59-1"><a aria-hidden="true" href="#cb59-1" tabindex="-1"></a><span class="co">// most used</span></span>
 <span id="cb59-2"><a aria-hidden="true" href="#cb59-2" tabindex="-1"></a><span class="im">import</span> <span class="st">"module-name"</span><span class="op">;</span></span>
 <span id="cb59-3"><a aria-hidden="true" href="#cb59-3" tabindex="-1"></a><span class="im">import</span> { export1<span class="op">,</span> export2 } <span class="im">from</span> <span class="st">"module-name"</span><span class="op">;</span></span>
 <span id="cb59-4"><a aria-hidden="true" href="#cb59-4" tabindex="-1"></a></span>
@@ -1051,10 +1606,14 @@
 <span id="cb59-7"><a aria-hidden="true" href="#cb59-7" tabindex="-1"></a><span class="im">import</span> <span class="op">*</span> <span class="im">as</span> name <span class="im">from</span> <span class="st">"module-name"</span><span class="op">;</span></span>
 <span id="cb59-8"><a aria-hidden="true" href="#cb59-8" tabindex="-1"></a><span class="im">import</span> { <span class="im">export</span> } <span class="im">from</span> <span class="st">"module-name"</span><span class="op">;</span></span>
 <span id="cb59-9"><a aria-hidden="true" href="#cb59-9" tabindex="-1"></a><span class="im">import</span> { <span class="im">export</span> <span class="im">as</span> alias } <span class="im">from</span> <span class="st">"module-name"</span><span class="op">;</span></span>
-<span id="cb59-10"><a aria-hidden="true" href="#cb59-10" tabindex="-1"></a><span class="kw">var</span> promise <span class="op">=</span> <span class="im">import</span>(<span class="st">"module-name"</span>)<span class="op">;</span></span></code></pre></div>
-<h2 id="export-variants">Export Variants</h2>
-<p>Always explicit!</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb60-1"><a aria-hidden="true" href="#cb60-1" tabindex="-1"></a><span class="co">// most used</span></span>
+<span id="cb59-10"><a aria-hidden="true" href="#cb59-10" tabindex="-1"></a><span class="kw">var</span> promise <span class="op">=</span> <span class="im">import</span>(<span class="st">"module-name"</span>)<span class="op">;</span></span></code></pre>
+        </div>
+        <h2 id="export-variants">Export Variants</h2>
+        <p>Always explicit!</p>
+        <div class="sourceCode" id="cb60">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb60-1"><a aria-hidden="true" href="#cb60-1" tabindex="-1"></a><span class="co">// most used</span></span>
 <span id="cb60-2"><a aria-hidden="true" href="#cb60-2" tabindex="-1"></a><span class="im">export</span> { name1<span class="op">,</span> name2<span class="op">,</span> <span class="op">...</span> <span class="op">,</span> nameN }<span class="op">;</span></span>
 <span id="cb60-3"><a aria-hidden="true" href="#cb60-3" tabindex="-1"></a></span>
 <span id="cb60-4"><a aria-hidden="true" href="#cb60-4" tabindex="-1"></a><span class="co">// other variants</span></span>
@@ -1064,221 +1623,274 @@
 <span id="cb60-8"><a aria-hidden="true" href="#cb60-8" tabindex="-1"></a><span class="im">export</span> <span class="im">default</span> expression<span class="op">;</span></span>
 <span id="cb60-9"><a aria-hidden="true" href="#cb60-9" tabindex="-1"></a><span class="im">export</span> { name1 <span class="im">as</span> <span class="im">default</span><span class="op">,</span> <span class="op">..</span> }<span class="op">;</span></span>
 <span id="cb60-10"><a aria-hidden="true" href="#cb60-10" tabindex="-1"></a><span class="im">export</span> <span class="op">*</span> <span class="im">from</span> <span class="op">..</span> <span class="op">;</span></span>
-<span id="cb60-11"><a aria-hidden="true" href="#cb60-11" tabindex="-1"></a><span class="im">export</span> { name1<span class="op">,</span> name2<span class="op">,</span> <span class="op">...</span> <span class="op">,</span> nameN } <span class="im">from</span> <span class="op">..</span> <span class="op">;</span></span></code></pre></div>
-<h2 id="impacts">Impacts</h2>
-<ul>
-<li>implicit <em>use-strict</em> exports are read-only !</li>
-<li>no Global object, no Global <em>this</em>, no Global hoisting</li>
-<li>implicit <em>defer mode</em> =&gt; <code>document.writeln</code> is no longer useful</li>
-<li>Modules are Namespaces</li>
-<li>Modules are Singletons</li>
-</ul>
-<h2 id="sop---single-origin-policy">SOP - Single Origin Policy</h2>
-<ul>
-<li>Modules are subject to the SOP</li>
-<li>Problem at construction time: the File System is a <strong>null origin</strong></li>
-</ul>
-<h2 id="useful-tools">Useful Tools</h2>
-<ul>
-<li>Developer Mode (suppress SOP) -&gt; donâ€™t forget to set back!</li>
-<li>Local Webserver</li>
-<li>Disable cache!</li>
-<li>Bundler (Rollup, Parcel, Webpack, â€¦)</li>
-<li>Start Browser in Debug mode</li>
-</ul>
-<h2 id="resources-1">Resources</h2>
-<ul>
-<li>https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import</li>
-<li>http://exploringjs.com/es6/ch_modules.html</li>
-</ul>
-<h1 id="transpilers-typescript-purescript-elm">13. Transpilers: TypeScript, PureScript, Elm</h1>
-<h2 id="what-they-have-in-common">What they have in common</h2>
-<ul>
-<li>All are transpiling to JavaScript !</li>
-<li>Allow React / Elm Architecture for functional JavaScript / SPA
-<ul>
-<li>TypeScript + React</li>
-<li>PureScript + Pux / Halogen</li>
-<li>Elm</li>
-</ul></li>
-</ul>
-<h2 id="the-cycle">The Cycle</h2>
-<div class="sourceCode" id="cb61"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb61-1"><a aria-hidden="true" href="#cb61-1" tabindex="-1"></a>View <span class="op">-&gt;</span> Action <span class="op">-&gt;</span> State <span class="op">-&gt;</span> State ___________<span class="op">|</span></span>
+<span id="cb60-11"><a aria-hidden="true" href="#cb60-11" tabindex="-1"></a><span class="im">export</span> { name1<span class="op">,</span> name2<span class="op">,</span> <span class="op">...</span> <span class="op">,</span> nameN } <span class="im">from</span> <span class="op">..</span> <span class="op">;</span></span></code></pre>
+        </div>
+        <h2 id="impacts">Impacts</h2>
+        <ul>
+          <li>implicit <em>use-strict</em> exports are read-only !</li>
+          <li>no Global object, no Global <em>this</em>, no Global hoisting</li>
+          <li>
+            implicit <em>defer mode</em> =&gt; <code>document.writeln</code> is
+            no longer useful
+          </li>
+          <li>Modules are Namespaces</li>
+          <li>Modules are Singletons</li>
+        </ul>
+        <h2 id="sop---single-origin-policy">SOP - Single Origin Policy</h2>
+        <ul>
+          <li>Modules are subject to the SOP</li>
+          <li>
+            Problem at construction time: the File System is a
+            <strong>null origin</strong>
+          </li>
+        </ul>
+        <h2 id="useful-tools">Useful Tools</h2>
+        <ul>
+          <li>
+            Developer Mode (suppress SOP) -&gt; donâ€™t forget to set back!
+          </li>
+          <li>Local Webserver</li>
+          <li>Disable cache!</li>
+          <li>Bundler (Rollup, Parcel, Webpack, â€¦)</li>
+          <li>Start Browser in Debug mode</li>
+        </ul>
+        <h2 id="resources-1">Resources</h2>
+        <ul>
+          <li>
+            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import
+          </li>
+          <li>http://exploringjs.com/es6/ch_modules.html</li>
+        </ul>
+        <h1 id="transpilers-typescript-purescript-elm">
+          13. Transpilers: TypeScript, PureScript, Elm
+        </h1>
+        <h2 id="what-they-have-in-common">What they have in common</h2>
+        <ul>
+          <li>All are transpiling to JavaScript !</li>
+          <li>
+            Allow React / Elm Architecture for functional JavaScript / SPA
+            <ul>
+              <li>TypeScript + React</li>
+              <li>PureScript + Pux / Halogen</li>
+              <li>Elm</li>
+            </ul>
+          </li>
+        </ul>
+        <h2 id="the-cycle">The Cycle</h2>
+        <div class="sourceCode" id="cb61">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb61-1"><a aria-hidden="true" href="#cb61-1" tabindex="-1"></a>View <span class="op">-&gt;</span> Action <span class="op">-&gt;</span> State <span class="op">-&gt;</span> State ___________<span class="op">|</span></span>
 <span id="cb61-2"><a aria-hidden="true" href="#cb61-2" tabindex="-1"></a> <span class="op">^</span>                                          <span class="op">|</span></span>
-<span id="cb61-3"><a aria-hidden="true" href="#cb61-3" tabindex="-1"></a> <span class="op">|</span>__________________________________________<span class="op">|</span></span></code></pre></div>
-<h2 id="typescript">TypeScript</h2>
-<ul>
-<li>Typed state</li>
-<li>Actions as functions / lamdas</li>
-<li>State immutability with discipline</li>
-<li>Object / component abstraction</li>
-</ul>
-<h2 id="elm">Elm</h2>
-<ul>
-<li>Typed state</li>
-<li>Action type with values</li>
-<li>State is immutable</li>
-<li>Update function is a fold</li>
-<li>Function composition</li>
-</ul>
-<h2 id="purescript-pux">PureScript / Pux</h2>
-<ul>
-<li>Like Elm</li>
-<li>But even more Haskell-ish</li>
-<li>https://try.purescript.org/</li>
-</ul>
-<div class="sourceCode" id="cb62"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb62-1"><a aria-hidden="true" href="#cb62-1" tabindex="-1"></a><span class="co">// signature</span></span>
+<span id="cb61-3"><a aria-hidden="true" href="#cb61-3" tabindex="-1"></a> <span class="op">|</span>__________________________________________<span class="op">|</span></span></code></pre>
+        </div>
+        <h2 id="typescript">TypeScript</h2>
+        <ul>
+          <li>Typed state</li>
+          <li>Actions as functions / lamdas</li>
+          <li>State immutability with discipline</li>
+          <li>Object / component abstraction</li>
+        </ul>
+        <h2 id="elm">Elm</h2>
+        <ul>
+          <li>Typed state</li>
+          <li>Action type with values</li>
+          <li>State is immutable</li>
+          <li>Update function is a fold</li>
+          <li>Function composition</li>
+        </ul>
+        <h2 id="purescript-pux">PureScript / Pux</h2>
+        <ul>
+          <li>Like Elm</li>
+          <li>But even more Haskell-ish</li>
+          <li>https://try.purescript.org/</li>
+        </ul>
+        <div class="sourceCode" id="cb62">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb62-1"><a aria-hidden="true" href="#cb62-1" tabindex="-1"></a><span class="co">// signature</span></span>
 <span id="cb62-2"><a aria-hidden="true" href="#cb62-2" tabindex="-1"></a><span class="co">// name  quantifier  type variables</span></span>
 <span id="cb62-3"><a aria-hidden="true" href="#cb62-3" tabindex="-1"></a>konst <span class="op">::</span> forall a b <span class="op">.</span> <span class="at">a</span> <span class="op">-&gt;</span> b <span class="op">-&gt;</span> a</span>
 <span id="cb62-4"><a aria-hidden="true" href="#cb62-4" tabindex="-1"></a><span class="co">// definition</span></span>
-<span id="cb62-5"><a aria-hidden="true" href="#cb62-5" tabindex="-1"></a>konst x y <span class="op">=</span> x</span></code></pre></div>
-<h2 id="calling-javascript-ffi">Calling JavaScript (FFI)</h2>
-<table>
-<thead>
-<tr class="header">
-<th>TypeScript</th>
-<th>Type declaration</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>PureScript</strong></td>
-<td><strong>Type declaration</strong></td>
-</tr>
-<tr class="even">
-<td><strong>Elm</strong></td>
-<td><strong>Port / Flag</strong></td>
-</tr>
-</tbody>
-</table>
-<h2 id="applicability">Applicability</h2>
-<table>
-<thead>
-<tr class="header">
-<th>TypeScript</th>
-<th>JS Environment</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>PureScript</strong></td>
-<td><strong>JS Environment</strong></td>
-</tr>
-<tr class="even">
-<td><strong>Elm</strong></td>
-<td><strong>Browser</strong></td>
-</tr>
-</tbody>
-</table>
-<h2 id="paradigm">Paradigm</h2>
-<table>
-<thead>
-<tr class="header">
-<th>TypeScript</th>
-<th>OO with Generics</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>PureScript</strong></td>
-<td><strong>Functional</strong></td>
-</tr>
-<tr class="even">
-<td><strong>Elm</strong></td>
-<td><strong>Functional</strong></td>
-</tr>
-</tbody>
-</table>
-<h2 id="approach">Approach</h2>
-<table>
-<thead>
-<tr class="header">
-<th>TypeScript</th>
-<th>Language</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>PureScript</strong></td>
-<td><strong>Language &amp; Tools</strong></td>
-</tr>
-<tr class="even">
-<td><strong>Elm</strong></td>
-<td><strong>Programming System</strong></td>
-</tr>
-</tbody>
-</table>
-<h2 id="cool">Cool</h2>
-<table>
-<thead>
-<tr class="header">
-<th>TypeScript</th>
-<th>Sum (union) type , String Literal type</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>PureScript</strong></td>
-<td><strong>Eff Monad, [GADT]</strong></td>
-</tr>
-<tr class="even">
-<td><strong>Elm</strong></td>
-<td><strong>Time travel debug , SemVer guarantee</strong></td>
-</tr>
-</tbody>
-</table>
-<h2 id="more-transpilers">More Transpilers</h2>
-<table>
-<thead>
-<tr class="header">
-<th>ClojureScript</th>
-<th>Clojure (Lisp)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>GHCJS</strong></td>
-<td><strong>Haskell</strong></td>
-</tr>
-<tr class="even">
-<td><strong>Babel</strong></td>
-<td><strong>JS</strong></td>
-</tr>
-<tr class="odd">
-<td><strong>CoffeeScript</strong></td>
-<td><strong>JS++</strong></td>
-</tr>
-<tr class="even">
-<td><strong>GrooScript</strong></td>
-<td><strong>Groovy</strong></td>
-</tr>
-</tbody>
-</table>
-<h1 id="crazy-javascript">14. Crazy Javascript</h1>
-<h2 id="equivalence-and-transitivity">Equivalence and Transitivity</h2>
-<div class="sourceCode" id="cb63"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb63-1"><a aria-hidden="true" href="#cb63-1" tabindex="-1"></a>a <span class="op">==</span> b <span class="op">==</span> c <span class="kw">=&gt;</span> a <span class="op">==</span> c</span>
+<span id="cb62-5"><a aria-hidden="true" href="#cb62-5" tabindex="-1"></a>konst x y <span class="op">=</span> x</span></code></pre>
+        </div>
+        <h2 id="calling-javascript-ffi">Calling JavaScript (FFI)</h2>
+        <table>
+          <thead>
+            <tr class="header">
+              <th>TypeScript</th>
+              <th>Type declaration</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="odd">
+              <td><strong>PureScript</strong></td>
+              <td><strong>Type declaration</strong></td>
+            </tr>
+            <tr class="even">
+              <td><strong>Elm</strong></td>
+              <td><strong>Port / Flag</strong></td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="applicability">Applicability</h2>
+        <table>
+          <thead>
+            <tr class="header">
+              <th>TypeScript</th>
+              <th>JS Environment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="odd">
+              <td><strong>PureScript</strong></td>
+              <td><strong>JS Environment</strong></td>
+            </tr>
+            <tr class="even">
+              <td><strong>Elm</strong></td>
+              <td><strong>Browser</strong></td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="paradigm">Paradigm</h2>
+        <table>
+          <thead>
+            <tr class="header">
+              <th>TypeScript</th>
+              <th>OO with Generics</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="odd">
+              <td><strong>PureScript</strong></td>
+              <td><strong>Functional</strong></td>
+            </tr>
+            <tr class="even">
+              <td><strong>Elm</strong></td>
+              <td><strong>Functional</strong></td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="approach">Approach</h2>
+        <table>
+          <thead>
+            <tr class="header">
+              <th>TypeScript</th>
+              <th>Language</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="odd">
+              <td><strong>PureScript</strong></td>
+              <td><strong>Language &amp; Tools</strong></td>
+            </tr>
+            <tr class="even">
+              <td><strong>Elm</strong></td>
+              <td><strong>Programming System</strong></td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="cool">Cool</h2>
+        <table>
+          <thead>
+            <tr class="header">
+              <th>TypeScript</th>
+              <th>Sum (union) type , String Literal type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="odd">
+              <td><strong>PureScript</strong></td>
+              <td><strong>Eff Monad, [GADT]</strong></td>
+            </tr>
+            <tr class="even">
+              <td><strong>Elm</strong></td>
+              <td><strong>Time travel debug , SemVer guarantee</strong></td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="more-transpilers">More Transpilers</h2>
+        <table>
+          <thead>
+            <tr class="header">
+              <th>ClojureScript</th>
+              <th>Clojure (Lisp)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="odd">
+              <td><strong>GHCJS</strong></td>
+              <td><strong>Haskell</strong></td>
+            </tr>
+            <tr class="even">
+              <td><strong>Babel</strong></td>
+              <td><strong>JS</strong></td>
+            </tr>
+            <tr class="odd">
+              <td><strong>CoffeeScript</strong></td>
+              <td><strong>JS++</strong></td>
+            </tr>
+            <tr class="even">
+              <td><strong>GrooScript</strong></td>
+              <td><strong>Groovy</strong></td>
+            </tr>
+          </tbody>
+        </table>
+        <h1 id="crazy-javascript">14. Crazy Javascript</h1>
+        <h2 id="equivalence-and-transitivity">Equivalence and Transitivity</h2>
+        <div class="sourceCode" id="cb63">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb63-1"><a aria-hidden="true" href="#cb63-1" tabindex="-1"></a>a <span class="op">==</span> b <span class="op">==</span> c <span class="kw">=&gt;</span> a <span class="op">==</span> c</span>
 <span id="cb63-2"><a aria-hidden="true" href="#cb63-2" tabindex="-1"></a><span class="dv">0</span> <span class="op">==</span> <span class="st">"0"</span></span>
 <span id="cb63-3"><a aria-hidden="true" href="#cb63-3" tabindex="-1"></a><span class="dv">0</span> <span class="op">==</span> []</span>
-<span id="cb63-4"><a aria-hidden="true" href="#cb63-4" tabindex="-1"></a><span class="dv">0</span> <span class="op">==</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span></span></code></pre></div>
-<h2 id="false-values">False values</h2>
-<div class="sourceCode" id="cb64"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb64-1"><a aria-hidden="true" href="#cb64-1" tabindex="-1"></a><span class="kw">false</span><span class="op">,</span> <span class="kw">null</span><span class="op">,</span> <span class="kw">undefined</span><span class="op">,</span> <span class="st">""</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="kw">NaN</span></span></code></pre></div>
-<p><strong>Falsy and truthy:</strong></p>
-<ul>
-<li>falsy = what coerces to false</li>
-<li>true = everything that isnâ€™t false</li>
-<li>truthy = what coerces to true</li>
-</ul>
-<h2 id="coercion">Coercion</h2>
-<p><strong>implicit:</strong> <code>"0" === 0, +"0", !"0", !!"0"</code> <strong>explicit</strong>: <code>Number("0") == 0</code></p>
-<p><strong>Rule of thumb (reliability)</strong>: object -&gt; string -&gt; number -&gt; boolean</p>
-<h2 id="vs">== vs ===</h2>
-<p><code>==</code> coerces the operands whereas <code>===</code> does not!</p>
-<p><code>if(x)</code> should be the same as <code>if(x == true)</code> for all x. However:</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb65-1"><a aria-hidden="true" href="#cb65-1" tabindex="-1"></a><span class="cf">if</span>(<span class="st">"0"</span>)         <span class="co">// no coercion</span></span>
-<span id="cb65-2"><a aria-hidden="true" href="#cb65-2" tabindex="-1"></a><span class="cf">if</span>(<span class="st">"0"</span> <span class="op">==</span> <span class="kw">true</span>) <span class="co">// coercion</span></span></code></pre></div>
-<p><strong>Takeaway</strong>: Prefer <code>===</code> over <code>==</code>!</p>
-<h2 id="crazy-numbers">Crazy Numbers</h2>
-<div class="sourceCode" id="cb66"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb66-1"><a aria-hidden="true" href="#cb66-1" tabindex="-1"></a><span class="bu">Number</span>(<span class="st">"-0"</span>)        <span class="co">// -0</span></span>
+<span id="cb63-4"><a aria-hidden="true" href="#cb63-4" tabindex="-1"></a><span class="dv">0</span> <span class="op">==</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span></span></code></pre>
+        </div>
+        <h2 id="false-values">False values</h2>
+        <div class="sourceCode" id="cb64">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb64-1"><a aria-hidden="true" href="#cb64-1" tabindex="-1"></a><span class="kw">false</span><span class="op">,</span> <span class="kw">null</span><span class="op">,</span> <span class="kw">undefined</span><span class="op">,</span> <span class="st">""</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="kw">NaN</span></span></code></pre>
+        </div>
+        <p><strong>Falsy and truthy:</strong></p>
+        <ul>
+          <li>falsy = what coerces to false</li>
+          <li>true = everything that isnâ€™t false</li>
+          <li>truthy = what coerces to true</li>
+        </ul>
+        <h2 id="coercion">Coercion</h2>
+        <p>
+          <strong>implicit:</strong> <code>"0" === 0, +"0", !"0", !!"0"</code>
+          <strong>explicit</strong>: <code>Number("0") == 0</code>
+        </p>
+        <p>
+          <strong>Rule of thumb (reliability)</strong>: object -&gt; string
+          -&gt; number -&gt; boolean
+        </p>
+        <h2 id="vs">== vs ===</h2>
+        <p>
+          <code>==</code> coerces the operands whereas <code>===</code> does
+          not!
+        </p>
+        <p>
+          <code>if(x)</code> should be the same as
+          <code>if(x == true)</code> for all x. However:
+        </p>
+        <div class="sourceCode" id="cb65">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb65-1"><a aria-hidden="true" href="#cb65-1" tabindex="-1"></a><span class="cf">if</span>(<span class="st">"0"</span>)         <span class="co">// no coercion</span></span>
+<span id="cb65-2"><a aria-hidden="true" href="#cb65-2" tabindex="-1"></a><span class="cf">if</span>(<span class="st">"0"</span> <span class="op">==</span> <span class="kw">true</span>) <span class="co">// coercion</span></span></code></pre>
+        </div>
+        <p>
+          <strong>Takeaway</strong>: Prefer <code>===</code> over
+          <code>==</code>!
+        </p>
+        <h2 id="crazy-numbers">Crazy Numbers</h2>
+        <div class="sourceCode" id="cb66">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb66-1"><a aria-hidden="true" href="#cb66-1" tabindex="-1"></a><span class="bu">Number</span>(<span class="st">"-0"</span>)        <span class="co">// -0</span></span>
 <span id="cb66-2"><a aria-hidden="true" href="#cb66-2" tabindex="-1"></a><span class="bu">JSON</span><span class="op">.</span><span class="fu">parse</span>(<span class="st">"-0"</span>)    <span class="co">// -0 but JSON.stringify(-0) // "0"</span></span>
 <span id="cb66-3"><a aria-hidden="true" href="#cb66-3" tabindex="-1"></a><span class="bu">String</span>(<span class="op">-</span><span class="dv">0</span>)          <span class="co">// "0"</span></span>
 <span id="cb66-4"><a aria-hidden="true" href="#cb66-4" tabindex="-1"></a><span class="kw">typeof</span> <span class="kw">null</span><span class="op">,</span> <span class="kw">null</span> <span class="kw">instanceof</span> <span class="bu">Object</span><span class="op">,</span></span>
@@ -1289,32 +1901,45 @@
 <span id="cb66-9"><a aria-hidden="true" href="#cb66-9" tabindex="-1"></a><span class="bu">Number</span><span class="op">.</span><span class="cn">MAX_VALUE</span> <span class="op">&gt;</span> <span class="dv">0</span></span>
 <span id="cb66-10"><a aria-hidden="true" href="#cb66-10" tabindex="-1"></a><span class="bu">Number</span><span class="op">.</span><span class="cn">MIN_VALUE</span> <span class="op">&lt;</span> <span class="dv">0</span> <span class="co">// ?</span></span>
 <span id="cb66-11"><a aria-hidden="true" href="#cb66-11" tabindex="-1"></a><span class="bu">Math</span><span class="op">.</span><span class="fu">min</span>(<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>) <span class="op">&lt;</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">max</span>(<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>)</span>
-<span id="cb66-12"><a aria-hidden="true" href="#cb66-12" tabindex="-1"></a><span class="bu">Math</span><span class="op">.</span><span class="fu">min</span>() <span class="op">&lt;</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">max</span>() <span class="co">// ?</span></span></code></pre></div>
-<h2 id="crazy-comparison">Crazy Comparison</h2>
-<p>Comparison coerces to numbers:</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb67-1"><a aria-hidden="true" href="#cb67-1" tabindex="-1"></a><span class="dv">1</span> <span class="op">&lt;</span> <span class="dv">2</span> <span class="op">&lt;</span> <span class="dv">3</span> <span class="op">===</span> <span class="kw">true</span></span>
+<span id="cb66-12"><a aria-hidden="true" href="#cb66-12" tabindex="-1"></a><span class="bu">Math</span><span class="op">.</span><span class="fu">min</span>() <span class="op">&lt;</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">max</span>() <span class="co">// ?</span></span></code></pre>
+        </div>
+        <h2 id="crazy-comparison">Crazy Comparison</h2>
+        <p>Comparison coerces to numbers:</p>
+        <div class="sourceCode" id="cb67">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb67-1"><a aria-hidden="true" href="#cb67-1" tabindex="-1"></a><span class="dv">1</span> <span class="op">&lt;</span> <span class="dv">2</span> <span class="op">&lt;</span> <span class="dv">3</span> <span class="op">===</span> <span class="kw">true</span></span>
 <span id="cb67-2"><a aria-hidden="true" href="#cb67-2" tabindex="-1"></a><span class="dv">3</span> <span class="op">&gt;</span> <span class="dv">2</span> <span class="op">&gt;</span> <span class="dv">1</span> <span class="op">===</span> <span class="kw">false</span> <span class="co">// why?  </span></span>
 <span id="cb67-3"><a aria-hidden="true" href="#cb67-3" tabindex="-1"></a></span>
 <span id="cb67-4"><a aria-hidden="true" href="#cb67-4" tabindex="-1"></a>{} <span class="op">==</span> {}    <span class="co">// false</span></span>
 <span id="cb67-5"><a aria-hidden="true" href="#cb67-5" tabindex="-1"></a>{} <span class="op">&gt;</span> {}     <span class="co">// false</span></span>
-<span id="cb67-6"><a aria-hidden="true" href="#cb67-6" tabindex="-1"></a>{} <span class="op">&gt;=</span> {}    <span class="co">// true</span></span></code></pre></div>
-<h2 id="cool-deconstructor">Cool Deconstructor</h2>
-<div class="sourceCode" id="cb68"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb68-1"><a aria-hidden="true" href="#cb68-1" tabindex="-1"></a><span class="kw">function</span> <span class="fu">foo</span>() {</span>
+<span id="cb67-6"><a aria-hidden="true" href="#cb67-6" tabindex="-1"></a>{} <span class="op">&gt;=</span> {}    <span class="co">// true</span></span></code></pre>
+        </div>
+        <h2 id="cool-deconstructor">Cool Deconstructor</h2>
+        <div class="sourceCode" id="cb68">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><span id="cb68-1"><a aria-hidden="true" href="#cb68-1" tabindex="-1"></a><span class="kw">function</span> <span class="fu">foo</span>() {</span>
 <span id="cb68-2"><a aria-hidden="true" href="#cb68-2" tabindex="-1"></a>    <span class="kw">var</span> x <span class="op">=</span> <span class="dv">2</span><span class="op">,</span> y <span class="op">=</span> <span class="dv">3</span><span class="op">;</span></span>
 <span id="cb68-3"><a aria-hidden="true" href="#cb68-3" tabindex="-1"></a>    <span class="cf">return</span> {<span class="dt">x</span><span class="op">:</span> x<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> y}<span class="op">;</span></span>
 <span id="cb68-4"><a aria-hidden="true" href="#cb68-4" tabindex="-1"></a>}</span>
 <span id="cb68-5"><a aria-hidden="true" href="#cb68-5" tabindex="-1"></a></span>
-<span id="cb68-6"><a aria-hidden="true" href="#cb68-6" tabindex="-1"></a><span class="kw">var</span> {x <span class="op">,</span>y } <span class="op">=</span> <span class="fu">foo</span>()<span class="op">;</span> <span class="co">// extract multiple values from the return object</span></span></code></pre></div>
-<h2 id="elvis-and-guard">Elvis and Guard</h2>
-<div class="sourceCode" id="cb69"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb69-1"><a aria-hidden="true" href="#cb69-1" tabindex="-1"></a>let a <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb68-6"><a aria-hidden="true" href="#cb68-6" tabindex="-1"></a><span class="kw">var</span> {x <span class="op">,</span>y } <span class="op">=</span> <span class="fu">foo</span>()<span class="op">;</span> <span class="co">// extract multiple values from the return object</span></span></code></pre>
+        </div>
+        <h2 id="elvis-and-guard">Elvis and Guard</h2>
+        <div class="sourceCode" id="cb69">
+          <pre
+            class="sourceCode java"
+          ><code class="sourceCode java"><span id="cb69-1"><a aria-hidden="true" href="#cb69-1" tabindex="-1"></a>let a <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
 <span id="cb69-2"><a aria-hidden="true" href="#cb69-2" tabindex="-1"></a>let b <span class="op">=</span> a <span class="op">?</span> a <span class="op">:</span> <span class="st">"default"</span></span>
 <span id="cb69-3"><a aria-hidden="true" href="#cb69-3" tabindex="-1"></a>let b <span class="op">=</span> a <span class="op">||</span> <span class="st">"default"</span></span>
 <span id="cb69-4"><a aria-hidden="true" href="#cb69-4" tabindex="-1"></a>let b <span class="op">=</span> a <span class="op">?</span> <span class="fu">guardedOperation</span><span class="op">()</span> <span class="op">:</span> a</span>
-<span id="cb69-5"><a aria-hidden="true" href="#cb69-5" tabindex="-1"></a>let b <span class="op">=</span> a <span class="op">&amp;&amp;</span> <span class="fu">guardedOperation</span><span class="op">()</span></span></code></pre></div>
-<hr/>
-</article>
-</main>
-<script>
+<span id="cb69-5"><a aria-hidden="true" href="#cb69-5" tabindex="-1"></a>let b <span class="op">=</span> a <span class="op">&amp;&amp;</span> <span class="fu">guardedOperation</span><span class="op">()</span></span></code></pre>
+        </div>
+        <hr />
+      </article>
+    </main>
+    <script>
       //Get the button
       var mybutton = document.getElementById("myBtn");
 
@@ -1340,5 +1965,5 @@
         document.documentElement.scrollTop = 0;
       }
     </script>
-</body>
+  </body>
 </html>
